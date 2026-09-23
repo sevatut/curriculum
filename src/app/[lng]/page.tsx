@@ -1,6 +1,6 @@
 import { getT } from 'next-i18next/server'
 
-import { LocaleSwitcher } from '@/components/locale-switcher'
+import { LocaleSwitcher } from '@/features/locale/switch-locale'
 
 export async function generateMetadata() {
   const { t } = await getT('home')

@@ -29,17 +29,20 @@ src/
     [lng]/
       layout.tsx        # I18nProvider, initServerI18next
       page.tsx          # страницы с getT() (Server Components)
-  components/ui/        # shadcn/ui
-  i18n/
-    locales/{en,ru}/    # JSON namespaces
-    settings.ts         # supportedLngs (безопасно для client)
+  shared/
+    ui/                 # shadcn/ui
+    i18n/
+      locales/{en,ru}/  # JSON namespaces
+      settings.ts       # supportedLngs (безопасно для client)
+  features/
+    locale/switch-locale/
   proxy.ts              # next-i18next createProxy (Next.js 16)
 i18n.config.ts          # конфиг i18n + resourceLoader
 ```
 
 ## i18n
 
-- Добавьте namespace в `i18n.config.ts` (`ns`) и файлы в `src/i18n/locales/<lng>/<ns>.json`.
+- Добавьте namespace в `i18n.config.ts` (`ns`) и файлы в `src/shared/i18n/locales/<lng>/<ns>.json`.
 - **Server Components:** `const { t } = await getT('home')`.
 - **Client Components:** `'use client'` + `useT('common')`.
 - Переключатель языка: `LocaleSwitcher` (префикс `/en`, `/ru`).
@@ -50,7 +53,7 @@ i18n.config.ts          # конфиг i18n + resourceLoader
 pnpm dlx shadcn@latest add card
 ```
 
-Компоненты попадают в `src/components/ui/`.
+Компоненты попадают в `src/shared/ui/`.
 
 ## Сборка
 

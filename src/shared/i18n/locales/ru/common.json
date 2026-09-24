@@ -1,3 +1,7 @@
 {
-  "switchLocale": "English"
+  "switchLocale": "English",
+  "password": {
+    "show": "Показать пароль",
+    "hide": "Скрыть пароль"
+  }
 }

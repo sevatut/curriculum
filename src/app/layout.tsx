@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { headers } from 'next/headers'
 
-import { defaultLocale } from '@/i18n/settings'
+import { defaultLocale } from '@/shared/i18n'
 
 import './globals.css'
 

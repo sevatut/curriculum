@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
-import { buttonVariants } from '@/components/ui/button'
-import { supportedLngs } from '@/i18n/settings'
+import { supportedLngs } from '@/shared/i18n'
+import { buttonVariants } from '@/shared/ui/button'
 
 function hrefForLocale(pathname: string, lng: string) {
   const segments = pathname.split('/').filter(Boolean)

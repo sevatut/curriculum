@@ -35,7 +35,7 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f5f5f7;
   --foreground: #2e2e2e;
   --card: oklch(1 0 0);
   --card-foreground: #2e2e2e;
@@ -43,11 +43,11 @@
   --popover-foreground: #2e2e2e;
   --primary: #c63031;
   --primary-foreground: #ffffff;
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: #2e2e2e;
+  --secondary: #767676;
+  --secondary-foreground: #ffffff;
   --muted: oklch(0.97 0 0);
-  --muted-foreground: #767676;
-  --subtle-foreground: #767676;
+  --muted-foreground: #00000099;
+  --subtle-foreground: #00000099;
   --accent: oklch(0.97 0 0);
   --accent-foreground: #2e2e2e;
   --destructive: oklch(0.577 0.245 27.325);
@@ -55,9 +55,9 @@
   --input: oklch(0.922 0 0);
   --ring: #a1a1a1;
   --radius: 0.625rem;
-  --button-height: 46px;
-  --button-width-wide: 218px;
-  --button-width-action: 319px;
+  --button-height: 48px;
+  --button-width-narrow: 220px;
+  --button-width-action: 320px;
   --button-width-form: 410px;
   --button-width-form-min: 260px;
   --button-width-form-max: 670px;
@@ -75,10 +75,11 @@
   --card-foreground: #ffffff;
   --popover: #404040;
   --popover-foreground: #ffffff;
-  --secondary: #4a4a4a;
-  --secondary-foreground: #ffffff;
+  --secondary: #a1a1a1;
+  --secondary-foreground: #2e2e2e;
   --muted: #4a4a4a;
-  --muted-foreground: #a1a1a1;
+  --muted-foreground: #ffffffb2;
+  --subtle-foreground: #ffffffb2;
   --accent: #4a4a4a;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.704 0.191 22.216);

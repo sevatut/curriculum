@@ -8,21 +8,22 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground hover:bg-primary/80',
-        transparent: 'bg-transparent text-subtle-foreground',
-        link: 'bg-transparent text-primary',
+        primary: 'bg-primary text-primary-foreground',
+        transparent: 'bg-transparent text-subtle-foreground hover:bg-[#C630310A]',
+        outlined:
+          'border border-primary/50 bg-transparent text-primary hover:border-primary hover:bg-primary/7 disabled:border-[var(--button-disabled)] disabled:bg-transparent',
+        link: 'bg-transparent text-primary hover:text-primary/80 hover:bg-[#C630310A]',
       },
       size: {
-        wide: 'h-[var(--button-height)] w-[var(--button-width-wide)]',
+        narrow: 'h-[var(--button-height)] w-[var(--button-width-narrow)]',
         action:
           'h-[var(--button-height)] w-[var(--button-width-action)] lg:w-[var(--button-width-form)]',
         form: 'h-[var(--button-height)] w-full min-w-[var(--button-width-form-min)] max-w-[var(--button-width-form-max)] lg:w-[var(--button-width-form)] lg:min-w-[var(--button-width-form)] lg:max-w-[var(--button-width-form)]',
-        inline: 'h-auto w-auto',
       },
     },
     defaultVariants: {
       variant: 'primary',
-      size: 'wide',
+      size: 'narrow',
     },
   },
 )

@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
 import { supportedLngs } from '@/shared/i18n'
-import { buttonVariants } from '@/shared/ui/button'
 
 function hrefForLocale(pathname: string, lng: string) {
   const segments = pathname.split('/').filter(Boolean)
@@ -29,7 +28,7 @@ export function LocaleSwitcher() {
   return (
     <Link
       href={hrefForLocale(pathname, nextLng)}
-      className={buttonVariants({ variant: 'outline', size: 'sm' })}
+      className="inline-flex h-7 items-center rounded-[40px] border border-border px-2.5 text-sm"
     >
       {t('switchLocale')}
     </Link>

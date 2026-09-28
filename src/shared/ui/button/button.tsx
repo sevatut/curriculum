@@ -6,8 +6,8 @@ import { buttonVariants } from './button-variants'
 
 function Button({
   className,
-  variant = 'primary',
-  size = 'narrow',
+  variant,
+  size,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (

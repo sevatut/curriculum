@@ -3,7 +3,7 @@
 import { forwardRef, type InputHTMLAttributes } from 'react'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  'aria-label': string
+  'aria-label'?: string
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(

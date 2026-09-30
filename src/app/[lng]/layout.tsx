@@ -8,7 +8,7 @@ import { I18nProvider } from 'next-i18next/client'
 
 import i18nConfig from '../../../i18n.config'
 
-import { TextField } from '@/shared/ui/TextFIeld/TextFIeld'
+import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
 
 initServerI18next(i18nConfig)
 
@@ -27,5 +27,9 @@ export default async function LocaleLayout({
   const { i18n } = await getT()
   const resources = getResources(i18n)
 
-  return <TextField label="TextField" />
+  return (
+    <I18nProvider language={lng} resources={resources}>
+      <PasswordInput label="Password" />
+    </I18nProvider>
+  )
 }

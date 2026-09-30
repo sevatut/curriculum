@@ -7,6 +7,7 @@ import {
 import { I18nProvider } from 'next-i18next/client'
 
 import i18nConfig from '../../../i18n.config'
+import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
 
 initServerI18next(i18nConfig)
 
@@ -25,9 +26,5 @@ export default async function LocaleLayout({
   const { i18n } = await getT()
   const resources = getResources(i18n)
 
-  return (
-    <I18nProvider language={lng} resources={resources}>
-      {children}
-    </I18nProvider>
-  )
+  return <SearchInput />
 }

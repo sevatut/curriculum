@@ -3,7 +3,7 @@
 import { Search } from 'lucide-react'
 import Input from '@/shared/ui/Input/Input'
 
-export default function SearchInput({
+export function SearchInput({
   className = '',
   ...props
 }: React.ComponentProps<typeof Input>) {
@@ -20,13 +20,15 @@ export default function SearchInput({
         border
         border-[#646464]
         px-4
-
+        text-[#0000008A]
+        focus-within:border-[#c63031]
+        duration-300
         ${className}
       `}
     >
-      <Search size={20} color="white" />
+      <Search size={20} color="#0000008A" />
 
-      <Input {...props} type="search" className="placeholder:text-[#9a9a9a]" />
+      <Input {...props} type="search" className="placeholder:text-[#0000008A]" />
     </div>
   )
 }

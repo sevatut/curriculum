@@ -17,9 +17,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           min-w-0
           bg-transparent
           text-lg
-          text-white
           outline-none
-          placeholder:text-white/70
 
           transition-all
           duration-200

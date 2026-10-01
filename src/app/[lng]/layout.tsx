@@ -6,6 +6,8 @@ import {
 } from 'next-i18next/server'
 import { I18nProvider } from 'next-i18next/client'
 
+import { AppSidebarLayout } from '@/widgets/app-sidebar'
+
 import i18nConfig from '../../../i18n.config'
 
 initServerI18next(i18nConfig)
@@ -27,7 +29,7 @@ export default async function LocaleLayout({
 
   return (
     <I18nProvider language={lng} resources={resources}>
-      {children}
+      <AppSidebarLayout lng={lng}>{children}</AppSidebarLayout>
     </I18nProvider>
   )
 }

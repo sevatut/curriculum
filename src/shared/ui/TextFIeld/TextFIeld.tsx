@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { forwardRef, ReactNode } from 'react'
 import Input from '@/shared/ui/Input/Input'
 
 interface TextFieldProps extends React.ComponentProps<typeof Input> {
@@ -6,15 +6,11 @@ interface TextFieldProps extends React.ComponentProps<typeof Input> {
   label: string
 }
 
-export function TextField({
-  className = '',
-  rightElement,
-  label,
-  ...props
-}: TextFieldProps) {
-  return (
-    <div
-      className={`
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+  ({ className = '', rightElement, label, ...props }, ref) => {
+    return (
+      <div
+        className={`
         relative
         flex
         h-12
@@ -24,30 +20,30 @@ export function TextField({
         justify-between
         gap-4
         border
-        border-[#646464]
+        border-input-border
         pl-3
         pr-4
 
         transition-colors
         duration-300
-        focus-within:border-[#c63031]
+        focus-within:border-focus
 
         ${className}
       `}
-    >
-      <Input {...props} placeholder=" " className="peer" />
+      >
+        <Input {...props} placeholder=" " className="peer" ref={ref} />
 
-      <label
-        className="
+        <label
+          className="
           pointer-events-none
           absolute
           left-3
           top-0
           -translate-y-1/2
-          bg-white
+          bg-background
           px-1
           text-sm
-          text-[#626263]
+          text-placeholder
 
           transition-all
           duration-200
@@ -59,13 +55,18 @@ export function TextField({
           peer-focus:top-0
           peer-focus:-translate-y-1/2
           peer-focus:text-sm
-          peer-focus:text-[#c63031]
+          peer-focus:text-focus
         "
-      >
-        {label}
-      </label>
+        >
+          {label}
+        </label>
 
-      {rightElement}
-    </div>
-  )
-}
+        {rightElement}
+      </div>
+    )
+  },
+)
+
+TextField.displayName = 'TextField'
+
+export { TextField }

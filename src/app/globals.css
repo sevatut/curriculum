@@ -25,7 +25,11 @@
   --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
+  --color-input-text: var(--input-text);
+  --color-placeholder: var(--placeholder);
+  --color-input-border: var(--input-border);
   --color-border: var(--border);
+  --color-focus: var(--focus);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -81,6 +85,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --input-text: oklch(0 0 0);
+  --placeholder: oklch(0 0 0 / 60%);
+  --input-border: oklch(0 0 0 / 23.1%);
+  --focus: oklch(0.546 0.1868 25.67);
 }
 
 .dark {
@@ -115,6 +123,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --input-text: oklch(1 0 0);
+  --placeholder: oklch(1 0 0 / 69.8%);
+  --input-border: oklch(1 0 0 / 23.1%);
 }
 
 @layer base {

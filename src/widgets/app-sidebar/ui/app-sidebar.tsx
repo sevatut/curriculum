@@ -93,7 +93,7 @@ function AppSidebar({ lng }: { lng: string }) {
   const { t } = useT('common')
 
   return (
-    <Sidebar collapsible="icon" className="border-r-0 tracking-sidebar">
+    <Sidebar className="border-r-0 tracking-sidebar">
       <SidebarContent className="pt-11 tracking-sidebar">
         <SidebarGroup className="px-0">
           <SidebarMenu className="gap-3.5">

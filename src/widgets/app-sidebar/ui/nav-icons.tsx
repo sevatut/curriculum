@@ -11,7 +11,7 @@ function EmployeesIcon({ className, ...props }: IconProps) {
       viewBox="0 0 22 14"
       fill="none"
       aria-hidden="true"
-      className={cn('h-3.5! w-5.5!', className)}
+      className={cn('h-3.5 w-5.5', className)}
       {...props}
     >
       <path
@@ -30,7 +30,7 @@ function SkillsIcon({ className, ...props }: IconProps) {
       viewBox="0 0 20 12"
       fill="none"
       aria-hidden="true"
-      className={cn('h-3! w-5!', className)}
+      className={cn('h-3 w-5', className)}
       {...props}
     >
       <path
@@ -49,7 +49,7 @@ function LanguagesIcon({ className, ...props }: IconProps) {
       viewBox="0 0 22 20"
       fill="none"
       aria-hidden="true"
-      className={cn('h-5! w-5.5!', className)}
+      className={cn('h-5 w-5.5', className)}
       {...props}
     >
       <path
@@ -68,7 +68,7 @@ function CvsIcon({ className, ...props }: IconProps) {
       viewBox="0 0 16 20"
       fill="none"
       aria-hidden="true"
-      className={cn('h-5! w-4!', className)}
+      className={cn('h-5 w-4', className)}
       {...props}
     >
       <path

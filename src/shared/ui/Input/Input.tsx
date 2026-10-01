@@ -1,5 +1,3 @@
-'use client'
-
 import { forwardRef, type InputHTMLAttributes } from 'react'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -17,14 +15,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           min-w-0
           bg-transparent
           text-lg
+          text-input-text
           outline-none
 
           transition-all
           duration-200
 
-          focus:ring-2
-          focus:ring-white/20
-
+          placeholder:text-placeholder
           ${className}
         `}
       />

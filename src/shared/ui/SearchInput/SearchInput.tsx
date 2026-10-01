@@ -1,12 +1,11 @@
-'use client'
-
+import { forwardRef } from 'react'
 import { Search } from 'lucide-react'
 import Input from '@/shared/ui/Input/Input'
 
-export function SearchInput({
-  className = '',
-  ...props
-}: React.ComponentProps<typeof Input>) {
+export const SearchInput = forwardRef<
+  HTMLInputElement,
+  React.ComponentProps<typeof Input>
+>(({ className = '', ...props }, ref) => {
   return (
     <div
       className={`
@@ -18,17 +17,19 @@ export function SearchInput({
         gap-3
         rounded-3xl
         border
-        border-[#646464]
+        border-border
         px-4
-        text-[#0000008A]
-        focus-within:border-[#c63031]
+        focus-within:border-focus
+        transition-colors
         duration-300
         ${className}
       `}
     >
-      <Search size={20} color="#0000008A" />
+      <Search size={20} className="text-search" />
 
-      <Input {...props} type="search" className="placeholder:text-[#0000008A]" />
+      <Input {...props} ref={ref} type="search" />
     </div>
   )
-}
+})
+
+SearchInput.displayName = 'SearchInput'

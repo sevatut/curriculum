@@ -9,7 +9,7 @@ import { I18nProvider } from 'next-i18next/client'
 import { i18nConfig } from '@/shared/i18n/config'
 import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
-import { TextField } from '@/shared/ui/TextFIeld/TextFIeld'
+import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
 
 initServerI18next(i18nConfig)
 

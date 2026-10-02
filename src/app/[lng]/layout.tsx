@@ -6,7 +6,8 @@ import {
 } from 'next-i18next/server'
 import { I18nProvider } from 'next-i18next/client'
 
-import i18nConfig from '../../../i18n.config'
+import { i18nConfig } from '@/shared/i18n/config'
+import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
 import { TextField } from '@/shared/ui/TextFIeld/TextFIeld'
 
@@ -27,5 +28,9 @@ export default async function LocaleLayout({
   const { i18n } = await getT()
   const resources = getResources(i18n)
 
-  return <TextField label="TextField" />
+  return (
+    <I18nProvider language={lng} resources={resources}>
+      <AppSidebarLayout lng={lng}>{children}</AppSidebarLayout>
+    </I18nProvider>
+  )
 }

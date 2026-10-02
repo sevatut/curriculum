@@ -1,3 +1,12 @@
 {
-  "switchLocale": "Русский"
+  "switchLocale": "Русский",
+  "password": {
+    "show": "Show password",
+    "hide": "Hide password"
+  }
+  "navEmployees": "Employees",
+  "navSkills": "Skills",
+  "navLanguages": "Languages",
+  "navCvs": "CVs",
+  "collapseSidebar": "Collapse sidebar"
 }

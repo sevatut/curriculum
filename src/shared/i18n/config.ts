@@ -1,6 +1,6 @@
 import type { I18nConfig } from 'next-i18next/proxy'
 
-import { defaultLocale, supportedLngs } from './src/shared/i18n/settings'
+import { defaultLocale, supportedLngs } from './settings'
 
 const resourceLoader: I18nConfig['resourceLoader'] =
   process.env.NODE_ENV === 'development'
@@ -13,9 +13,9 @@ const resourceLoader: I18nConfig['resourceLoader'] =
         )
         return JSON.parse(content) as Record<string, string>
       }
-    : (lng, ns) => import(`./src/shared/i18n/locales/${lng}/${ns}.json`)
+    : (lng, ns) => import(`./locales/${lng}/${ns}.json`)
 
-const i18nConfig: I18nConfig = {
+export const i18nConfig: I18nConfig = {
   supportedLngs: [...supportedLngs],
   fallbackLng: defaultLocale,
   defaultNS: 'common',
@@ -23,5 +23,3 @@ const i18nConfig: I18nConfig = {
   reloadOnPrerender: process.env.NODE_ENV === 'development',
   resourceLoader,
 }
-
-export default i18nConfig

@@ -5,10 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Переменные для глобальных стилей */
+  /* Базовая палитра */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-roboto);
+  --font-heading: var(--font-sans);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-input-text: var(--input-text);
@@ -21,7 +22,19 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
 
-  /* Переменные для компонентов shadcn */
+  /* Сайдбар */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent-hover: var(--sidebar-accent-hover);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --tracking-sidebar: var(--sidebar-tracking);
+
+  /* Компоненты shadcn */
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -35,7 +48,7 @@
   --color-secondary: var(--secondary);
   --color-input: var(--input);
 
-  /* Переменные для радиусов */
+  /* Радиус */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -46,7 +59,7 @@
 }
 
 :root {
-  /* Переменные светлой темы */
+  /* Базовая палитра */
   --background: #f5f5f7;
   --foreground: #2e2e2e;
   --primary: #c63031;
@@ -54,7 +67,7 @@
   --border: #e5e5e5;
   --ring: #a1a1a1;
 
-  /* Переменные для компонента button */
+  /* Кнопка */
   --button-height: 48px;
   --button-width-narrow: 220px;
   --button-width-action: 320px;
@@ -67,7 +80,22 @@
   --button-disabled: #0000001f;
   --button-disabled-foreground: #00000042;
 
-  /* Переменные светлой темы зарезервированые для компонентов shadcn */
+  /* Сайдбар */
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: #0000000a;
+  --sidebar-accent-hover: #00000005;
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  --sidebar-tracking: 0.15px;
+  --sidebar-width: 16rem;
+  --sidebar-width-mobile: 18rem;
+  --sidebar-width-icon: 3rem;
+
+  /* Компоненты shadcn */
   --card: #ffffff;
   --card-foreground: #2e2e2e;
   --popover: #ffffff;
@@ -80,6 +108,8 @@
   --accent-foreground: #2e2e2e;
   --destructive: #e7000b;
   --input: #e5e5e5;
+
+  /* Радиус */
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -159,13 +189,28 @@
 }
 
 .dark {
-  /* Переменные темной темы */
+  /* Базовая палитра */
   --background: #353535;
   --foreground: #ffffff;
   --border: #ffffff1a;
   --ring: #737373;
 
-  /* Переменные темной темы зарезервированые для компонентов shadcn */
+  /* Кнопка */
+  --button-disabled: #ffffff1f;
+  --button-disabled-foreground: #ffffff61;
+
+  /* Сайдбар */
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: #ffffff14;
+  --sidebar-accent-hover: #ffffff0a;
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Компоненты shadcn */
   --card: #404040;
   --card-foreground: #ffffff;
   --popover: #404040;
@@ -178,8 +223,6 @@
   --accent-foreground: #ffffff;
   --destructive: #ff6467;
   --input: #ffffff26;
-  --button-disabled: #ffffff1f;
-  --button-disabled-foreground: #ffffff61;
 }
 
 @layer base {

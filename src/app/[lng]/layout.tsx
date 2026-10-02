@@ -6,7 +6,8 @@ import {
 } from 'next-i18next/server'
 import { I18nProvider } from 'next-i18next/client'
 
-import i18nConfig from '../../../i18n.config'
+import { i18nConfig } from '@/shared/i18n/config'
+import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
 import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
 
@@ -29,7 +30,7 @@ export default async function LocaleLayout({
 
   return (
     <I18nProvider language={lng} resources={resources}>
-      <PasswordInput label="Password" />
+      <AppSidebarLayout lng={lng}>{children}</AppSidebarLayout>
     </I18nProvider>
   )
 }

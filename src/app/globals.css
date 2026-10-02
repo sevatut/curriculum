@@ -158,6 +158,30 @@
   --button-disabled-foreground: #ffffff61;
 }
 
+.dark {
+  /* Переменные темной темы */
+  --background: #353535;
+  --foreground: #ffffff;
+  --border: #ffffff1a;
+  --ring: #737373;
+
+  /* Переменные темной темы зарезервированые для компонентов shadcn */
+  --card: #404040;
+  --card-foreground: #ffffff;
+  --popover: #404040;
+  --popover-foreground: #ffffff;
+  --secondary: #a1a1a1;
+  --secondary-foreground: #2e2e2e;
+  --muted: #4a4a4a;
+  --muted-foreground: #ffffffb2;
+  --accent: #4a4a4a;
+  --accent-foreground: #ffffff;
+  --destructive: #ff6467;
+  --input: #ffffff26;
+  --button-disabled: #ffffff1f;
+  --button-disabled-foreground: #ffffff61;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

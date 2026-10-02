@@ -9,6 +9,8 @@ import { I18nProvider } from 'next-i18next/client'
 import { i18nConfig } from '@/shared/i18n/config'
 import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
+import { TextField } from '@/shared/ui/TextFIeld/TextFIeld'
+
 initServerI18next(i18nConfig)
 
 export function generateStaticParams() {

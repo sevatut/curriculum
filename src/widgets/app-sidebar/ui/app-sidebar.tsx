@@ -64,7 +64,7 @@ function SidebarCollapseButton() {
   return (
     <Button
       variant="transparent"
-      className="mb-4 ml-2 size-10 shrink-0 text-sidebar-foreground/70 group-data-[collapsible=icon]:mx-auto"
+      className="mb-4 ml-2 size-10 shrink-0 hover:bg-sidebar-accent-hover text-sidebar-foreground/70 group-data-[collapsible=icon]:mx-auto"
       aria-label={t('collapseSidebar')}
       onClick={toggleSidebar}
     >

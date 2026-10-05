@@ -5,40 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   /* Базовая палитра */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-roboto);
   --font-heading: var(--font-sans);
   --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-input-text: var(--input-text);
-  --color-placeholder: var(--placeholder);
-  --color-input-border: var(--input-border);
-  --color-border: var(--border);
-  --color-focus: var(--focus);
-  --color-search: var(--search);
-  --color-border: var(--border);
-  --color-focus: var(--focus);
-  --color-eye: var(--eye);
   --color-border: var(--border);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
@@ -67,13 +39,15 @@
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
   --color-input: var(--input);
+
+  /* Инпуты */
+  --color-input-text: var(--input-text);
+  --color-placeholder: var(--placeholder);
+  --color-input-border: var(--input-border);
+  --color-focus: var(--focus);
+  --color-search: var(--search);
+  --color-eye: var(--eye);
 
   /* Радиус */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -86,29 +60,6 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
   /* Базовая палитра */
   --background: #f5f5f7;
   --foreground: #2e2e2e;
@@ -131,15 +82,15 @@
   --button-disabled-foreground: #00000042;
 
   /* Сайдбар */
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
   --sidebar: var(--background);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: #0000000a;
   --sidebar-accent-hover: #00000005;
-  --sidebar-accent-foreground: var(--foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
   --sidebar-tracking: 0.15px;
   --sidebar-width: 16rem;
   --sidebar-width-mobile: 18rem;
@@ -157,100 +108,18 @@
   --accent: #f5f5f5;
   --accent-foreground: #2e2e2e;
   --destructive: #e7000b;
+
+  /* Инпуты */
   --input: #e5e5e5;
+  --input-text: #000000;
+  --placeholder: #00000099;
+  --input-border: #0000003b;
+  --focus: #c63031;
+  --search: #0000008a;
+  --eye: #0000008a;
 
   /* Радиус */
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  --input-text: oklch(0 0 0);
-  --placeholder: oklch(0 0 0 / 60%);
-  --input-border: oklch(0 0 0 / 23.1%);
-  --focus: oklch(0.546 0.1868 25.67);
-  --search: oklch(0 0 0 / 54.1%);
-  --eye: oklch(0 0 0 / 54.1%);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-  --input-text: oklch(1 0 0);
-  --placeholder: oklch(1 0 0 / 69.8%);
-  --input-border: oklch(1 0 0 / 23.1%);
-  --eye: oklch(1 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-  --input-text: oklch(1 0 0);
-  --placeholder: oklch(1 0 0 / 69.8%);
-  --input-border: oklch(1 0 0 / 23.1%);
-  --search: oklch(1 0 0);
 }
 
 .dark {
@@ -265,15 +134,8 @@
   --button-disabled-foreground: #ffffff61;
 
   /* Сайдбар */
-  --sidebar: var(--background);
-  --sidebar-foreground: var(--foreground);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: #ffffff14;
   --sidebar-accent-hover: #ffffff0a;
-  --sidebar-accent-foreground: var(--foreground);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--ring);
 
   /* Компоненты shadcn */
   --card: #404040;
@@ -287,7 +149,14 @@
   --accent: #4a4a4a;
   --accent-foreground: #ffffff;
   --destructive: #ff6467;
+
+  /* Инпуты */
   --input: #ffffff26;
+  --input-text: #ffffff;
+  --placeholder: #ffffffb2;
+  --input-border: #ffffff3b;
+  --search: #ffffff;
+  --eye: #ffffff;
 }
 
 @layer base {

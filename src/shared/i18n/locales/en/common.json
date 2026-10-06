@@ -8,5 +8,9 @@
   "navSkills": "Skills",
   "navLanguages": "Languages",
   "navCvs": "CVs",
-  "collapseSidebar": "Collapse sidebar"
+  "collapseSidebar": "Collapse sidebar",
+  "modal": {
+    "close": "Close",
+    "cancel": "CANCEL"
+  }
 }

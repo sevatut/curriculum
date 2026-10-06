@@ -8,5 +8,9 @@
   "navSkills": "Навыки",
   "navLanguages": "Языки",
   "navCvs": "Резюме",
-  "collapseSidebar": "Свернуть меню"
+  "collapseSidebar": "Свернуть меню",
+  "modal": {
+    "close": "Закрыть",
+    "cancel": "ОТМЕНИТЬ"
+  }
 }

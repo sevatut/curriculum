@@ -80,6 +80,7 @@ export function Modal({
             onClick={onCancel}
             variant="outlined"
             className="cursor-pointer border-foreground text-foreground opacity-30 uppercase"
+            type="button"
           >
             {t('modal.cancel')}
           </Button>
@@ -88,6 +89,7 @@ export function Modal({
             onClick={onConfirm}
             disabled={confirmDisabled}
             className="cursor-pointer uppercase"
+            type="button"
           >
             {confirmText}
           </Button>

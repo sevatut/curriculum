@@ -60,7 +60,7 @@ export function Modal({
           <Button
             onClick={onCancel}
             variant="outlined"
-            className="cursor-pointer border-foreground text-foreground opacity-30"
+            className="cursor-pointer border-foreground text-foreground opacity-30 uppercase"
           >
             {t('modal.cancel')}
           </Button>
@@ -68,12 +68,33 @@ export function Modal({
           <Button
             onClick={confirmDisabled ? () => {} : onConfirm}
             disabled={confirmDisabled}
-            className="cursor-pointer"
+            className="cursor-pointer uppercase"
           >
             {confirmText}
           </Button>
         </div>
       </div>
     </div>
+  )
+}
+
+export function Test() {
+  return (
+    <Modal
+      title="Remove project"
+      confirmText="Confirm"
+      confirmDisabled={true}
+      onCancel={() => {
+        console.log('Yep')
+      }}
+      onConfirm={() => {
+        console.log('Yeah')
+      }}
+    >
+      <p className="text-foreground">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia a vel modi atque
+        officia, dolores incidunt voluptates illum debitis!
+      </p>
+    </Modal>
   )
 }

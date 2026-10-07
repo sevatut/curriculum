@@ -85,7 +85,7 @@ export function Modal({
           </Button>
 
           <Button
-            onClick={confirmDisabled ? () => {} : onConfirm}
+            onClick={onConfirm}
             disabled={confirmDisabled}
             className="cursor-pointer uppercase"
           >

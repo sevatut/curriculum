@@ -30,13 +30,13 @@ const SIDEBAR_USER = {
 }
 
 const NAV_ITEMS = [
-  { path: '/employees', labelKey: 'navEmployees', icon: EmployeesIcon },
-  { path: '/skills', labelKey: 'navSkills', icon: SkillsIcon },
-  { path: '/languages', labelKey: 'navLanguages', icon: LanguagesIcon },
-  { path: '/cvs', labelKey: 'navCvs', icon: CvsIcon },
+  { path: '/employees', labelKey: 'nav.employees', icon: EmployeesIcon },
+  { path: '/skills', labelKey: 'nav.skills', icon: SkillsIcon },
+  { path: '/languages', labelKey: 'nav.languages', icon: LanguagesIcon },
+  { path: '/cvs', labelKey: 'nav.cvs', icon: CvsIcon },
 ] as const satisfies ReadonlyArray<{
   path: string
-  labelKey: 'navEmployees' | 'navSkills' | 'navLanguages' | 'navCvs'
+  labelKey: 'nav.employees' | 'nav.skills' | 'nav.languages' | 'nav.cvs'
   icon: ComponentType<SVGProps<SVGSVGElement>>
 }>
 
@@ -65,7 +65,7 @@ function SidebarCollapseButton() {
     <Button
       variant="transparent"
       className="mb-4 ml-2 size-10 shrink-0 hover:bg-sidebar-accent-hover text-sidebar-foreground/70 group-data-[collapsible=icon]:mx-auto"
-      aria-label={t('collapseSidebar')}
+      aria-label={t('nav.collapse')}
       onClick={toggleSidebar}
     >
       <svg

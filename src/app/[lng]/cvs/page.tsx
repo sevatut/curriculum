@@ -5,7 +5,7 @@ export default async function CvsPage() {
 
   return (
     <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('navCvs')}</h1>
+      <h1 className="text-3xl font-semibold tracking-tight">{t('nav.cvs')}</h1>
     </div>
   )
 }

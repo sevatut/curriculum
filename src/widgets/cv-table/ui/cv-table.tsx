@@ -1,9 +1,17 @@
 'use client'
 
+import { useMemo, useState } from 'react'
 import { useT } from 'next-i18next/client'
 import { cn } from 'cn'
 
-import type { CvTableColumnKey, CvTableRow } from '../model/cv-table-row'
+import type { CvTableRow } from '../model/cv-table-row'
+import {
+  nextCvTableSort,
+  sortCvTableRows,
+  type CvTableSort,
+  type CvTableSortKey,
+} from '../model/sort-cv-table-rows'
+import { CvTableColumnHeader } from './cv-table-column-header'
 import { CvTableItem } from './cv-table-item'
 
 type CvTableProps = {
@@ -12,7 +20,7 @@ type CvTableProps = {
 }
 
 const columns: {
-  key: CvTableColumnKey
+  key: CvTableSortKey
   labelKey: 'cv.column.name' | 'cv.column.education' | 'cv.column.employee'
   className: string
 }[] = [
@@ -34,8 +42,17 @@ const columns: {
 ]
 
 export function CvTable({ rows, className }: CvTableProps) {
-  const { t } = useT('common')
+  const { i18n, t } = useT('common')
+  const [sort, setSort] = useState<CvTableSort | null>(null)
   const actionsLabel = t('cv.actions')
+  const sortedRows = useMemo(
+    () => sortCvTableRows(rows, sort, i18n.language),
+    [rows, sort, i18n.language],
+  )
+
+  function handleSort(key: CvTableSortKey) {
+    setSort((current) => nextCvTableSort(current, key))
+  }
 
   return (
     <table className={cn('w-full border-collapse', className)}>
@@ -43,20 +60,21 @@ export function CvTable({ rows, className }: CvTableProps) {
       <thead className="border-b border-border">
         <tr>
           {columns.map((column) => (
-            <th
+            <CvTableColumnHeader
               key={column.key}
-              scope="col"
-              className={cn('px-4 py-4 text-left text-sm', column.className)}
-            >
-              {t(column.labelKey)}
-            </th>
+              label={t(column.labelKey)}
+              sortKey={column.key}
+              className={column.className}
+              direction={sort?.key === column.key ? sort.direction : null}
+              onSort={handleSort}
+            />
           ))}
           <th scope="col" className="py-5">
             <span className="sr-only">{actionsLabel}</span>
           </th>
         </tr>
       </thead>
-      {rows.map((row) => (
+      {sortedRows.map((row) => (
         <CvTableItem
           key={row.id}
           row={row}

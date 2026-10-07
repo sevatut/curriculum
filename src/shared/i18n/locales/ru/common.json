@@ -4,9 +4,20 @@
     "show": "Показать пароль",
     "hide": "Скрыть пароль"
   },
-  "navEmployees": "Сотрудники",
-  "navSkills": "Навыки",
-  "navLanguages": "Языки",
-  "navCvs": "Резюме",
-  "collapseSidebar": "Свернуть меню"
+  "nav": {
+    "employees": "Сотрудники",
+    "skills": "Навыки",
+    "languages": "Языки",
+    "cvs": "Резюме",
+    "collapse": "Свернуть меню"
+  },
+  "cv": {
+    "create": "Создать резюме",
+    "column": {
+      "name": "Имя",
+      "education": "Образование",
+      "employee": "Сотрудник"
+    },
+    "actions": "Действия"
+  }
 }

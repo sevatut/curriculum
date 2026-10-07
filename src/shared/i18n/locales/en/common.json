@@ -4,9 +4,20 @@
     "show": "Show password",
     "hide": "Hide password"
   },
-  "navEmployees": "Employees",
-  "navSkills": "Skills",
-  "navLanguages": "Languages",
-  "navCvs": "CVs",
-  "collapseSidebar": "Collapse sidebar"
+  "nav": {
+    "employees": "Employees",
+    "skills": "Skills",
+    "languages": "Languages",
+    "cvs": "CVs",
+    "collapse": "Collapse sidebar"
+  },
+  "cv": {
+    "create": "Create CV",
+    "column": {
+      "name": "Name",
+      "education": "Education",
+      "employee": "Employee"
+    },
+    "actions": "Row actions"
+  }
 }

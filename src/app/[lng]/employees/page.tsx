@@ -5,7 +5,7 @@ export default async function EmployeesPage() {
 
   return (
     <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('navEmployees')}</h1>
+      <h1 className="text-3xl font-semibold tracking-tight">{t('nav.employees')}</h1>
     </div>
   )
 }

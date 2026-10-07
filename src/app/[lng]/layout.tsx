@@ -11,6 +11,8 @@ import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
 import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
 
+import { Test } from '@/shared/ui/Modal/Modal'
+
 initServerI18next(i18nConfig)
 
 export function generateStaticParams() {
@@ -30,7 +32,9 @@ export default async function LocaleLayout({
 
   return (
     <I18nProvider language={lng} resources={resources}>
-      <AppSidebarLayout lng={lng}>{children}</AppSidebarLayout>
+      <div className="bg-background w-dvw v-dvh">
+        <Test></Test>
+      </div>
     </I18nProvider>
   )
 }

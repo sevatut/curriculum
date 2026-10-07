@@ -3,6 +3,7 @@
 import { useT } from 'next-i18next/client'
 import { Button } from '../button'
 import { X } from 'lucide-react'
+import { useEffect } from 'react'
 
 interface ModalProps {
   title: string
@@ -25,8 +26,25 @@ export function Modal({
 }: ModalProps) {
   const { t } = useT('common')
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onCancel()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [onCancel])
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      onClick={onCancel}
+    >
       <div
         className={`
           flex
@@ -40,6 +58,7 @@ export function Modal({
         `}
         role="dialog"
         aria-modal="true"
+        onClick={(event) => event.stopPropagation()}
       >
         <div className="mt-2 flex justify-between">
           <h3 className="text-lg text-foreground">{title}</h3>

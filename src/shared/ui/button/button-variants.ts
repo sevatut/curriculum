@@ -22,10 +22,12 @@ export const buttonVariants = cva(
         // - Narrow: (Login и Register страницы)
         // - Action: (страница CV)
         // - Form: (страница User)
+        // Сompact: кнопка по ширине содержимого (Create CV)
         narrow: 'h-[var(--button-height)] w-[var(--button-width-narrow)]',
         action:
           'h-[var(--button-height)] w-[var(--button-width-action)] lg:w-[var(--button-width-form)]',
         form: 'h-[var(--button-height)] w-full min-w-[var(--button-width-form-min)] max-w-[var(--button-width-form-max)] lg:w-[var(--button-width-form)] lg:min-w-[var(--button-width-form)] lg:max-w-[var(--button-width-form)]',
+        compact: 'h-10 w-auto gap-1.5 px-2',
       },
     },
     defaultVariants: {

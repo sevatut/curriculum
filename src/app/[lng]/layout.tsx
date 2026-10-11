@@ -7,11 +7,8 @@ import {
 import { I18nProvider } from 'next-i18next/client'
 
 import { i18nConfig } from '@/shared/i18n/config'
+import { AppHeader } from '@/widgets/app-header'
 import { AppSidebarLayout } from '@/widgets/app-sidebar'
-
-import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
-
-import { Test } from '@/shared/ui/Modal/Modal'
 
 initServerI18next(i18nConfig)
 
@@ -32,9 +29,10 @@ export default async function LocaleLayout({
 
   return (
     <I18nProvider language={lng} resources={resources}>
-      <div className="bg-background w-dvw v-dvh">
-        <Test></Test>
-      </div>
+      <AppSidebarLayout lng={lng}>
+        <AppHeader />
+        {children}
+      </AppSidebarLayout>
     </I18nProvider>
   )
 }

@@ -25,7 +25,8 @@
   --color-sidebar-accent-hover: var(--sidebar-accent-hover);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --tracking-sidebar: var(--sidebar-tracking);
+  --tracking-basic: var(--tracking-basic);
+  --tracking-sidebar: var(--tracking-basic);
 
   /* Компоненты shadcn */
   --color-popover-foreground: var(--popover-foreground);
@@ -68,6 +69,9 @@
   --border: #e5e5e5;
   --ring: #a1a1a1;
 
+  /* Текст */
+  --tracking-basic: 0.15px;
+
   /* Кнопка */
   --button-height: 48px;
   --button-width-narrow: 220px;
@@ -91,8 +95,8 @@
   --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: #0000000a;
   --sidebar-accent-hover: #00000005;
-  --sidebar-tracking: 0.15px;
-  --sidebar-width: 16rem;
+  --sidebar-tracking: var(--tracking-basic);
+  --sidebar-width: 12.5rem;
   --sidebar-width-mobile: 18rem;
   --sidebar-width-icon: 3rem;
 

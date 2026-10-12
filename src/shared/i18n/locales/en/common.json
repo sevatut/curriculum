@@ -23,6 +23,8 @@
   },
   "cv": {
     "create": "Create CV",
+    "empty": "No CVs found",
+    "search": "Search by name or description",
     "column": {
       "name": "Name",
       "education": "Education",

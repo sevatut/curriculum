@@ -7,7 +7,7 @@ import { cn } from 'cn'
 import type { PageTabsProps } from './types'
 
 const tabClassName =
-  'flex h-full w-full min-w-0 items-center justify-center border-b-2 border-transparent px-2 text-sm font-medium uppercase leading-(--page-tab-leading) tracking-page-tabs text-foreground outline-none transition-colors focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:ring-inset'
+  'flex h-full w-full min-w-0 items-center justify-center border-b-2 border-transparent px-2 text-sm font-semibold uppercase leading-(--page-tab-leading) tracking-page-tabs text-foreground outline-none transition-colors focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:ring-inset'
 
 export function PageTabs({ tabs, label, children, className }: PageTabsProps) {
   const segment = useSelectedLayoutSegment()

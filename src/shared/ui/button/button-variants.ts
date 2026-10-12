@@ -6,7 +6,7 @@ const buttonText =
 
 export const buttonVariants = cva(
   // Базовые стили кнопки
-  `inline-flex shrink-0 items-center justify-center border-0 whitespace-nowrap rounded-[var(--button-radius)] transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:bg-[var(--button-disabled)] disabled:text-[var(--button-disabled-foreground)] ${buttonText}`,
+  `inline-flex shrink-0 cursor-pointer items-center justify-center border-0 whitespace-nowrap rounded-[var(--button-radius)] transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:bg-[var(--button-disabled)] disabled:text-[var(--button-disabled-foreground)] ${buttonText}`,
   {
     variants: {
       variant: {

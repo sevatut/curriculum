@@ -74,14 +74,27 @@ export function CvTable({ rows, className }: CvTableProps) {
           </th>
         </tr>
       </thead>
-      {sortedRows.map((row) => (
-        <CvTableItem
-          key={row.id}
-          row={row}
-          columns={columns}
-          actionsLabel={actionsLabel}
-        />
-      ))}
+      {sortedRows.length === 0 ? (
+        <tbody>
+          <tr>
+            <td
+              colSpan={columns.length + 1}
+              className="px-4 py-7 text-sm leading-5 text-muted-foreground"
+            >
+              {t('cv.empty')}
+            </td>
+          </tr>
+        </tbody>
+      ) : (
+        sortedRows.map((row) => (
+          <CvTableItem
+            key={row.id}
+            row={row}
+            columns={columns}
+            actionsLabel={actionsLabel}
+          />
+        ))
+      )}
     </table>
   )
 }

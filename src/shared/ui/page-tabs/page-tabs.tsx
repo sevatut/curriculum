@@ -2,21 +2,9 @@
 
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
-import type { ReactNode } from 'react'
 import { cn } from 'cn'
 
-export type PageTab = {
-  href: string
-  label: string
-  segment: string | null
-}
-
-type PageTabsProps = {
-  tabs: readonly PageTab[]
-  label: string
-  children: ReactNode
-  className?: string
-}
+import type { PageTabsProps } from './types'
 
 const tabClassName =
   'flex h-full w-full min-w-0 items-center justify-center border-b-2 border-transparent px-2 text-sm font-medium uppercase leading-(--page-tab-leading) tracking-page-tabs text-foreground outline-none transition-colors focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:ring-inset'

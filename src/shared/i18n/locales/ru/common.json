@@ -11,6 +11,13 @@
     "cvs": "Резюме",
     "collapse": "Свернуть меню"
   },
+  "employee": {
+    "tabs": {
+      "profile": "Профиль",
+      "skills": "Навыки",
+      "languages": "Языки"
+    }
+  },
   "cv": {
     "create": "Создать резюме",
     "column": {

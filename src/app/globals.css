@@ -25,8 +25,6 @@
   --color-sidebar-accent-hover: var(--sidebar-accent-hover);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --tracking-basic: var(--tracking-basic);
-  --tracking-sidebar: var(--tracking-basic);
 
   /* Компоненты shadcn */
   --color-popover-foreground: var(--popover-foreground);
@@ -58,6 +56,12 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Letter spacing */
+  --tracking-basic: var(--tracking-basic);
+  --tracking-sidebar: var(--tracking-basic);
+  --tracking-button: var(--tracking-large);
+  --tracking-page-tabs: var(--tracking-large);
 }
 
 :root {
@@ -71,6 +75,7 @@
 
   /* Текст */
   --tracking-basic: 0.15px;
+  --tracking-large: 0.4px;
 
   /* Кнопка */
   --button-height: 48px;
@@ -81,9 +86,13 @@
   --button-width-form-max: 670px;
   --button-radius: 40px;
   --button-leading: 24.5px;
-  --button-tracking: 0.4px;
   --button-disabled: #0000001f;
   --button-disabled-foreground: #00000042;
+
+  /* Вкладки */
+  --page-tab-height: 56px;
+  --page-tab-width: 150px;
+  --page-tab-leading: 18px;
 
   /* Сайдбар */
   --sidebar-accent-foreground: var(--foreground);
@@ -95,7 +104,6 @@
   --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: #0000000a;
   --sidebar-accent-hover: #00000005;
-  --sidebar-tracking: var(--tracking-basic);
   --sidebar-width: 12.5rem;
   --sidebar-width-mobile: 18rem;
   --sidebar-width-icon: 3rem;

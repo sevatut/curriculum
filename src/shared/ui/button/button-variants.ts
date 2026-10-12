@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority'
 
 // Переменная для текста кнопки
 const buttonText =
-  'font-sans text-sm font-medium uppercase leading-[var(--button-leading)] tracking-[var(--button-tracking)]'
+  'font-sans text-sm font-medium uppercase leading-[var(--button-leading)] tracking-button'
 
 export const buttonVariants = cva(
   // Базовые стили кнопки

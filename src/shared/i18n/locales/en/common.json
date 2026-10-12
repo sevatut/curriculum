@@ -11,6 +11,13 @@
     "cvs": "CVs",
     "collapse": "Collapse sidebar"
   },
+  "employee": {
+    "tabs": {
+      "profile": "Profile",
+      "skills": "Skills",
+      "languages": "Languages"
+    }
+  },
   "cv": {
     "create": "Create CV",
     "column": {

@@ -4,6 +4,9 @@
     "show": "Show password",
     "hide": "Hide password"
   },
+  "modal": {
+    "close": "Close",
+    "cancel": "Cancel"
   "nav": {
     "employees": "Employees",
     "skills": "Skills",

@@ -11,4 +11,5 @@ export type PageTabsProps = {
   label: string
   children: ReactNode
   className?: string
+  centered?: boolean
 }

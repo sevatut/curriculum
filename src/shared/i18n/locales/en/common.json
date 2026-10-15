@@ -28,5 +28,20 @@
       "employee": "Employee"
     },
     "actions": "Row actions"
+  },
+  "auth": {
+    "tabsLabel": "Authentication",
+    "login": "Log in",
+    "action": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password",
+    "hasAccount": "I have an account",
+    "greeting": "Welcome back",
+    "welcome": {
+      "login": "Welcome back! Please log in to continue",
+      "register": "Welcome! Please create an account to continue"
+    },
+    "register": "Register"
   }
 }

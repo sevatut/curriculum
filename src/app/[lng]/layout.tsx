@@ -7,8 +7,7 @@ import {
 import { I18nProvider } from 'next-i18next/client'
 
 import { i18nConfig } from '@/shared/i18n/config'
-import { AppHeader } from '@/widgets/app-header'
-import { AppSidebarLayout } from '@/widgets/app-sidebar'
+import { AppFrame } from './app-frame'
 
 initServerI18next(i18nConfig)
 
@@ -29,10 +28,7 @@ export default async function LocaleLayout({
 
   return (
     <I18nProvider language={lng} resources={resources}>
-      <AppSidebarLayout lng={lng}>
-        <AppHeader />
-        {children}
-      </AppSidebarLayout>
+      <AppFrame lng={lng}>{children}</AppFrame>
     </I18nProvider>
   )
 }

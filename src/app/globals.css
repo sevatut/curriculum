@@ -59,6 +59,7 @@
 
   /* Letter spacing */
   --tracking-basic: var(--tracking-basic);
+  --tracking-heading: var(--tracking-heading);
   --tracking-sidebar: var(--tracking-basic);
   --tracking-button: var(--tracking-large);
   --tracking-page-tabs: var(--tracking-large);
@@ -76,6 +77,7 @@
   /* Текст */
   --tracking-basic: 0.15px;
   --tracking-large: 0.4px;
+  --tracking-heading: 0.25px;
 
   /* Кнопка */
   --button-height: 48px;

@@ -24,6 +24,12 @@
   },
   "cv": {
     "create": "Create CV",
+    "tabs": {
+      "details": "Details",
+      "skills": "Skills",
+      "projects": "Projects",
+      "preview": "Preview"
+    },
     "empty": "No CVs found",
     "search": "Search by name or description",
     "column": {

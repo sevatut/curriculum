@@ -7,7 +7,7 @@ export function CvTableActions({ label }: CvTableActionsProps) {
     <button
       type="button"
       aria-label={label}
-      className="mr-6 inline-flex size-8 items-center justify-center rounded-full text-foreground"
+      className="mr-6 inline-flex size-8 cursor-pointer items-center justify-center rounded-full text-foreground"
     >
       <svg
         width="4"

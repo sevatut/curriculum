@@ -23,7 +23,6 @@ import { TooltipProvider } from '@/shared/ui/tooltip'
 
 import { CvsIcon, EmployeesIcon, LanguagesIcon, SkillsIcon } from './nav-icons'
 
-// TODO: Подставить данные пользователя
 const SIDEBAR_USER = {
   name: 'Test User',
   initial: 'T',
@@ -43,7 +42,6 @@ const NAV_ITEMS = [
 function isNavActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`)
 }
-// TODO: Подставить данные пользователя
 function SidebarUser() {
   return (
     <div className="flex items-center gap-2 overflow-hidden px-2 py-1.5 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">

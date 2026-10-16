@@ -5,5 +5,3 @@ export type CvTableRow = {
   employee: string
   description: string
 }
-
-export type CvTableColumnKey = 'name' | 'education' | 'employee'

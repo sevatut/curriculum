@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
 import { DataTable, type DataTableColumn } from '@/shared/ui/data-table'
@@ -13,6 +15,7 @@ type CvTableProps = {
 }
 
 export function CvTable({ rows, className }: CvTableProps) {
+  const { lng } = useParams<{ lng: string }>()
   const { i18n, t } = useT('common')
   const actionsLabel = t('cv.actions')
   const columns: DataTableColumn<CvTableRow>[] = [
@@ -20,7 +23,11 @@ export function CvTable({ rows, className }: CvTableProps) {
       id: 'name',
       label: t('cv.column.name'),
       className: 'w-[35%] max-[1100px]:w-[50%]',
-      cell: (row) => row.name,
+      cell: (row) => (
+        <Link href={`/${lng}/cvs/${row.id}/details`} className="hover:text-primary">
+          {row.name}
+        </Link>
+      ),
       sortValue: (row) => row.name,
     },
     {

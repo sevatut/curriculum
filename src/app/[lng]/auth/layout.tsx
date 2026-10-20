@@ -10,21 +10,16 @@ export default async function AuthLayout({
   params: Promise<{ lng: string }>
 }>) {
   const { lng } = await params
-  const { t } = await getT('common')
+  const { t } = await getT('auth')
   const base = `/${lng}/auth`
 
   const authTabs = [
-    { segment: 'login', label: t('auth.login'), href: `${base}/login` },
-    { segment: 'signup', label: t('auth.action'), href: `${base}/signup` },
+    { segment: 'login', label: t('login'), href: `${base}/login` },
+    { segment: 'signup', label: t('action'), href: `${base}/signup` },
   ]
 
   return (
-    <PageTabs
-      centered
-      className="min-h-svh"
-      label={t('auth.tabsLabel')}
-      tabs={authTabs}
-    >
+    <PageTabs centered className="min-h-svh" label={t('tabsLabel')} tabs={authTabs}>
       {children}
     </PageTabs>
   )

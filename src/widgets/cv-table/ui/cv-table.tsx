@@ -16,19 +16,20 @@ type CvTableProps = {
 
 export function CvTable({ rows, className }: CvTableProps) {
   const { lng } = useParams<{ lng: string }>()
-  const { i18n, t } = useT('common')
-  const actionsLabel = t('cv.actions')
+  const { i18n, t } = useT('cvs')
+  const { t: tCommon } = useT('common')
+  const actionsLabel = t('actions')
 
   return (
     <DataTable
       columns={getCvTableColumns(lng, {
-        name: t('cv.column.name'),
-        education: t('cv.column.education'),
-        employee: t('cv.column.employee'),
+        name: t('column.name'),
+        education: t('column.education'),
+        employee: t('column.employee'),
       })}
       rows={rows}
-      caption={t('nav.cvs')}
-      emptyLabel={t('cv.empty')}
+      caption={tCommon('nav.cvs')}
+      emptyLabel={t('empty')}
       locale={i18n.language}
       className={className}
       actionsLabel={actionsLabel}

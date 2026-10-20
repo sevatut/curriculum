@@ -1,5 +1,6 @@
 {
   "switchLocale": "Русский",
+  "logout": "Log out",
   "password": {
     "show": "Show password",
     "hide": "Hide password"
@@ -14,52 +15,5 @@
     "languages": "Languages",
     "cvs": "CVs",
     "collapse": "Collapse sidebar"
-  },
-  "employee": {
-    "tabs": {
-      "profile": "Profile",
-      "skills": "Skills",
-      "languages": "Languages"
-    }
-  },
-  "cv": {
-    "create": "Create CV",
-    "tabs": {
-      "details": "Details",
-      "skills": "Skills",
-      "projects": "Projects",
-      "preview": "Preview"
-    },
-    "empty": "No CVs found",
-    "search": "Search by name or description",
-    "column": {
-      "name": "Name",
-      "education": "Education",
-      "employee": "Employee"
-    },
-    "actions": "Row actions"
-  },
-  "auth": {
-    "tabsLabel": "Authentication",
-    "login": "Log in",
-    "action": "Create Account",
-    "email": "Email",
-    "password": "Password",
-    "greeting": "Welcome back",
-    "welcome": {
-      "login": "Welcome back! Please log in to continue",
-      "register": "Welcome! Please create an account to continue"
-    },
-    "register": "Register",
-    "logout": "Log out",
-    "error": {
-      "required": "Enter email and password",
-      "generic": "Something went wrong. Try again",
-      "emailTaken": "An account with this email already exists",
-      "invalidEmail": "Enter a valid email",
-      "weakPassword": "Password must be at least 8 characters",
-      "userNotFound": "No account with this email",
-      "invalidCredentials": "Incorrect password"
-    }
   }
 }

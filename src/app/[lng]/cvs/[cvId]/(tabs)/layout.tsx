@@ -10,21 +10,22 @@ export default async function CvTabsLayout({
   params: Promise<{ lng: string; cvId: string }>
 }>) {
   const { lng, cvId } = await params
-  const { t } = await getT('common')
+  const { t } = await getT('cvs')
+  const { t: tCommon } = await getT('common')
   const base = `/${lng}/cvs/${cvId}`
 
   const cvTabs = [
-    { segment: 'details', label: t('cv.tabs.details') },
-    { segment: 'skills', label: t('cv.tabs.skills') },
-    { segment: 'projects', label: t('cv.tabs.projects') },
-    { segment: 'preview', label: t('cv.tabs.preview') },
+    { segment: 'details', label: t('tabs.details') },
+    { segment: 'skills', label: t('tabs.skills') },
+    { segment: 'projects', label: t('tabs.projects') },
+    { segment: 'preview', label: t('tabs.preview') },
   ].map((tab) => ({
     ...tab,
     href: `${base}/${tab.segment}`,
   }))
 
   return (
-    <PageTabs label={t('nav.cvs')} tabs={cvTabs}>
+    <PageTabs label={tCommon('nav.cvs')} tabs={cvTabs}>
       {children}
     </PageTabs>
   )

@@ -17,7 +17,7 @@ type CredentialsFormProps = {
 
 export function CredentialsForm({ intent }: CredentialsFormProps) {
   const { lng } = useParams<{ lng: string }>()
-  const { t } = useT('common')
+  const { t } = useT('auth')
   const authenticate = intent === 'login' ? loginAction : signupAction
   const [state, formAction, pending] = useActionState(authenticate.bind(null, lng), {})
   const [fieldError, setFieldError] = useState<string>()
@@ -45,22 +45,22 @@ export function CredentialsForm({ intent }: CredentialsFormProps) {
       pending={pending}
       error={error}
       onSubmit={onSubmit}
-      submitLabel={intent === 'login' ? t('auth.login') : t('auth.action')}
+      submitLabel={intent === 'login' ? t('login') : t('action')}
     >
       <TextField
         name="email"
         type="text"
         inputMode="email"
-        label={t('auth.email')}
-        aria-label={t('auth.email')}
+        label={t('email')}
+        aria-label={t('email')}
         autoComplete="email"
         required
         className={authFieldClassName}
       />
       <PasswordInput
         name="password"
-        label={t('auth.password')}
-        aria-label={t('auth.password')}
+        label={t('password')}
+        aria-label={t('password')}
         autoComplete={intent === 'login' ? 'current-password' : 'new-password'}
         required
         className={authFieldClassName}
@@ -70,13 +70,13 @@ export function CredentialsForm({ intent }: CredentialsFormProps) {
 }
 
 const localErrorKey = {
-  required: 'auth.error.required',
-  generic: 'auth.error.generic',
-  emailTaken: 'auth.error.emailTaken',
-  invalidEmail: 'auth.error.invalidEmail',
-  weakPassword: 'auth.error.weakPassword',
-  userNotFound: 'auth.error.userNotFound',
-  invalidCredentials: 'auth.error.invalidCredentials',
+  required: 'error.required',
+  generic: 'error.generic',
+  emailTaken: 'error.emailTaken',
+  invalidEmail: 'error.invalidEmail',
+  weakPassword: 'error.weakPassword',
+  userNotFound: 'error.userNotFound',
+  invalidCredentials: 'error.invalidCredentials',
 } as const
 
 function shownError(

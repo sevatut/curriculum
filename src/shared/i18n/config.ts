@@ -19,7 +19,7 @@ export const i18nConfig: I18nConfig = {
   supportedLngs: [...supportedLngs],
   fallbackLng: defaultLocale,
   defaultNS: 'common',
-  ns: ['common', 'home'],
+  ns: ['common', 'home', 'auth', 'cvs', 'employees'],
   reloadOnPrerender: process.env.NODE_ENV === 'development',
   resourceLoader,
 }

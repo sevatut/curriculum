@@ -184,3 +184,21 @@
     @apply font-sans;
   }
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--input-text);
+  caret-color: var(--input-text);
+  box-shadow: inset 0 0 0 1000px var(--background);
+  transition: background-color 99999s ease-out;
+}
+
+input.peer:-webkit-autofill ~ label,
+input.peer:autofill ~ label {
+  top: 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  translate: 0 -50%;
+}

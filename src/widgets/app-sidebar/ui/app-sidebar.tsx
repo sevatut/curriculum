@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 import type { ComponentType, SVGProps } from 'react'
 
+import { LogoutButton } from '@/features/auth/logout'
 import { Button } from '@/shared/ui/button'
 import {
   Sidebar,
@@ -23,12 +24,6 @@ import { TooltipProvider } from '@/shared/ui/tooltip'
 
 import { CvsIcon, EmployeesIcon, LanguagesIcon, SkillsIcon } from './nav-icons'
 
-// TODO: Подставить данные пользователя
-const SIDEBAR_USER = {
-  name: 'Test User',
-  initial: 'T',
-}
-
 const NAV_ITEMS = [
   { path: '/employees', labelKey: 'nav.employees', icon: EmployeesIcon },
   { path: '/skills', labelKey: 'nav.skills', icon: SkillsIcon },
@@ -43,16 +38,21 @@ const NAV_ITEMS = [
 function isNavActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`)
 }
-// TODO: Подставить данные пользователя
-function SidebarUser() {
+
+function SidebarUser({ name, lng }: { name: string; lng: string }) {
+  const initial = name.trim().charAt(0).toUpperCase()
+
   return (
-    <div className="flex items-center gap-2 overflow-hidden px-2 py-1.5 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-[20px] leading-5 font-medium text-primary-foreground">
-        {SIDEBAR_USER.initial}
-      </span>
-      <span className="truncate text-base font-normal leading-6 text-foreground group-data-[collapsible=icon]:hidden">
-        {SIDEBAR_USER.name}
-      </span>
+    <div className="flex flex-col gap-1">
+      <div className="flex items-center gap-2 overflow-hidden px-2 py-1.5 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-[20px] leading-5 font-medium text-primary-foreground">
+          {initial}
+        </span>
+        <span className="truncate text-base font-normal leading-6 text-foreground group-data-[collapsible=icon]:hidden">
+          {name}
+        </span>
+      </div>
+      <LogoutButton lng={lng} />
     </div>
   )
 }
@@ -88,7 +88,7 @@ function SidebarCollapseButton() {
   )
 }
 
-function AppSidebar({ lng }: { lng: string }) {
+function AppSidebar({ lng, userName }: { lng: string; userName: string }) {
   const pathname = usePathname()
   const { t } = useT('common')
 
@@ -124,7 +124,7 @@ function AppSidebar({ lng }: { lng: string }) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="tracking-sidebar">
-        <SidebarUser />
+        <SidebarUser name={userName} lng={lng} />
         <SidebarCollapseButton />
       </SidebarFooter>
     </Sidebar>
@@ -134,14 +134,16 @@ function AppSidebar({ lng }: { lng: string }) {
 export function AppSidebarLayout({
   children,
   lng,
+  userName,
 }: {
   children: React.ReactNode
   lng: string
+  userName: string
 }) {
   return (
     <TooltipProvider>
       <SidebarProvider>
-        <AppSidebar lng={lng} />
+        <AppSidebar lng={lng} userName={userName} />
         <SidebarInset>
           <div className="flex items-center px-4 py-3 md:hidden">
             <SidebarTrigger />

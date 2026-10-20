@@ -10,7 +10,15 @@ function isAuthPath(pathname: string) {
   return pathname.split('/').includes('auth')
 }
 
-export function AppFrame({ lng, children }: { lng: string; children: ReactNode }) {
+export function AppFrame({
+  lng,
+  userName,
+  children,
+}: {
+  lng: string
+  userName: string
+  children: ReactNode
+}) {
   const pathname = usePathname()
 
   if (isAuthPath(pathname)) {
@@ -18,7 +26,7 @@ export function AppFrame({ lng, children }: { lng: string; children: ReactNode }
   }
 
   return (
-    <AppSidebarLayout lng={lng}>
+    <AppSidebarLayout lng={lng} userName={userName}>
       <AppHeader />
       {children}
     </AppSidebarLayout>

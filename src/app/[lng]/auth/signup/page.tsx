@@ -1,6 +1,6 @@
 import { getT } from 'next-i18next/server'
 
-import { RegisterForm } from '@/features/auth/register'
+import { CredentialsForm } from '@/features/auth/ui/credentials-form'
 import { AuthPage } from '@/features/auth/ui/auth-page'
 
 export async function generateMetadata() {
@@ -16,7 +16,7 @@ export default async function SignupPage() {
 
   return (
     <AuthPage title={t('auth.register')} subtitle={t('auth.welcome.register')}>
-      <RegisterForm />
+      <CredentialsForm intent="signup" />
     </AuthPage>
   )
 }

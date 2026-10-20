@@ -35,13 +35,21 @@
     "action": "Create Account",
     "email": "Email",
     "password": "Password",
-    "forgotPassword": "Forgot password",
-    "hasAccount": "I have an account",
     "greeting": "Welcome back",
     "welcome": {
       "login": "Welcome back! Please log in to continue",
       "register": "Welcome! Please create an account to continue"
     },
-    "register": "Register"
+    "register": "Register",
+    "logout": "Log out",
+    "error": {
+      "required": "Enter email and password",
+      "generic": "Something went wrong. Try again",
+      "emailTaken": "An account with this email already exists",
+      "invalidEmail": "Enter a valid email",
+      "weakPassword": "Password must be at least 8 characters",
+      "userNotFound": "No account with this email",
+      "invalidCredentials": "Incorrect password"
+    }
   }
 }

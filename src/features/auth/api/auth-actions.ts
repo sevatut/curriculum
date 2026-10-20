@@ -6,8 +6,9 @@ import { writeSession } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
 
 import type { AuthActionState } from '../model/auth-action-state'
+import type { AuthAttempt } from '../model/auth-attempt'
 import { credentialsFieldError, type CredentialsIntent } from '../model/credentials'
-import { signIn, signUp, type AuthAttempt } from './authenticate'
+import { signIn, signUp } from './authenticate'
 
 type Authenticate = (input: { email: string; password: string }) => Promise<AuthAttempt>
 

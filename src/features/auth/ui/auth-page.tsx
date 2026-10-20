@@ -1,10 +1,4 @@
-import type { ReactNode } from 'react'
-
-type AuthPageProps = {
-  title: string
-  subtitle: string
-  children: ReactNode
-}
+import type { AuthPageProps } from './auth-page.types'
 
 export function AuthPage({ title, subtitle, children }: AuthPageProps) {
   return (

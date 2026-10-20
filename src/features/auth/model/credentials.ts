@@ -1,6 +1,11 @@
 const MIN_PASSWORD_LENGTH = 8
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
+export type Credentials = {
+  email: string
+  password: string
+}
+
 export type CredentialsIntent = 'login' | 'signup'
 
 export function credentialsFieldError(

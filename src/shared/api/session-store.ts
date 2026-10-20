@@ -1,11 +1,7 @@
 import { cookies } from 'next/headers'
 
-import {
-  parseSession,
-  SESSION_COOKIE_NAME,
-  sessionCookieOptions,
-  type Session,
-} from './session'
+import type { Session } from './session.types'
+import { parseSession, SESSION_COOKIE_NAME, sessionCookieOptions } from './session'
 
 export async function readSession(): Promise<Session | null> {
   const cookieStore = await cookies()

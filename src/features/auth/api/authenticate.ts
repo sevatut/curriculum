@@ -3,18 +3,10 @@ import { CombinedGraphQLErrors } from '@apollo/client/errors'
 import { unstable_rethrow } from 'next/navigation'
 
 import { getClient } from '@/shared/api/apollo-client'
-import type { Session } from '@/shared/api/session'
 
-type AuthResult = {
-  access_token: string
-  user: {
-    id: string
-    email: string
-    profile: {
-      full_name: string
-    } | null
-  }
-}
+import type { AuthAttempt } from '../model/auth-attempt'
+import type { Credentials } from '../model/credentials'
+import { serverErrorKey, toSession, type AuthResult } from './auth-result'
 
 type AuthVariables = {
   auth: {
@@ -51,34 +43,6 @@ const SIGN_UP: TypedDocumentNode<Record<'signup', AuthResult>, AuthVariables> = 
     }
   }
 `
-
-type Credentials = {
-  email: string
-  password: string
-}
-
-export type AuthAttempt = { session: Session } | { error: string }
-
-function toSession(result: AuthResult): Session {
-  return {
-    accessToken: result.access_token,
-    user: {
-      id: result.user.id,
-      email: result.user.email,
-      name: result.user.profile?.full_name || result.user.email,
-    },
-  }
-}
-
-const serverErrorKey = {
-  EMAIL_TAKEN: 'emailTaken',
-  INVALID_EMAIL: 'invalidEmail',
-  WEAK_PASSWORD: 'weakPassword',
-  USER_NOT_FOUND: 'userNotFound',
-  INVALID_CREDENTIALS: 'invalidCredentials',
-  'Пользователь с таким email не найден': 'userNotFound',
-  'Неверный пароль': 'invalidCredentials',
-} as const
 
 function backendMessage(error: unknown) {
   if (!CombinedGraphQLErrors.is(error)) return 'generic'

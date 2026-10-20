@@ -1,17 +1,8 @@
-import type { FormEvent, ReactNode } from 'react'
-
 import { Button } from '@/shared/ui/button'
 
-export const authFieldClassName = 'h-12 max-w-none'
+import type { AuthFormProps } from './auth-form.types'
 
-type AuthFormProps = {
-  children: ReactNode
-  action: (formData: FormData) => void | Promise<void>
-  submitLabel: string
-  pending?: boolean
-  error?: string
-  onSubmit?: (event: FormEvent<HTMLFormElement>) => void
-}
+export const authFieldClassName = 'h-12 max-w-none'
 
 export function AuthForm({
   children,

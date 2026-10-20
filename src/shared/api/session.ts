@@ -1,3 +1,5 @@
+import type { Session } from './session.types'
+
 export const SESSION_COOKIE_NAME = 'session'
 
 export function authLogoutPath(lng: string) {
@@ -5,17 +7,6 @@ export function authLogoutPath(lng: string) {
 }
 
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7
-
-export type SessionUser = {
-  id: string
-  email: string
-  name: string
-}
-
-export type Session = {
-  accessToken: string
-  user: SessionUser
-}
 
 export function sessionCookieOptions() {
   return {

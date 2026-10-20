@@ -34,29 +34,8 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         <Input {...props} placeholder=" " className="peer" ref={ref} />
 
         <label
-          className="
-          pointer-events-none
-          absolute
-          left-3
-          top-0
-          -translate-y-1/2
-          bg-background
-          px-1
-          text-sm
-          text-placeholder
-
-          transition-all
-          duration-200
-
-          peer-placeholder-shown:top-1/2
-          peer-placeholder-shown:-translate-y-1/2
-          peer-placeholder-shown:text-lg
-
-          peer-focus:top-0
-          peer-focus:-translate-y-1/2
-          peer-focus:text-sm
-          peer-focus:text-focus
-        "
+          className=" pointer-events-none absolute left-3 top-0 -translate-y-1/2 bg-background px-1 text-sm text-placeholder transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-lg peer-focus:top-0
+          peer-focus:-translate-y-1/2 peer-focus:text-sm peer-focus:text-focus"
         >
           {label}
         </label>

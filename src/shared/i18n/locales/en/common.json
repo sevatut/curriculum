@@ -4,6 +4,10 @@
     "show": "Show password",
     "hide": "Hide password"
   },
+  "modal": {
+    "close": "Close",
+    "cancel": "Cancel"
+  },
   "nav": {
     "employees": "Employees",
     "skills": "Skills",
@@ -20,6 +24,12 @@
   },
   "cv": {
     "create": "Create CV",
+    "tabs": {
+      "details": "Details",
+      "skills": "Skills",
+      "projects": "Projects",
+      "preview": "Preview"
+    },
     "empty": "No CVs found",
     "search": "Search by name or description",
     "column": {

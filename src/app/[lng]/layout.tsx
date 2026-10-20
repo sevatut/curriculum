@@ -6,9 +6,9 @@ import {
 } from 'next-i18next/server'
 import { I18nProvider } from 'next-i18next/client'
 
+import { readSession } from '@/shared/api/session-store'
 import { i18nConfig } from '@/shared/i18n/config'
-import { AppHeader } from '@/widgets/app-header'
-import { AppSidebarLayout } from '@/widgets/app-sidebar'
+import { AppFrame } from './app-frame'
 
 initServerI18next(i18nConfig)
 
@@ -26,13 +26,12 @@ export default async function LocaleLayout({
   const { lng } = await params
   const { i18n } = await getT()
   const resources = getResources(i18n)
-
+  const session = await readSession()
   return (
     <I18nProvider language={lng} resources={resources}>
-      <AppSidebarLayout lng={lng}>
-        <AppHeader />
+      <AppFrame lng={lng} userName={session?.user.name ?? ''}>
         {children}
-      </AppSidebarLayout>
+      </AppFrame>
     </I18nProvider>
   )
 }

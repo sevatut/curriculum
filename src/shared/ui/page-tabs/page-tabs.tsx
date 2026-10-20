@@ -9,12 +9,21 @@ import type { PageTabsProps } from './types'
 const tabClassName =
   'flex h-full w-full min-w-0 items-center justify-center border-b-2 border-transparent px-2 text-sm font-semibold uppercase leading-(--page-tab-leading) tracking-page-tabs text-foreground outline-none transition-colors focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:ring-inset'
 
-export function PageTabs({ tabs, label, children, className }: PageTabsProps) {
+export function PageTabs({
+  tabs,
+  label,
+  children,
+  className,
+  centered = false,
+}: PageTabsProps) {
   const segment = useSelectedLayoutSegment()
 
   return (
     <div className={cn('flex flex-1 flex-col', className)}>
-      <nav aria-label={label} className="overflow-x-auto">
+      <nav
+        aria-label={label}
+        className={cn('overflow-x-auto', centered && 'self-center')}
+      >
         <ul className="flex h-(--page-tab-height) w-max px-5">
           {tabs.map((tab) => {
             const active = tab.segment === segment

@@ -10,20 +10,21 @@ export default async function EmployeeTabsLayout({
   params: Promise<{ lng: string }>
 }>) {
   const { lng } = await params
-  const { t } = await getT('common')
+  const { t } = await getT('employees')
+  const { t: tCommon } = await getT('common')
   const base = `/${lng}/employees`
 
   const employeeTabs = [
-    { segment: 'profile', label: t('employee.tabs.profile') },
-    { segment: 'skills', label: t('employee.tabs.skills') },
-    { segment: 'languages', label: t('employee.tabs.languages') },
+    { segment: 'profile', label: t('tabs.profile') },
+    { segment: 'skills', label: t('tabs.skills') },
+    { segment: 'languages', label: t('tabs.languages') },
   ].map((tab) => ({
     ...tab,
     href: `${base}/${tab.segment}`,
   }))
 
   return (
-    <PageTabs label={t('nav.employees')} tabs={employeeTabs}>
+    <PageTabs label={tCommon('nav.employees')} tabs={employeeTabs}>
       {children}
     </PageTabs>
   )

@@ -1,5 +1,6 @@
 {
   "switchLocale": "English",
+  "logout": "Выйти",
   "password": {
     "show": "Показать пароль",
     "hide": "Скрыть пароль"
@@ -14,29 +15,5 @@
     "languages": "Языки",
     "cvs": "Резюме",
     "collapse": "Свернуть меню"
-  },
-  "employee": {
-    "tabs": {
-      "profile": "Профиль",
-      "skills": "Навыки",
-      "languages": "Языки"
-    }
-  },
-  "cv": {
-    "create": "Создать резюме",
-    "tabs": {
-      "details": "Детали",
-      "skills": "Навыки",
-      "projects": "Проекты",
-      "preview": "Предпросмотр"
-    },
-    "empty": "Резюме не найдены",
-    "search": "Поиск по имени или описанию",
-    "column": {
-      "name": "Имя",
-      "education": "Образование",
-      "employee": "Сотрудник"
-    },
-    "actions": "Действия"
   }
 }

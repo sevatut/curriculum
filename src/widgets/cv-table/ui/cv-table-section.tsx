@@ -16,7 +16,7 @@ type CvTableSectionProps = {
 }
 
 export function CvTableSection({ rows }: CvTableSectionProps) {
-  const { i18n, t } = useT('common')
+  const { i18n, t } = useT('cvs')
   const [query, setQuery] = useState('')
   const filteredRows = filterCvTableRows(rows, query, i18n.language)
 
@@ -27,11 +27,11 @@ export function CvTableSection({ rows }: CvTableSectionProps) {
           className="ml-5 max-w-[320px]"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          aria-label={t('cv.search')}
+          aria-label={t('search')}
         />
         <Button variant="link" size="compact" className="mr-6">
           <Plus className="size-4" aria-hidden />
-          {t('cv.create')}
+          {t('create')}
         </Button>
       </div>
       <CvTable rows={filteredRows} />

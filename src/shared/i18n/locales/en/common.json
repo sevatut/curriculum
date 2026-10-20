@@ -1,5 +1,6 @@
 {
   "switchLocale": "Русский",
+  "logout": "Log out",
   "password": {
     "show": "Show password",
     "hide": "Hide password"
@@ -14,29 +15,5 @@
     "languages": "Languages",
     "cvs": "CVs",
     "collapse": "Collapse sidebar"
-  },
-  "employee": {
-    "tabs": {
-      "profile": "Profile",
-      "skills": "Skills",
-      "languages": "Languages"
-    }
-  },
-  "cv": {
-    "create": "Create CV",
-    "tabs": {
-      "details": "Details",
-      "skills": "Skills",
-      "projects": "Projects",
-      "preview": "Preview"
-    },
-    "empty": "No CVs found",
-    "search": "Search by name or description",
-    "column": {
-      "name": "Name",
-      "education": "Education",
-      "employee": "Employee"
-    },
-    "actions": "Row actions"
   }
 }

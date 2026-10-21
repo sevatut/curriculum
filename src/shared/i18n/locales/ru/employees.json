@@ -13,5 +13,18 @@
     "email": "Почта",
     "department": "Отдел",
     "position": "Должность"
+  },
+  "profile": {
+    "upload": "Загрузить изображение",
+    "uploadHint": "png, jpg или gif не более 0.5 МБ",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "department": "Отдел",
+    "position": "Должность",
+    "update": "Обновить",
+    "errorRequired": "Укажите имя и фамилию",
+    "errorGeneric": "Не удалось обновить профиль",
+    "errorAssignment": "Имя сохранено, но отдел и должность обновить не удалось",
+    "errorForbidden": "Можно редактировать только свой профиль"
   }
 }

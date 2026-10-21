@@ -13,5 +13,18 @@
     "email": "Email",
     "department": "Department",
     "position": "Position"
+  },
+  "profile": {
+    "upload": "Upload avatar image",
+    "uploadHint": "png, jpg or gif no more than 0.5MB",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "department": "Department",
+    "position": "Position",
+    "update": "Update",
+    "errorRequired": "Enter first and last name",
+    "errorGeneric": "Could not update the profile",
+    "errorAssignment": "The name was saved, but the department and position were not",
+    "errorForbidden": "You can only edit your own profile"
   }
 }

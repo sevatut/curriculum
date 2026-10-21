@@ -98,24 +98,3 @@ export function Modal({
     </div>
   )
 }
-
-export function Test() {
-  return (
-    <Modal
-      title="Remove project"
-      confirmText="Confirm"
-      confirmDisabled={true}
-      onCancel={() => {
-        console.log('Yep')
-      }}
-      onConfirm={() => {
-        console.log('Yeah')
-      }}
-    >
-      <p className="text-foreground">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia a vel modi atque
-        officia, dolores incidunt voluptates illum debitis!
-      </p>
-    </Modal>
-  )
-}

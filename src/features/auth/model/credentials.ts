@@ -7,12 +7,12 @@ import {
   passwordSchema,
 } from '@/shared/validation'
 
-export const loginCredentialsSchema = z.object({
+const loginCredentialsSchema = z.object({
   email: emailSchema,
   password: passwordSchema,
 })
 
-export const signupCredentialsSchema = loginCredentialsSchema.extend({
+const signupCredentialsSchema = loginCredentialsSchema.extend({
   password: newPasswordSchema,
 })
 

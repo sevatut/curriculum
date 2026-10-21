@@ -7,7 +7,7 @@ import { resolveLocale } from '@/shared/i18n/settings'
 
 import type { AuthActionState } from '../model/auth-action-state'
 import type { AuthAttempt } from '../model/auth-attempt'
-import { credentialsFieldError, type CredentialsIntent } from '../model/credentials'
+import { parseCredentials, type CredentialsIntent } from '../model/credentials'
 import { signIn, signUp } from './authenticate'
 
 type Authenticate = (input: { email: string; password: string }) => Promise<AuthAttempt>
@@ -18,13 +18,10 @@ async function runAuthAction(
   authenticate: Authenticate,
   intent: CredentialsIntent,
 ): Promise<AuthActionState> {
-  const email = String(formData.get('email') ?? '').trim()
-  const password = String(formData.get('password') ?? '')
-  const error = credentialsFieldError(email, password, intent)
+  const parsed = parseCredentials(formData, intent)
+  if (!parsed.success) return { error: parsed.formError }
 
-  if (error) return { error }
-
-  const result = await authenticate({ email, password })
+  const result = await authenticate(parsed.data)
 
   if ('error' in result) {
     return { error: result.error }

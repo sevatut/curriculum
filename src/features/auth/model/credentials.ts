@@ -1,20 +1,26 @@
-const MIN_PASSWORD_LENGTH = 8
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+import { z } from 'zod'
 
-export type Credentials = {
-  email: string
-  password: string
-}
+import {
+  emailSchema,
+  newPasswordSchema,
+  parseFormData,
+  passwordSchema,
+} from '@/shared/validation'
+
+export const loginCredentialsSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+})
+
+export const signupCredentialsSchema = loginCredentialsSchema.extend({
+  password: newPasswordSchema,
+})
+
+export type Credentials = z.infer<typeof loginCredentialsSchema>
 
 export type CredentialsIntent = 'login' | 'signup'
 
-export function credentialsFieldError(
-  email: string,
-  password: string,
-  intent: CredentialsIntent,
-) {
-  if (!email || !password) return 'required'
-  if (!EMAIL_PATTERN.test(email)) return 'invalidEmail'
-  if (intent === 'signup' && password.length < MIN_PASSWORD_LENGTH)
-    return 'weakPassword'
+export function parseCredentials(formData: FormData, intent: CredentialsIntent) {
+  const schema = intent === 'signup' ? signupCredentialsSchema : loginCredentialsSchema
+  return parseFormData(schema, formData)
 }

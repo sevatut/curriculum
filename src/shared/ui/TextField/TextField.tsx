@@ -1,4 +1,6 @@
+import { cn } from 'cn'
 import { forwardRef, ReactNode } from 'react'
+
 import Input from '@/shared/ui/Input/Input'
 
 interface TextFieldProps extends React.ComponentProps<typeof Input> {
@@ -10,26 +12,10 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ className = '', rightElement, label, ...props }, ref) => {
     return (
       <div
-        className={`
-        relative
-        flex
-        h-12
-        w-full
-        max-w-140
-        items-center
-        justify-between
-        gap-4
-        border
-        border-input-border
-        pl-3
-        pr-4
-
-        transition-colors
-        duration-300
-        focus-within:border-focus
-
-        ${className}
-      `}
+        className={cn(
+          'relative flex h-12 w-full max-w-140 items-center justify-between gap-4 border border-input-border pr-4 pl-3 transition-colors duration-300 focus-within:border-focus',
+          className,
+        )}
       >
         <Input {...props} placeholder=" " className="peer" ref={ref} />
 

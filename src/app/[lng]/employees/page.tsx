@@ -1,11 +1,8 @@
-import { getT } from 'next-i18next/server'
+import { getActor } from '@/entities/user'
+import { EmployeeTable, getEmployeeTableRows } from '@/widgets/employee-table'
 
 export default async function EmployeesPage() {
-  const { t } = await getT('common')
+  const [actor, rows] = await Promise.all([getActor(), getEmployeeTableRows()])
 
-  return (
-    <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('nav.employees')}</h1>
-    </div>
-  )
+  return <EmployeeTable rows={rows} currentUserId={actor?.id ?? ''} />
 }

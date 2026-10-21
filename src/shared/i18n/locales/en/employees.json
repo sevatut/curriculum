@@ -3,5 +3,15 @@
     "profile": "Profile",
     "skills": "Skills",
     "languages": "Languages"
+  },
+  "empty": "No employees found",
+  "actions": "Open profile",
+  "search": "Search by full name",
+  "column": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "department": "Department",
+    "position": "Position"
   }
 }

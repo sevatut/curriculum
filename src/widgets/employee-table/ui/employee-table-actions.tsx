@@ -1,11 +1,7 @@
 import Link from 'next/link'
 import { ChevronRight, EllipsisVertical } from 'lucide-react'
 
-type EmployeeTableActionsProps = {
-  href: string
-  label: string
-  own: boolean
-}
+import type { EmployeeTableActionsProps } from './types'
 
 export function EmployeeTableActions({ href, label, own }: EmployeeTableActionsProps) {
   const Icon = own ? EllipsisVertical : ChevronRight

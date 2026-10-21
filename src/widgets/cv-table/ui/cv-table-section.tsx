@@ -1,10 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
 import { useT } from 'next-i18next/client'
 
-import { Button } from '@/shared/ui/button'
+import { CreateButton } from '@/shared/ui/create-button'
 import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
 
 import { filterCvTableRows } from '../model/filter-cv-table-rows'
@@ -29,10 +28,7 @@ export function CvTableSection({ rows }: CvTableSectionProps) {
           onChange={(event) => setQuery(event.target.value)}
           aria-label={t('search')}
         />
-        <Button variant="link" size="compact" className="mr-6">
-          <Plus className="size-4" aria-hidden />
-          {t('create')}
-        </Button>
+        <CreateButton className="mr-6">{t('create')}</CreateButton>
       </div>
       <CvTable rows={filteredRows} />
     </div>

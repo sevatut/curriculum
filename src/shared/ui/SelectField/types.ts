@@ -13,3 +13,11 @@ export type SelectFieldProps = {
   className?: string
   onValueChange?: (value: string) => void
 }
+
+export type SelectFieldListProps = {
+  id: string
+  label: string
+  options: readonly SelectOption[]
+  value: string
+  onSelect: (value: string) => void
+}

@@ -1,21 +1,13 @@
 import { Upload } from 'lucide-react'
 import { getT } from 'next-i18next/server'
 
-import { departmentDisplayName, type Department } from '@/entities/department'
-import type { Position } from '@/entities/position'
-import { userDisplayName, userInitial, type UserDetails } from '@/entities/user'
+import { departmentDisplayName } from '@/entities/department'
+import { userDisplayName, userInitial } from '@/entities/user'
 import { UserAvatar } from '@/entities/user/ui/user-avatar'
 
 import { profileValues } from '../model/profile-form-values'
 import { EmployeeProfileForm } from './employee-profile-form'
-
-type EmployeeProfileProps = {
-  lng: string
-  user: UserDetails
-  editable: boolean
-  departments: readonly Department[]
-  positions: readonly Position[]
-}
+import type { EmployeeProfileProps } from './types'
 
 export async function EmployeeProfile({
   lng,

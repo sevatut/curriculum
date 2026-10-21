@@ -5,14 +5,7 @@ import { UserAvatar } from '@/entities/user/ui/user-avatar'
 import type { DataTableColumn } from '@/shared/ui/data-table'
 
 import type { EmployeeTableRow } from '../model/employee-table-row'
-
-type EmployeeTableColumnLabels = {
-  firstName: string
-  lastName: string
-  email: string
-  department: string
-  position: string
-}
+import type { EmployeeTableColumnLabels } from './types'
 
 export function getEmployeeTableColumns(
   lng: string,

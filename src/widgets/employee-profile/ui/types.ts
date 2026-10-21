@@ -1,4 +1,16 @@
+import type { Department } from '@/entities/department'
+import type { Position } from '@/entities/position'
+import type { UserDetails } from '@/entities/user'
+
 import type { ProfileFormValues } from '../model/profile-form-values'
+
+export type EmployeeProfileProps = {
+  lng: string
+  user: UserDetails
+  editable: boolean
+  departments: readonly Department[]
+  positions: readonly Position[]
+}
 
 export type CatalogOption = {
   id: string

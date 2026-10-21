@@ -12,7 +12,7 @@ export type User = {
   } | null
 }
 
-export type UserCatalogRef = {
+type UserCatalogRef = {
   id: string
   name: string
 }

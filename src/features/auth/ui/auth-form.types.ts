@@ -1,4 +1,4 @@
-import type { FormEvent, ReactNode } from 'react'
+import type { ReactNode, SubmitEvent } from 'react'
 
 export type AuthFormProps = {
   children: ReactNode
@@ -6,5 +6,5 @@ export type AuthFormProps = {
   submitLabel: string
   pending?: boolean
   error?: string
-  onSubmit?: (event: FormEvent<HTMLFormElement>) => void
+  onSubmit?: (event: SubmitEvent<HTMLFormElement>) => void
 }

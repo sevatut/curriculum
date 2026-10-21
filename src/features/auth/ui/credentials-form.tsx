@@ -2,13 +2,13 @@
 
 import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
-import { useActionState, useState, type FormEvent } from 'react'
+import { useActionState, useState, type SubmitEvent } from 'react'
 
 import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
 import { TextField } from '@/shared/ui/TextField/TextField'
 
 import { loginAction, signupAction } from '../api/auth-actions'
-import { credentialsFieldError } from '../model/credentials'
+import { parseCredentials } from '../model/credentials'
 import { AuthForm, authFieldClassName } from './auth-form'
 
 type CredentialsFormProps = {
@@ -22,19 +22,16 @@ export function CredentialsForm({ intent }: CredentialsFormProps) {
   const [state, formAction, pending] = useActionState(authenticate.bind(null, lng), {})
   const [fieldError, setFieldError] = useState<string>()
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    const data = new FormData(event.currentTarget)
-    const email = String(data.get('email') ?? '').trim()
-    const password = String(data.get('password') ?? '')
-    const error = credentialsFieldError(email, password, intent)
+  function onSubmit(event: SubmitEvent<HTMLFormElement>) {
+    const parsed = parseCredentials(new FormData(event.currentTarget), intent)
 
-    if (!error) {
+    if (parsed.success) {
       setFieldError(undefined)
       return
     }
 
     event.preventDefault()
-    setFieldError(error)
+    setFieldError(parsed.formError)
   }
 
   const error = shownError(fieldError ?? state.error, pending, t)

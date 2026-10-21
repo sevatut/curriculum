@@ -1,4 +1,4 @@
-export type SelectOption = {
+type SelectOption = {
   value: string
   label: string
 }
@@ -12,12 +12,4 @@ export type SelectFieldProps = {
   allowEmpty?: boolean
   className?: string
   onValueChange?: (value: string) => void
-}
-
-export type OptionListProps = {
-  id: string
-  label: string
-  value: string
-  options: readonly SelectOption[]
-  onSelect: (value: string) => void
 }

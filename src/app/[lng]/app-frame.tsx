@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import type { ReactNode } from 'react'
 
-import { AppHeader } from '@/widgets/app-header'
+import { AppHeader, BreadcrumbProvider } from '@/widgets/app-header'
 import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
 function isAuthPath(pathname: string) {
@@ -26,9 +26,11 @@ export function AppFrame({
   }
 
   return (
-    <AppSidebarLayout lng={lng} userName={userName}>
-      <AppHeader />
-      {children}
-    </AppSidebarLayout>
+    <BreadcrumbProvider>
+      <AppSidebarLayout lng={lng} userName={userName}>
+        <AppHeader lng={lng} />
+        {children}
+      </AppSidebarLayout>
+    </BreadcrumbProvider>
   )
 }

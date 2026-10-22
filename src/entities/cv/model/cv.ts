@@ -7,3 +7,5 @@ export type Cv = {
     email: string
   }
 }
+
+export type CvDetails = Cv

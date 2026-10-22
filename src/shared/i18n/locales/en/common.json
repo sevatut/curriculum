@@ -9,6 +9,9 @@
     "close": "Close",
     "cancel": "Cancel"
   },
+  "breadcrumb": {
+    "label": "Breadcrumb"
+  },
   "nav": {
     "employees": "Employees",
     "skills": "Skills",

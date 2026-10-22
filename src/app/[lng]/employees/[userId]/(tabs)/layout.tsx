@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation'
 import { getT } from 'next-i18next/server'
 
-import { getUser } from '@/entities/user'
+import { getUser, userDisplayName } from '@/entities/user'
 import { PageTabs } from '@/shared/ui/page-tabs'
+import { TabbedSetBreadcrumbs } from '@/widgets/app-header'
 
 export default async function EmployeeTabsLayout({
   children,
@@ -20,18 +21,24 @@ export default async function EmployeeTabsLayout({
 
   const base = `/${lng}/employees/${userId}`
 
-  const employeeTabs = [
-    { segment: 'profile', label: t('tabs.profile') },
-    { segment: 'skills', label: t('tabs.skills') },
-    { segment: 'languages', label: t('tabs.languages') },
-  ].map((tab) => ({
-    ...tab,
-    href: `${base}/${tab.segment}`,
+  const employeeTabs = (['profile', 'skills', 'languages'] as const).map((segment) => ({
+    segment,
+    label: t(`tabs.${segment}`),
+    href: `${base}/${segment}`,
   }))
 
   return (
-    <PageTabs label={tCommon('nav.employees')} tabs={employeeTabs}>
-      {children}
-    </PageTabs>
+    <>
+      <TabbedSetBreadcrumbs
+        items={[
+          { label: tCommon('nav.employees'), href: `/${lng}/employees` },
+          { label: userDisplayName(user), href: `${base}/profile` },
+        ]}
+        tabs={employeeTabs}
+      />
+      <PageTabs label={tCommon('nav.employees')} tabs={employeeTabs}>
+        {children}
+      </PageTabs>
+    </>
   )
 }

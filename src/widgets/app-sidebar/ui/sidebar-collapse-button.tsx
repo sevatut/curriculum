@@ -3,6 +3,7 @@
 import { useT } from 'next-i18next/client'
 
 import { Button } from '@/shared/ui/button'
+import { ChevronLeftIcon } from '@/shared/ui/chevron-left-icon'
 import { useSidebar } from '@/shared/ui/sidebar'
 
 export function SidebarCollapseButton() {
@@ -16,22 +17,7 @@ export function SidebarCollapseButton() {
       aria-label={t('nav.collapse')}
       onClick={toggleSidebar}
     >
-      <svg
-        width="7.4"
-        height="12"
-        viewBox="0 0 7.4 12"
-        fill="none"
-        aria-hidden="true"
-        className="shrink-0 transition-transform group-data-[state=collapsed]:rotate-180"
-      >
-        <path
-          d="M6.65 0.75L0.75 6L6.65 11.25"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <ChevronLeftIcon className="transition-transform group-data-[state=collapsed]:rotate-180" />
     </Button>
   )
 }

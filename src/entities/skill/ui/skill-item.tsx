@@ -10,7 +10,9 @@ export function SkillItem({ name, mastery }: SkillItemProps) {
           style={{ width: `${masteryConfig[mastery].progress}%` }}
         />
       </div>
-      <h2 className="text-skill-text">{name}</h2>
+      <h2 className="text-skill-text" aria-label={`${name} — ${mastery}`}>
+        {name}
+      </h2>
     </div>
   )
 }

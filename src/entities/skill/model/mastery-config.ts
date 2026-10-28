@@ -1,4 +1,4 @@
-import { Mastery } from './types'
+import type { Mastery } from './types'
 
 export const masteryConfig: Record<
   Mastery,

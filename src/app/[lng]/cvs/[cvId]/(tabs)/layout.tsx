@@ -5,6 +5,8 @@ import { getCv } from '@/entities/cv'
 import { PageTabs } from '@/shared/ui/page-tabs'
 import { TabbedSetBreadcrumbs } from '@/widgets/app-header'
 
+const cvTabSegments = ['details', 'skills', 'projects', 'preview'] as const
+
 export default async function CvTabsLayout({
   children,
   params,
@@ -20,13 +22,11 @@ export default async function CvTabsLayout({
   const { t: tCommon } = await getT('common')
   const base = `/${lng}/cvs/${cvId}`
 
-  const cvTabs = (['details', 'skills', 'projects', 'preview'] as const).map(
-    (segment) => ({
-      segment,
-      label: t(`tabs.${segment}`),
-      href: `${base}/${segment}`,
-    }),
-  )
+  const cvTabs = cvTabSegments.map((segment) => ({
+    segment,
+    label: t(`tabs.${segment}`),
+    href: `${base}/${segment}`,
+  }))
 
   return (
     <>

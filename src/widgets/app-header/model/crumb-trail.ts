@@ -1,13 +1,7 @@
 import type { Crumb } from './crumb'
+import type { CrumbTrailItem } from './crumb-trail-item'
 
 const TAB_TRAIL_LENGTH = 3
-
-type CrumbTrailItem = {
-  label: string
-  href?: string
-  isPrimary: boolean
-  withSeparator: boolean
-}
 
 export function crumbTrail(items: readonly Crumb[]): readonly CrumbTrailItem[] {
   const lastIndex = items.length - 1

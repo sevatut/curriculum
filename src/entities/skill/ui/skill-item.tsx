@@ -1,5 +1,5 @@
-import { SkillItemProps } from './types'
-import { masteryConfig } from './mastery-config'
+import type { SkillItemProps } from '../model/types'
+import { masteryConfig } from '../model/mastery-config'
 
 export function SkillItem({ name, mastery }: SkillItemProps) {
   return (

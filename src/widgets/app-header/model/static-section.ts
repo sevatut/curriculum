@@ -1,22 +1,22 @@
 import type { Crumb } from './crumb'
 
-const SECTION_LABEL_KEYS = {
+const sectionLabelKeys = {
   employees: 'nav.employees',
   skills: 'nav.skills',
   languages: 'nav.languages',
   cvs: 'nav.cvs',
 } as const
 
-type SectionKey = keyof typeof SECTION_LABEL_KEYS
+type SectionKey = keyof typeof sectionLabelKeys
 
 function isSectionKey(value: string | undefined): value is SectionKey {
-  return value !== undefined && value in SECTION_LABEL_KEYS
+  return value !== undefined && value in sectionLabelKeys
 }
 
 export function staticBreadcrumbsFromPath(
   pathname: string,
   lng: string,
-  translate: (key: (typeof SECTION_LABEL_KEYS)[SectionKey]) => string,
+  translate: (key: (typeof sectionLabelKeys)[SectionKey]) => string,
   homeLabel: string,
 ): readonly Crumb[] {
   const segments = pathname.split('/').filter(Boolean)
@@ -29,7 +29,7 @@ export function staticBreadcrumbsFromPath(
 
   return [
     {
-      label: translate(SECTION_LABEL_KEYS[section]),
+      label: translate(sectionLabelKeys[section]),
       href: segments.length > 1 ? `/${lng}/${section}` : undefined,
     },
   ]

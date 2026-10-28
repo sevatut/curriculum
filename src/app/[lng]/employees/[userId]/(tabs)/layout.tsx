@@ -5,6 +5,8 @@ import { getUser, userDisplayName } from '@/entities/user'
 import { PageTabs } from '@/shared/ui/page-tabs'
 import { TabbedSetBreadcrumbs } from '@/widgets/app-header'
 
+const employeeTabSegments = ['profile', 'skills', 'languages'] as const
+
 export default async function EmployeeTabsLayout({
   children,
   params,
@@ -21,7 +23,7 @@ export default async function EmployeeTabsLayout({
 
   const base = `/${lng}/employees/${userId}`
 
-  const employeeTabs = (['profile', 'skills', 'languages'] as const).map((segment) => ({
+  const employeeTabs = employeeTabSegments.map((segment) => ({
     segment,
     label: t(`tabs.${segment}`),
     href: `${base}/${segment}`,

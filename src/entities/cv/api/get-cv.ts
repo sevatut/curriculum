@@ -2,10 +2,10 @@ import { gql, type TypedDocumentNode } from '@apollo/client'
 
 import { query } from '@/shared/api/apollo-client'
 
-import type { CvDetails } from '../model/cv'
+import type { Cv } from '../model/cv'
 
 type GetCvData = {
-  cv: CvDetails | null
+  cv: Cv | null
 }
 
 type GetCvVariables = {
@@ -27,7 +27,7 @@ const GET_CV: TypedDocumentNode<GetCvData, GetCvVariables> = gql`
   }
 `
 
-export async function getCv(cvId: string): Promise<CvDetails | null> {
+export async function getCv(cvId: string): Promise<Cv | null> {
   const { data } = await query({
     query: GET_CV,
     variables: { cvId },

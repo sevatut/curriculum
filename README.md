@@ -14,6 +14,15 @@
 | Иконки     | **lucide-react**                                  |
 | i18n       | **next-i18next** v16 (`i18next`, `react-i18next`) |
 
+## Именование
+
+- **Файлы и папки:** `kebab-case` (`app-sidebar.tsx`, `use-mobile.ts`)
+- **Компоненты, типы, интерфейсы:** `PascalCase` (`AppSidebar`, `User`)
+- **Функции, переменные (включая объекты, массивы и строковые константы модуля):** `camelCase` (`getUsers`, `resolveLocale`, `formErrorCode`, `navItems`, `defaultLocale = 'en'`)
+- **Хуки:** `camelCase` с префиксом `use` (`useIsMobile`)
+- **Исключение, константы модуля:** числа, regex и GraphQL-документы пишутся в `UPPER_SNAKE_CASE` (`MIN_PASSWORD_LENGTH = 8`, `EMAIL_PATTERN`, `GET_USERS`)
+- **Импорты:** алиас `@/` вместо длинных относительных путей
+
 ## Запуск
 
 ```bash

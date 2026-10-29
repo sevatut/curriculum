@@ -48,6 +48,18 @@
   --color-search: var(--search);
   --color-eye: var(--eye);
 
+  /* Навыки */
+  --color-novice: var(--novice);
+  --color-novice-bar: var(--novice-bar);
+  --color-advanced: var(--advanced);
+  --color-advanced-bar: var(--advanced-bar);
+  --color-competent: var(--competent);
+  --color-competent-bar: var(--competent-bar);
+  --color-expert: var(--expert);
+  --color-expert-bar: var(--expert-bar);
+  --color-master: var(--master);
+  --color-skill-text: var(--skill-text);
+
   /* Радиус */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -132,6 +144,18 @@
   --search: #0000008a;
   --eye: #0000008a;
 
+  /* Навыки */
+  --novice: #cacaca;
+  --novice-bar: #767676;
+  --advanced: #9ed1ed;
+  --advanced-bar: #0288d1;
+  --competent: #afcdb1;
+  --competent-bar: #2e7d32;
+  --expert: #ffe49e;
+  --expert-bar: #ffb800;
+  --master: #c63031;
+  --skill-text: #767676;
+
   /* Радиус */
   --radius: 0.625rem;
 }
@@ -171,6 +195,14 @@
   --input-border: #ffffff3b;
   --search: #ffffff;
   --eye: #ffffff;
+
+  /* Навыки */
+  --novice: #3b3b3b;
+  --advanced: #145b7b;
+  --advanced-bar: #29b6f6;
+  --competent: #335d35;
+  --competent-bar: #66bb6a;
+  --expert: #7f5c00;
 }
 
 @layer base {

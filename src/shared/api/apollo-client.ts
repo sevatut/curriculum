@@ -15,16 +15,16 @@ import { defaultLocale, resolveLocale } from '@/shared/i18n/settings'
 import { authLogoutPath } from './session'
 import { readSession } from './session-store'
 
-const UNAUTHORIZED_MESSAGE = 'Unauthorized'
+const unauthorizedMessage = 'Unauthorized'
 
 function isUnauthorizedGraphqlError(error: GraphQLFormattedError) {
-  if (error.message === UNAUTHORIZED_MESSAGE) return true
+  if (error.message === unauthorizedMessage) return true
 
   const original = error.extensions?.originalError
   if (!original || typeof original !== 'object' || !('message' in original))
     return false
 
-  return original.message === UNAUTHORIZED_MESSAGE
+  return original.message === unauthorizedMessage
 }
 
 function parsedBody(bodyText: string) {
@@ -37,7 +37,7 @@ function parsedBody(bodyText: string) {
 
 function jsonHasUnauthorized(value: unknown) {
   if (!value || typeof value !== 'object') return false
-  if ('message' in value && value.message === UNAUTHORIZED_MESSAGE) return true
+  if ('message' in value && value.message === unauthorizedMessage) return true
   if (!('errors' in value) || !Array.isArray(value.errors)) return false
 
   return value.errors.some(
@@ -45,7 +45,7 @@ function jsonHasUnauthorized(value: unknown) {
       !!item &&
       typeof item === 'object' &&
       'message' in item &&
-      item.message === UNAUTHORIZED_MESSAGE,
+      item.message === unauthorizedMessage,
   )
 }
 

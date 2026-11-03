@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { createProxy } from 'next-i18next/proxy'
 
-import { authLogoutPath, parseSession, SESSION_COOKIE_NAME } from '@/shared/api/session'
+import { authLogoutPath, parseSession, sessionCookieName } from '@/shared/api/session'
 import { i18nConfig } from '@/shared/i18n/config'
 import { isLocale, type Locale } from '@/shared/i18n/settings'
 
@@ -21,8 +21,8 @@ function redirectToLogin(request: NextRequest, lng: Locale) {
   url.pathname = `/${lng}/auth/login`
   const response = NextResponse.redirect(url)
 
-  if (request.cookies.has(SESSION_COOKIE_NAME)) {
-    response.cookies.delete({ name: SESSION_COOKIE_NAME, path: '/' })
+  if (request.cookies.has(sessionCookieName)) {
+    response.cookies.delete({ name: sessionCookieName, path: '/' })
   }
 
   return response
@@ -37,7 +37,7 @@ export function proxy(request: NextRequest) {
       return redirectToLogin(request, lng)
     }
 
-    const session = parseSession(request.cookies.get(SESSION_COOKIE_NAME)?.value)
+    const session = parseSession(request.cookies.get(sessionCookieName)?.value)
     const authPath = isAuthPath(pathname, lng)
 
     if (!session && !authPath) {

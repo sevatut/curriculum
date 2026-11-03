@@ -1,7 +1,7 @@
 import { cn } from 'cn'
 import { forwardRef, ReactNode } from 'react'
 
-import Input from '@/shared/ui/Input/Input'
+import Input from '@/shared/ui/input/input'
 
 interface TextFieldProps extends React.ComponentProps<typeof Input> {
   rightElement?: ReactNode

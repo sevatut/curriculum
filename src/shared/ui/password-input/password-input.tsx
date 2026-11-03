@@ -3,7 +3,7 @@
 import { forwardRef, useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 import { useT } from 'next-i18next/client'
-import { TextField } from '../TextField/TextField'
+import { TextField } from '@/shared/ui/text-field/text-field'
 
 export const PasswordInput = forwardRef<
   HTMLInputElement,

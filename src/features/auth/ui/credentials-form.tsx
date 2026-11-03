@@ -4,8 +4,8 @@ import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 import { useActionState, useState, type SubmitEvent } from 'react'
 
-import { PasswordInput } from '@/shared/ui/PasswordInput/PasswordInput'
-import { TextField } from '@/shared/ui/TextField/TextField'
+import { PasswordInput } from '@/shared/ui/password-input/password-input'
+import { TextField } from '@/shared/ui/text-field/text-field'
 
 import { loginAction, signupAction } from '../api/auth-actions'
 import { parseCredentials } from '../model/credentials'

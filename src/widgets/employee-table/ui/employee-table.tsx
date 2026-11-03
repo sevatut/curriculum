@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
 import { DataTable } from '@/shared/ui/data-table'
-import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
+import { SearchInput } from '@/shared/ui/search-input/search-input'
 
 import { filterEmployeeTableRows } from '../model/filter-employee-table-rows'
 import { EmployeeTableActions } from './employee-table-actions'

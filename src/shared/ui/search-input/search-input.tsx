@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { Search } from 'lucide-react'
-import Input from '@/shared/ui/Input/Input'
+import Input from '@/shared/ui/input/input'
 
 export const SearchInput = forwardRef<
   HTMLInputElement,

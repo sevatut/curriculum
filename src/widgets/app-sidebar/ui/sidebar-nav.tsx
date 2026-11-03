@@ -11,7 +11,7 @@ import {
   SidebarMenuItem,
 } from '@/shared/ui/sidebar'
 
-import { NAV_ITEMS } from './nav-items'
+import { navItems } from './nav-items'
 
 type SidebarNavProps = {
   lng: string
@@ -28,7 +28,7 @@ export function SidebarNav({ lng }: SidebarNavProps) {
   return (
     <SidebarGroup className="px-0">
       <SidebarMenu className="gap-3.5">
-        {NAV_ITEMS.map((item) => {
+        {navItems.map((item) => {
           const href = `/${lng}${item.path}`
           const label = t(item.labelKey)
           const Icon = item.icon

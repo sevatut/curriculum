@@ -1,6 +1,6 @@
 import type { Session } from './session.types'
 
-export const SESSION_COOKIE_NAME = 'session'
+export const sessionCookieName = 'session'
 
 export function authLogoutPath(lng: string) {
   return `/${lng}/auth/logout`

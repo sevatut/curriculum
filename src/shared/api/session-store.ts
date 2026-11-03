@@ -1,19 +1,19 @@
 import { cookies } from 'next/headers'
 
 import type { Session } from './session.types'
-import { parseSession, SESSION_COOKIE_NAME, sessionCookieOptions } from './session'
+import { parseSession, sessionCookieName, sessionCookieOptions } from './session'
 
 export async function readSession(): Promise<Session | null> {
   const cookieStore = await cookies()
-  return parseSession(cookieStore.get(SESSION_COOKIE_NAME)?.value)
+  return parseSession(cookieStore.get(sessionCookieName)?.value)
 }
 
 export async function writeSession(session: Session) {
   const cookieStore = await cookies()
-  cookieStore.set(SESSION_COOKIE_NAME, JSON.stringify(session), sessionCookieOptions())
+  cookieStore.set(sessionCookieName, JSON.stringify(session), sessionCookieOptions())
 }
 
 export async function clearSession() {
   const cookieStore = await cookies()
-  cookieStore.delete(SESSION_COOKIE_NAME)
+  cookieStore.delete(sessionCookieName)
 }

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useT } from 'next-i18next/client'
 
 import { CreateButton } from '@/shared/ui/create-button'
-import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
+import { SearchInput } from '@/shared/ui/search-input/search-input'
 
 import { filterCvTableRows } from '../model/filter-cv-table-rows'
 import type { CvTableRow } from '../model/cv-table-row'

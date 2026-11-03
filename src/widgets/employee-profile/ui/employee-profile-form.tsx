@@ -4,8 +4,8 @@ import { useT } from 'next-i18next/client'
 import { useActionState, useRef, useState, type SubmitEvent } from 'react'
 
 import { Button } from '@/shared/ui/button'
-import { SelectField } from '@/shared/ui/SelectField/SelectField'
-import { TextField } from '@/shared/ui/TextField/TextField'
+import { SelectField } from '@/shared/ui/select-field/select-field'
+import { TextField } from '@/shared/ui/text-field/text-field'
 
 import { saveEmployeeProfile } from '../api/save-employee-profile'
 import { errorKey } from '../model/profile-error'

@@ -10,4 +10,4 @@ export {
   SidebarProvider,
   SidebarTrigger,
   useSidebar,
-} from './sidebar'
+} from '@/shared/ui/sidebar/sidebar'

@@ -1,2 +1,2 @@
-export { Button } from './button'
-export { buttonVariants } from './button-variants'
+export { Button } from '@/shared/ui/button/button'
+export { buttonVariants } from '@/shared/ui/button/button-variants'

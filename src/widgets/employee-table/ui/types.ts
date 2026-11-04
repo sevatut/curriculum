@@ -1,4 +1,4 @@
-import type { EmployeeTableRow } from '../model/employee-table-row'
+import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 
 export type EmployeeTableProps = {
   rows: readonly EmployeeTableRow[]

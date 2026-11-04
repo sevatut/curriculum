@@ -2,8 +2,8 @@
 
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
 
-import type { Crumb } from '../model/crumb'
-import type { BreadcrumbContextValue } from './types'
+import type { Crumb } from '@/widgets/app-header/model/crumb'
+import type { BreadcrumbContextValue } from '@/widgets/app-header/ui/types'
 
 const breadcrumbContext = createContext<BreadcrumbContextValue | null>(null)
 

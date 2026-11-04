@@ -1,6 +1,11 @@
 import type { ComponentType, SVGProps } from 'react'
 
-import { CvsIcon, EmployeesIcon, LanguagesIcon, SkillsIcon } from './nav-icons'
+import {
+  CvsIcon,
+  EmployeesIcon,
+  LanguagesIcon,
+  SkillsIcon,
+} from '@/widgets/app-sidebar/ui/nav-icons'
 
 export const navItems = [
   { path: '/employees', labelKey: 'nav.employees', icon: EmployeesIcon },

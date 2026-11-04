@@ -3,10 +3,13 @@ import { CombinedGraphQLErrors } from '@apollo/client/errors'
 import { unstable_rethrow } from 'next/navigation'
 
 import { getClient } from '@/shared/api/apollo-client'
-
-import type { AuthAttempt } from '../model/auth-attempt'
-import type { Credentials } from '../model/credentials'
-import { serverErrorKey, toSession, type AuthResult } from './auth-result'
+import type { AuthAttempt } from '@/features/auth/model/auth-attempt'
+import type { Credentials } from '@/features/auth/model/credentials'
+import {
+  serverErrorKey,
+  toSession,
+  type AuthResult,
+} from '@/features/auth/api/auth-result'
 
 type AuthVariables = {
   auth: {

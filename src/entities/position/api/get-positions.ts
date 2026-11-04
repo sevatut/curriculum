@@ -1,8 +1,7 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
 import { query } from '@/shared/api/apollo-client'
-
-import type { Position } from '../model/position'
+import type { Position } from '@/entities/position/model/position'
 
 type GetPositionsData = {
   positions: Position[]

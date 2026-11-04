@@ -1,7 +1,6 @@
 import { readSession } from '@/shared/api/session-store'
-
-import type { Actor } from '../model/access'
-import { getCurrentUser } from './get-current-user'
+import type { Actor } from '@/entities/user/model/access'
+import { getCurrentUser } from '@/entities/user/api/get-current-user'
 
 export async function getActor(): Promise<Actor | null> {
   const session = await readSession()

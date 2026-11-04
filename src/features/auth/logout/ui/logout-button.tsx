@@ -4,8 +4,7 @@ import { LogOut } from 'lucide-react'
 import { useT } from 'next-i18next/client'
 
 import { Button } from '@/shared/ui/button'
-
-import { logoutAction } from '../api/logout-action'
+import { logoutAction } from '@/features/auth/logout/api/logout-action'
 
 export function LogoutButton({ lng }: { lng: string }) {
   const { t } = useT('common')

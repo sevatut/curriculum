@@ -1,4 +1,4 @@
-import type { CvTableRow } from './cv-table-row'
+import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
 
 export function filterCvTableRows(
   rows: readonly CvTableRow[],

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { cn } from 'cn'
 
-import type { DataTableColumn } from './types'
+import type { DataTableColumn } from '@/shared/ui/data-table/types'
 
 const cellClassName = 'py-7 pl-4 text-left text-sm leading-5'
 

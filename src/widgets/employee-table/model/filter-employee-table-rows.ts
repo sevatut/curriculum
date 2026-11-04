@@ -1,4 +1,4 @@
-import type { EmployeeTableRow } from './employee-table-row'
+import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 
 export function filterEmployeeTableRows(
   rows: readonly EmployeeTableRow[],

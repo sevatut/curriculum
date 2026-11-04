@@ -1,8 +1,7 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
 import { query } from '@/shared/api/apollo-client'
-
-import type { Department } from '../model/department'
+import type { Department } from '@/entities/department/model/department'
 
 type GetDepartmentsData = {
   departments: Department[]

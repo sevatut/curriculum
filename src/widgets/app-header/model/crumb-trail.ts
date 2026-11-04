@@ -1,5 +1,5 @@
-import type { Crumb } from './crumb'
-import type { CrumbTrailItem } from './crumb-trail-item'
+import type { Crumb } from '@/widgets/app-header/model/crumb'
+import type { CrumbTrailItem } from '@/widgets/app-header/model/crumb-trail-item'
 
 const TAB_TRAIL_LENGTH = 3
 

@@ -6,10 +6,9 @@ import { useActionState, useState, type SubmitEvent } from 'react'
 
 import { PasswordInput } from '@/shared/ui/password-input/password-input'
 import { TextField } from '@/shared/ui/text-field/text-field'
-
-import { loginAction, signupAction } from '../api/auth-actions'
-import { parseCredentials } from '../model/credentials'
-import { AuthForm, authFieldClassName } from './auth-form'
+import { loginAction, signupAction } from '@/features/auth/api/auth-actions'
+import { parseCredentials } from '@/features/auth/model/credentials'
+import { AuthForm, authFieldClassName } from '@/features/auth/ui/auth-form'
 
 type CredentialsFormProps = {
   intent: 'login' | 'signup'

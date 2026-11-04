@@ -1,6 +1,5 @@
 import { Button } from '@/shared/ui/button'
-
-import type { AuthFormProps } from './auth-form.types'
+import type { AuthFormProps } from '@/features/auth/ui/auth-form.types'
 
 export const authFieldClassName = 'h-12 max-w-none'
 

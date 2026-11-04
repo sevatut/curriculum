@@ -1,5 +1,5 @@
-import type { SkillItemProps } from '../model/types'
-import { masteryConfig } from '../model/mastery-config'
+import type { SkillItemProps } from '@/entities/skill/model/types'
+import { masteryConfig } from '@/entities/skill/model/mastery-config'
 
 export function SkillItem({ name, mastery }: SkillItemProps) {
   return (

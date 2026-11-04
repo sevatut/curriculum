@@ -1,4 +1,4 @@
-import type { DataTableColumn, DataTableSort } from './types'
+import type { DataTableColumn, DataTableSort } from '@/shared/ui/data-table/types'
 
 export function nextSort(current: DataTableSort | null, id: string): DataTableSort {
   if (current?.id !== id) {

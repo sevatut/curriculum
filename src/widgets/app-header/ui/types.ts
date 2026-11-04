@@ -1,4 +1,4 @@
-import type { Crumb } from '../model/crumb'
+import type { Crumb } from '@/widgets/app-header/model/crumb'
 
 export type BreadcrumbContextValue = {
   items: readonly Crumb[] | null

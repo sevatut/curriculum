@@ -1,4 +1,4 @@
-export { getCvTableRows } from './model/get-cv-table-rows'
-export type { CvTableRow } from './model/cv-table-row'
-export { CvTable } from './ui/cv-table'
-export { CvTableSection } from './ui/cv-table-section'
+export { getCvTableRows } from '@/widgets/cv-table/model/get-cv-table-rows'
+export type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
+export { CvTable } from '@/widgets/cv-table/ui/cv-table'
+export { CvTableSection } from '@/widgets/cv-table/ui/cv-table-section'

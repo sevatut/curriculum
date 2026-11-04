@@ -1,5 +1,5 @@
-import * as classes from './select-field-classes'
-import type { SelectFieldListProps } from './types'
+import * as classes from '@/shared/ui/select-field/select-field-classes'
+import type { SelectFieldListProps } from '@/shared/ui/select-field/types'
 
 export function SelectFieldList({
   id,

@@ -7,14 +7,13 @@ import { readSession, writeSession } from '@/shared/api/session-store'
 import type { Session } from '@/shared/api/session.types'
 import { resolveLocale } from '@/shared/i18n/settings'
 import { parseFormData } from '@/shared/validation'
-
-import type { ProfileFormError } from '../model/profile-error'
+import type { ProfileFormError } from '@/widgets/employee-profile/model/profile-error'
 import {
   isProfileChanged,
   profileSchema,
   profileValues,
-} from '../model/profile-form-values'
-import { applyProfileChanges } from './apply-profile-changes'
+} from '@/widgets/employee-profile/model/profile-form-values'
+import { applyProfileChanges } from '@/widgets/employee-profile/api/apply-profile-changes'
 
 type SaveEmployeeProfileState = {
   error?: ProfileFormError

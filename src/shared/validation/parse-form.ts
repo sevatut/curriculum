@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { formErrorCode } from './fields'
+import { formErrorCode } from '@/shared/validation/fields'
 
 export type FormParseResult<T> =
   { success: true; data: T } | { success: false; formError: string }

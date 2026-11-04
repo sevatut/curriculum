@@ -5,6 +5,6 @@ export {
   optionalTextSchema,
   passwordSchema,
   personNameSchema,
-} from './fields'
-export { parseFormData, readFormData } from './parse-form'
-export type { FormParseResult } from './parse-form'
+} from '@/shared/validation/fields'
+export { parseFormData, readFormData } from '@/shared/validation/parse-form'
+export type { FormParseResult } from '@/shared/validation/parse-form'

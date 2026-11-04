@@ -6,11 +6,16 @@ import { useActionState, useRef, useState, type SubmitEvent } from 'react'
 import { Button } from '@/shared/ui/button'
 import { SelectField } from '@/shared/ui/select-field/select-field'
 import { TextField } from '@/shared/ui/text-field/text-field'
-
-import { saveEmployeeProfile } from '../api/save-employee-profile'
-import { errorKey } from '../model/profile-error'
-import { isProfileChanged, readProfileForm } from '../model/profile-form-values'
-import type { CatalogOption, EmployeeProfileFormProps } from './types'
+import { saveEmployeeProfile } from '@/widgets/employee-profile/api/save-employee-profile'
+import { errorKey } from '@/widgets/employee-profile/model/profile-error'
+import {
+  isProfileChanged,
+  readProfileForm,
+} from '@/widgets/employee-profile/model/profile-form-values'
+import type {
+  CatalogOption,
+  EmployeeProfileFormProps,
+} from '@/widgets/employee-profile/ui/types'
 
 function catalogOptions(items: readonly CatalogOption[]) {
   return items.map((item) => ({ value: item.id, label: item.name }))

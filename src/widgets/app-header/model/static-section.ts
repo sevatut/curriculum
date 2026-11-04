@@ -1,4 +1,4 @@
-import type { Crumb } from './crumb'
+import type { Crumb } from '@/widgets/app-header/model/crumb'
 
 const sectionLabelKeys = {
   employees: 'nav.employees',

@@ -4,10 +4,9 @@ import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
 import { DataTable } from '@/shared/ui/data-table'
-
-import type { CvTableRow } from '../model/cv-table-row'
-import { CvTableActions } from './cv-table-actions'
-import { getCvTableColumns } from './cv-table-columns'
+import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
+import { CvTableActions } from '@/widgets/cv-table/ui/cv-table-actions'
+import { getCvTableColumns } from '@/widgets/cv-table/ui/cv-table-columns'
 
 type CvTableProps = {
   rows: readonly CvTableRow[]

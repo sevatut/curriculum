@@ -4,11 +4,13 @@ import { redirect } from 'next/navigation'
 
 import { writeSession } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
-
-import type { AuthActionState } from '../model/auth-action-state'
-import type { AuthAttempt } from '../model/auth-attempt'
-import { parseCredentials, type CredentialsIntent } from '../model/credentials'
-import { signIn, signUp } from './authenticate'
+import type { AuthActionState } from '@/features/auth/model/auth-action-state'
+import type { AuthAttempt } from '@/features/auth/model/auth-attempt'
+import {
+  parseCredentials,
+  type CredentialsIntent,
+} from '@/features/auth/model/credentials'
+import { signIn, signUp } from '@/features/auth/api/authenticate'
 
 type Authenticate = (input: { email: string; password: string }) => Promise<AuthAttempt>
 

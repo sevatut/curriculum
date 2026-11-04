@@ -4,7 +4,7 @@ import { headers } from 'next/headers'
 
 import { defaultLocale } from '@/shared/i18n'
 
-import './globals.css'
+import '@/app/globals.css'
 
 const roboto = Roboto({
   variable: '--font-roboto',

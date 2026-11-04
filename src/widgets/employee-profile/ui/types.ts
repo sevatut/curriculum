@@ -1,8 +1,7 @@
 import type { Department } from '@/entities/department'
 import type { Position } from '@/entities/position'
 import type { UserDetails } from '@/entities/user'
-
-import type { ProfileFormValues } from '../model/profile-form-values'
+import type { ProfileFormValues } from '@/widgets/employee-profile/model/profile-form-values'
 
 export type EmployeeProfileProps = {
   lng: string

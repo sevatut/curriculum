@@ -3,9 +3,8 @@ import Link from 'next/link'
 import { userInitial } from '@/entities/user/model/user-name'
 import { UserAvatar } from '@/entities/user/ui/user-avatar'
 import type { DataTableColumn } from '@/shared/ui/data-table'
-
-import type { EmployeeTableRow } from '../model/employee-table-row'
-import type { EmployeeTableColumnLabels } from './types'
+import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
+import type { EmployeeTableColumnLabels } from '@/widgets/employee-table/ui/types'
 
 export function getEmployeeTableColumns(
   lng: string,

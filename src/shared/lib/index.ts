@@ -1,2 +1,2 @@
-export { cn } from './utils'
-export { useIsMobile } from './hooks/use-mobile'
+export { cn } from '@/shared/lib/utils'
+export { useIsMobile } from '@/shared/lib/hooks/use-mobile'

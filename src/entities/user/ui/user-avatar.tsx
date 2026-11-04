@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { cn } from 'cn'
 
-import type { UserAvatarProps } from './types'
-import { sizeClassName, toneClassName } from './user-avatar-classes'
+import type { UserAvatarProps } from '@/entities/user/ui/types'
+import { sizeClassName, toneClassName } from '@/entities/user/ui/user-avatar-classes'
 
 export function UserAvatar({
   src,

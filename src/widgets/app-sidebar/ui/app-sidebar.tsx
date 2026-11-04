@@ -9,10 +9,9 @@ import {
   SidebarTrigger,
 } from '@/shared/ui/sidebar'
 import { TooltipProvider } from '@/shared/ui/tooltip'
-
-import { SidebarCollapseButton } from './sidebar-collapse-button'
-import { SidebarNav } from './sidebar-nav'
-import { SidebarUser } from './sidebar-user'
+import { SidebarCollapseButton } from '@/widgets/app-sidebar/ui/sidebar-collapse-button'
+import { SidebarNav } from '@/widgets/app-sidebar/ui/sidebar-nav'
+import { SidebarUser } from '@/widgets/app-sidebar/ui/sidebar-user'
 
 function AppSidebar({ lng, userName }: { lng: string; userName: string }) {
   return (

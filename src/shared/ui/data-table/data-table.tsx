@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { cn } from 'cn'
 
-import { DataTableBody } from './data-table-body'
-import { DataTableColumnHeader } from './data-table-column-header'
-import { nextSort, sortRows } from './sort-rows'
-import type { DataTableProps, DataTableSort } from './types'
+import { DataTableBody } from '@/shared/ui/data-table/data-table-body'
+import { DataTableColumnHeader } from '@/shared/ui/data-table/data-table-column-header'
+import { nextSort, sortRows } from '@/shared/ui/data-table/sort-rows'
+import type { DataTableProps, DataTableSort } from '@/shared/ui/data-table/types'
 
 export function DataTable<Row extends { id: string }>({
   columns,

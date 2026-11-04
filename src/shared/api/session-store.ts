@@ -1,7 +1,11 @@
 import { cookies } from 'next/headers'
 
-import type { Session } from './session.types'
-import { parseSession, sessionCookieName, sessionCookieOptions } from './session'
+import type { Session } from '@/shared/api/session.types'
+import {
+  parseSession,
+  sessionCookieName,
+  sessionCookieOptions,
+} from '@/shared/api/session'
 
 export async function readSession(): Promise<Session | null> {
   const cookieStore = await cookies()

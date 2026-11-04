@@ -1,7 +1,6 @@
 import { departmentDisplayName } from '@/entities/department'
 import { getUsers } from '@/entities/user'
-
-import type { EmployeeTableRow } from './employee-table-row'
+import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 
 export async function getEmployeeTableRows(): Promise<readonly EmployeeTableRow[]> {
   const users = await getUsers()

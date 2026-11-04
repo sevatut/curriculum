@@ -1,6 +1,6 @@
 import type { I18nConfig } from 'next-i18next/proxy'
 
-import { defaultLocale, supportedLngs } from './settings'
+import { defaultLocale, supportedLngs } from '@/shared/i18n/settings'
 
 const resourceLoader: I18nConfig['resourceLoader'] =
   process.env.NODE_ENV === 'development'

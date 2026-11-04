@@ -1,4 +1,7 @@
-import type { sizeClassName, toneClassName } from './user-avatar-classes'
+import type {
+  sizeClassName,
+  toneClassName,
+} from '@/entities/user/ui/user-avatar-classes'
 
 export type UserAvatarProps = {
   src: string

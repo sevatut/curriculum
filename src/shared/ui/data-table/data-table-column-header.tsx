@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowUp } from 'lucide-react'
 import { cn } from 'cn'
 
-import type { DataTableColumn, DataTableSort } from './types'
+import type { DataTableColumn, DataTableSort } from '@/shared/ui/data-table/types'
 
 type DataTableColumnHeaderProps<Row> = {
   column: DataTableColumn<Row>

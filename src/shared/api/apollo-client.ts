@@ -11,9 +11,8 @@ import { headers } from 'next/headers'
 import { redirect, unstable_rethrow } from 'next/navigation'
 
 import { defaultLocale, resolveLocale } from '@/shared/i18n/settings'
-
-import { authLogoutPath } from './session'
-import { readSession } from './session-store'
+import { authLogoutPath } from '@/shared/api/session'
+import { readSession } from '@/shared/api/session-store'
 
 const unauthorizedMessage = 'Unauthorized'
 

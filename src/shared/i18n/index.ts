@@ -1,1 +1,1 @@
-export { defaultLocale, supportedLngs, type Locale } from './settings'
+export { defaultLocale, supportedLngs, type Locale } from '@/shared/i18n/settings'

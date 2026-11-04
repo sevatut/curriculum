@@ -1,3 +1,3 @@
-export { getCv } from './api/get-cv'
-export { getCvs } from './api/get-cvs'
-export type { Cv } from './model/cv'
+export { getCv } from '@/entities/cv/api/get-cv'
+export { getCvs } from '@/entities/cv/api/get-cvs'
+export type { Cv } from '@/entities/cv/model/cv'

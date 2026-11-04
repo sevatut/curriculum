@@ -10,8 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/shared/ui/sidebar'
-
-import { navItems } from './nav-items'
+import { navItems } from '@/widgets/app-sidebar/ui/nav-items'
 
 type SidebarNavProps = {
   lng: string

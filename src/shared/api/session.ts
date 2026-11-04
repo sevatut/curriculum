@@ -1,4 +1,4 @@
-import type { Session } from './session.types'
+import type { Session } from '@/shared/api/session.types'
 
 export const sessionCookieName = 'session'
 

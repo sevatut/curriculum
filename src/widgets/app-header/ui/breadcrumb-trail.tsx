@@ -11,9 +11,8 @@ import {
   BreadcrumbSeparator,
 } from '@/shared/ui/breadcrumb'
 import { ChevronLeftIcon } from '@/shared/ui/chevron-left-icon'
-
-import { crumbTrail } from '../model/crumb-trail'
-import type { Crumb } from '../model/crumb'
+import { crumbTrail } from '@/widgets/app-header/model/crumb-trail'
+import type { Crumb } from '@/widgets/app-header/model/crumb'
 
 export function BreadcrumbTrail({
   items,

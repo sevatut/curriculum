@@ -1,7 +1,7 @@
 'use client'
 
 import { useT } from 'next-i18next/client'
-import { Button } from '../button'
+import { Button } from '@/shared/ui/button'
 import { X } from 'lucide-react'
 import { useEffect } from 'react'
 

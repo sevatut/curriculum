@@ -3,9 +3,9 @@
 import { usePathname } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
-import { staticBreadcrumbsFromPath } from '../model/static-section'
-import { BreadcrumbTrail } from './breadcrumb-trail'
-import { useBreadcrumbs } from './breadcrumb-context'
+import { staticBreadcrumbsFromPath } from '@/widgets/app-header/model/static-section'
+import { BreadcrumbTrail } from '@/widgets/app-header/ui/breadcrumb-trail'
+import { useBreadcrumbs } from '@/widgets/app-header/ui/breadcrumb-context'
 
 export function AppBreadcrumbs({ lng }: { lng: string }) {
   const pathname = usePathname()

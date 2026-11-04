@@ -4,10 +4,10 @@ import { cn } from 'cn'
 import { ChevronDown } from 'lucide-react'
 import { useId, useRef, useState } from 'react'
 
-import * as classes from './select-field-classes'
-import { SelectFieldList } from './select-field-list'
-import type { SelectFieldProps } from './types'
-import { useOutsidePointerDown } from './use-outside-pointer-down'
+import * as classes from '@/shared/ui/select-field/select-field-classes'
+import { SelectFieldList } from '@/shared/ui/select-field/select-field-list'
+import type { SelectFieldProps } from '@/shared/ui/select-field/types'
+import { useOutsidePointerDown } from '@/shared/ui/select-field/use-outside-pointer-down'
 
 export function SelectField({
   label,

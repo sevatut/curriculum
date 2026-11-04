@@ -4,10 +4,9 @@ import { getT } from 'next-i18next/server'
 import { departmentDisplayName } from '@/entities/department'
 import { userDisplayName, userInitial } from '@/entities/user'
 import { UserAvatar } from '@/entities/user/ui/user-avatar'
-
-import { profileValues } from '../model/profile-form-values'
-import { EmployeeProfileForm } from './employee-profile-form'
-import type { EmployeeProfileProps } from './types'
+import { profileValues } from '@/widgets/employee-profile/model/profile-form-values'
+import { EmployeeProfileForm } from '@/widgets/employee-profile/ui/employee-profile-form'
+import type { EmployeeProfileProps } from '@/widgets/employee-profile/ui/types'
 
 export async function EmployeeProfile({
   lng,

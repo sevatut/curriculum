@@ -1,8 +1,7 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
 import { query } from '@/shared/api/apollo-client'
-
-import type { UserDetails } from '../model/user'
+import type { UserDetails } from '@/entities/user/model/user'
 
 type GetUserData = {
   user: UserDetails | null

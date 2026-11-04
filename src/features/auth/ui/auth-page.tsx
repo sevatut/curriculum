@@ -1,4 +1,4 @@
-import type { AuthPageProps } from './auth-page.types'
+import type { AuthPageProps } from '@/features/auth/ui/auth-page.types'
 
 export function AuthPage({ title, subtitle, children }: AuthPageProps) {
   return (

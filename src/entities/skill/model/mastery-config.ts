@@ -1,4 +1,4 @@
-import type { Mastery } from './types'
+import type { Mastery } from '@/entities/skill/model/types'
 
 export const masteryConfig: Record<
   Mastery,

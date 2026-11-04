@@ -8,7 +8,7 @@ import { I18nProvider } from 'next-i18next/client'
 
 import { readSession } from '@/shared/api/session-store'
 import { i18nConfig } from '@/shared/i18n/config'
-import { AppFrame } from './app-frame'
+import { AppFrame } from '@/app/[lng]/app-frame'
 
 initServerI18next(i18nConfig)
 

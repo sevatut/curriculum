@@ -1,4 +1,4 @@
-import type { UserRole } from './user'
+import type { UserRole } from '@/entities/user/model/user'
 
 export type Actor = {
   id: string

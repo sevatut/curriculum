@@ -1,6 +1,5 @@
 import { getCvs } from '@/entities/cv'
-
-import type { CvTableRow } from './cv-table-row'
+import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
 
 export async function getCvTableRows(): Promise<readonly CvTableRow[]> {
   const cvs = await getCvs()

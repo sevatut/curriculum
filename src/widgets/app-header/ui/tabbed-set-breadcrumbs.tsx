@@ -4,9 +4,8 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 import { useLayoutEffect } from 'react'
 
 import type { PageTab } from '@/shared/ui/page-tabs'
-
-import type { Crumb } from '../model/crumb'
-import { useBreadcrumbs } from './breadcrumb-context'
+import type { Crumb } from '@/widgets/app-header/model/crumb'
+import { useBreadcrumbs } from '@/widgets/app-header/ui/breadcrumb-context'
 
 export function TabbedSetBreadcrumbs({
   items,

@@ -1,3 +1,3 @@
-export { getEmployeeTableRows } from './model/get-employee-table-rows'
-export type { EmployeeTableRow } from './model/employee-table-row'
-export { EmployeeTable } from './ui/employee-table'
+export { getEmployeeTableRows } from '@/widgets/employee-table/model/get-employee-table-rows'
+export type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
+export { EmployeeTable } from '@/widgets/employee-table/ui/employee-table'

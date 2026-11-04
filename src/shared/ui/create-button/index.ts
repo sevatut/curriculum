@@ -1,1 +1,1 @@
-export { CreateButton } from './create-button'
+export { CreateButton } from '@/shared/ui/create-button/create-button'

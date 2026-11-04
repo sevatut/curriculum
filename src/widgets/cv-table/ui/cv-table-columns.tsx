@@ -1,8 +1,7 @@
 import Link from 'next/link'
 
 import type { DataTableColumn } from '@/shared/ui/data-table'
-
-import type { CvTableRow } from '../model/cv-table-row'
+import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
 
 type CvTableColumnLabels = {
   name: string

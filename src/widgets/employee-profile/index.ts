@@ -1,1 +1,1 @@
-export { EmployeeProfile } from './ui/employee-profile'
+export { EmployeeProfile } from '@/widgets/employee-profile/ui/employee-profile'

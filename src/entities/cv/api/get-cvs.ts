@@ -1,8 +1,7 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
 import { query } from '@/shared/api/apollo-client'
-
-import type { Cv } from '../model/cv'
+import type { Cv } from '@/entities/cv/model/cv'
 
 type GetCvsData = {
   cvs: Cv[]

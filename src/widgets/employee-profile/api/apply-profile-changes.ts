@@ -3,8 +3,7 @@ import { unstable_rethrow } from 'next/navigation'
 import { getDepartments } from '@/entities/department'
 import { getPositions } from '@/entities/position'
 import { updateProfile, updateUser } from '@/entities/user'
-
-import type { ProfileFormValues } from '../model/profile-form-values'
+import type { ProfileFormValues } from '@/widgets/employee-profile/model/profile-form-values'
 
 type ProfileSaveError = 'generic' | 'assignment'
 

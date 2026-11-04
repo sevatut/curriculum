@@ -1,1 +1,1 @@
-export { LogoutButton } from './ui/logout-button'
+export { LogoutButton } from '@/features/auth/logout/ui/logout-button'

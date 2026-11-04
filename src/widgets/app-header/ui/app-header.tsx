@@ -1,6 +1,6 @@
 'use client'
 
-import { AppBreadcrumbs } from './app-breadcrumbs'
+import { AppBreadcrumbs } from '@/widgets/app-header/ui/app-breadcrumbs'
 
 export function AppHeader({ lng }: { lng: string }) {
   return (

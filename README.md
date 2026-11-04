@@ -21,7 +21,9 @@
 - **Функции, переменные (включая объекты, массивы и строковые константы модуля):** `camelCase` (`getUsers`, `resolveLocale`, `formErrorCode`, `navItems`, `defaultLocale = 'en'`)
 - **Хуки:** `camelCase` с префиксом `use` (`useIsMobile`)
 - **Исключение, константы модуля:** числа, regex и GraphQL-документы пишутся в `UPPER_SNAKE_CASE` (`MIN_PASSWORD_LENGTH = 8`, `EMAIL_PATTERN`, `GET_USERS`)
-- **Импорты:** алиас `@/` вместо длинных относительных путей
+- **Исключение, сгенерированный код shadcn:** имена не меняются, чтобы не расходиться с генератором (`SIDEBAR_COOKIE_NAME`, `SidebarContext` в `src/shared/ui/sidebar/sidebar.tsx`)
+- **Исключение, динамические сегменты маршрутов:** `camelCase`, потому что имя папки становится ключом в `params` (`[cvId]` → `params.cvId`, `[userId]`)
+- **Импорты:** только через алиас `@/` (`@/entities/user/model/user`), относительные пути (`./`, `../`) не используются
 
 ## Запуск
 

@@ -1,22 +1,11 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
 import { getClient } from '@/shared/api/apollo-client'
-
-type UpdateUserData = {
-  updateUser: {
-    id: string
-  } | null
-}
-
-type UpdateUserVariables = {
-  user: {
-    userId: string
-    department_id: string | null
-    position_id: string | null
-    department_name: string | null
-    position_name: string | null
-  }
-}
+import type {
+  UpdateUserData,
+  UpdateUserInput,
+  UpdateUserVariables,
+} from '@/entities/user/api/types'
 
 const UPDATE_USER: TypedDocumentNode<UpdateUserData, UpdateUserVariables> = gql`
   mutation UpdateUser($user: UpdateUserInput!) {
@@ -26,19 +15,14 @@ const UPDATE_USER: TypedDocumentNode<UpdateUserData, UpdateUserVariables> = gql`
   }
 `
 
-export async function updateUser(input: {
-  userId: string
-  departmentId: string
-  positionId: string
-  departmentName: string
-  positionName: string
-}) {
+export async function updateUser(input: UpdateUserInput) {
   const client = await getClient()
   const { data } = await client.mutate({
     mutation: UPDATE_USER,
     variables: {
       user: {
         userId: input.userId,
+        role: input.role,
         department_id: input.departmentId || null,
         position_id: input.positionId || null,
         department_name: input.departmentName || null,

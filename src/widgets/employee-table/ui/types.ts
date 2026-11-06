@@ -1,14 +1,20 @@
+import type { Actor } from '@/entities/user'
+import type { UserCatalogs } from '@/features/user/manage-user'
 import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 
-export type EmployeeTableProps = {
+export type EmployeeTableProps = UserCatalogs & {
   rows: readonly EmployeeTableRow[]
-  currentUserId: string
+  actor: Actor | null
 }
 
-export type EmployeeTableActionsProps = {
+export type EmployeeProfileLinkProps = {
   href: string
   label: string
-  own: boolean
+}
+
+export type EmployeeAdminMenuProps = UserCatalogs & {
+  row: EmployeeTableRow
+  deletable: boolean
 }
 
 export type EmployeeTableColumnLabels = {

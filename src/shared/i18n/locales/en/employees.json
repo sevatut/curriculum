@@ -7,6 +7,11 @@
   "empty": "No employees found",
   "actions": "Open profile",
   "search": "Search by full name",
+  "menu": {
+    "label": "User actions",
+    "update": "Update user",
+    "delete": "Delete user"
+  },
   "role": {
     "Employee": "Employee",
     "Admin": "Admin"

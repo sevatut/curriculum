@@ -32,6 +32,13 @@
     "title": "Update user",
     "submit": "Update"
   },
+  "deleteUser": {
+    "title": "Delete user",
+    "submit": "Confirm",
+    "message": "Are you sure you want to delete user {{name}}?",
+    "errorForbidden": "Only an admin can delete other users",
+    "errorGeneric": "Could not delete the user"
+  },
   "column": {
     "firstName": "First name",
     "lastName": "Last name",

@@ -17,6 +17,15 @@ export async function writeSession(session: Session) {
   cookieStore.set(sessionCookieName, JSON.stringify(session), sessionCookieOptions())
 }
 
+export async function syncSessionUserName(userId: string, name: string) {
+  const session = await readSession()
+  if (!session || session.user.id !== userId || !name || session.user.name === name) {
+    return
+  }
+
+  await writeSession({ ...session, user: { ...session.user, name } })
+}
+
 export async function clearSession() {
   const cookieStore = await cookies()
   cookieStore.delete(sessionCookieName)

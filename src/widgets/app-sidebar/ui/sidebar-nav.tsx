@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/shared/ui/sidebar'
+import { NavIcon } from '@/widgets/app-sidebar/ui/nav-icon'
 import { navItems } from '@/widgets/app-sidebar/ui/nav-items'
 
 type SidebarNavProps = {
@@ -30,7 +31,6 @@ export function SidebarNav({ lng }: SidebarNavProps) {
         {navItems.map((item) => {
           const href = `/${lng}${item.path}`
           const label = t(item.labelKey)
-          const Icon = item.icon
 
           return (
             <SidebarMenuItem key={item.path}>
@@ -41,7 +41,7 @@ export function SidebarNav({ lng }: SidebarNavProps) {
                 className="h-14 w-50 gap-4 p-0 text-base font-normal not-italic leading-6 text-muted-foreground hover:text-muted-foreground data-active:text-foreground data-active:font-normal group-data-[collapsible=icon]:w-12"
               >
                 <span className="ml-4 flex size-6 shrink-0 items-center justify-center">
-                  <Icon />
+                  <NavIcon shape={item.icon} />
                 </span>
                 <span className="group-data-[collapsible=icon]:hidden">{label}</span>
               </SidebarMenuButton>

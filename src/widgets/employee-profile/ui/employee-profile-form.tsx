@@ -11,6 +11,7 @@ import { errorKey } from '@/widgets/employee-profile/model/profile-error'
 import {
   isProfileChanged,
   readProfileForm,
+  type ProfileFormValues,
 } from '@/widgets/employee-profile/model/profile-form-values'
 import type {
   CatalogOption,
@@ -36,13 +37,13 @@ export function EmployeeProfileForm({
   const formRef = useRef<HTMLFormElement>(null)
   const dirty = editedAt > (state.savedAt ?? 0)
 
-  function syncDirty(form: HTMLFormElement) {
-    const changed = isProfileChanged(readProfileForm(new FormData(form)), values)
-    setEditedAt(changed ? Date.now() : 0)
+  function syncDirty(form: HTMLFormElement, patch?: Partial<ProfileFormValues>) {
+    const current = { ...readProfileForm(new FormData(form)), ...patch }
+    setEditedAt(isProfileChanged(current, values) ? Date.now() : 0)
   }
 
-  function onSelectChange() {
-    if (formRef.current) syncDirty(formRef.current)
+  function onSelectChange(field: 'departmentId' | 'positionId', value: string) {
+    if (formRef.current) syncDirty(formRef.current, { [field]: value })
   }
 
   function onSubmit(event: SubmitEvent<HTMLFormElement>) {
@@ -83,7 +84,7 @@ export function EmployeeProfileForm({
         defaultValue={values.departmentId}
         disabled={!editable}
         options={catalogOptions(departments)}
-        onValueChange={onSelectChange}
+        onValueChange={(value) => onSelectChange('departmentId', value)}
         className="max-w-none"
       />
       <SelectField
@@ -92,7 +93,7 @@ export function EmployeeProfileForm({
         defaultValue={values.positionId}
         disabled={!editable}
         options={catalogOptions(positions)}
-        onValueChange={onSelectChange}
+        onValueChange={(value) => onSelectChange('positionId', value)}
         className="max-w-none"
       />
       <div className="flex w-full flex-col gap-2 md:col-start-2 md:mt-4">

@@ -3,6 +3,7 @@ import { CombinedGraphQLErrors } from '@apollo/client/errors'
 import { unstable_rethrow } from 'next/navigation'
 
 import { getClient } from '@/shared/api/apollo-client'
+import { isEmailTakenError } from '@/shared/api/graphql-errors'
 import type { AuthAttempt } from '@/features/auth/model/auth-attempt'
 import type { Credentials } from '@/features/auth/model/credentials'
 import {
@@ -60,15 +61,7 @@ function backendMessage(error: unknown) {
     }
   }
 
-  const message = error.errors
-    .map((item) => item.message)
-    .filter(Boolean)
-    .join('\n')
-
-  if (/unique constraint failed/i.test(message) && /email/i.test(message))
-    return 'emailTaken'
-
-  return 'generic'
+  return isEmailTakenError(error) ? 'emailTaken' : 'generic'
 }
 
 async function requestSession<Field extends AuthField>(

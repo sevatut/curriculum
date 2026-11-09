@@ -3,8 +3,7 @@
 import { revalidatePath } from 'next/cache'
 
 import { canEditProfile, getActor, getUser, userDisplayName } from '@/entities/user'
-import { readSession, writeSession } from '@/shared/api/session-store'
-import type { Session } from '@/shared/api/session.types'
+import { syncSessionUserName } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
 import { parseFormData } from '@/shared/validation'
 import type { ProfileFormError } from '@/widgets/employee-profile/model/profile-error'
@@ -26,7 +25,7 @@ export async function saveEmployeeProfile(
   _state: SaveEmployeeProfileState,
   formData: FormData,
 ): Promise<SaveEmployeeProfileState> {
-  const [session, actor] = await Promise.all([readSession(), getActor()])
+  const actor = await getActor()
   if (!canEditProfile(actor, userId)) return { error: 'forbidden' }
 
   const parsed = parseFormData(profileSchema, formData)
@@ -43,21 +42,10 @@ export async function saveEmployeeProfile(
   const saved = await applyProfileChanges(userId, next, initial)
   if ('error' in saved) return saved
 
-  if (session?.user.id === userId) {
-    await syncSessionName(session, saved.fullName ?? userDisplayName(current))
-  }
+  await syncSessionUserName(userId, saved.fullName ?? userDisplayName(current))
 
   revalidateEmployee(lng, userId)
   return { savedAt: Date.now() }
-}
-
-async function syncSessionName(session: Session, fullName: string | null) {
-  if (!fullName || fullName === session.user.name) return
-
-  await writeSession({
-    ...session,
-    user: { ...session.user, name: fullName },
-  })
 }
 
 function revalidateEmployee(lng: string, userId: string) {

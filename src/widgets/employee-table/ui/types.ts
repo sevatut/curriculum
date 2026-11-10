@@ -17,6 +17,11 @@ export type EmployeeAdminMenuProps = UserCatalogs & {
   deletable: boolean
 }
 
+export type EmployeeRowActionsProps = UserCatalogs & {
+  row: EmployeeTableRow
+  actor: Actor | null
+}
+
 export type EmployeeTableColumnLabels = {
   firstName: string
   lastName: string

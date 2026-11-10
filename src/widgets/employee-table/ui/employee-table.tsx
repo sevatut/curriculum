@@ -4,13 +4,13 @@ import { useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
-import { canDeleteUser, isAdmin } from '@/entities/user/model/access'
+import { isAdmin } from '@/entities/user/model/access'
 import { CreateUserButton } from '@/features/user/manage-user'
 import { DataTable } from '@/shared/ui/data-table'
 import { SearchInput } from '@/shared/ui/search-input/search-input'
+import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 import { filterEmployeeTableRows } from '@/widgets/employee-table/model/filter-employee-table-rows'
-import { EmployeeAdminMenu } from '@/widgets/employee-table/ui/employee-admin-menu'
-import { EmployeeProfileLink } from '@/widgets/employee-table/ui/employee-profile-link'
+import { EmployeeRowActions } from '@/widgets/employee-table/ui/employee-row-actions'
 import { getEmployeeTableColumns } from '@/widgets/employee-table/ui/employee-table-columns'
 import type { EmployeeTableProps } from '@/widgets/employee-table/ui/types'
 
@@ -27,6 +27,17 @@ export function EmployeeTable({
   const filteredRows = filterEmployeeTableRows(rows, query, i18n.language)
   const actionsLabel = t('actions')
   const admin = isAdmin(actor)
+
+  function renderActions(row: EmployeeTableRow) {
+    return (
+      <EmployeeRowActions
+        row={row}
+        actor={actor}
+        departments={departments}
+        positions={positions}
+      />
+    )
+  }
 
   return (
     <div className="flex flex-1 flex-col tracking-basic">
@@ -58,21 +69,7 @@ export function EmployeeTable({
         emptyLabel={t('empty')}
         locale={i18n.language}
         actionsLabel={actionsLabel}
-        renderActions={(row) =>
-          admin ? (
-            <EmployeeAdminMenu
-              row={row}
-              deletable={canDeleteUser(actor, row.id)}
-              departments={departments}
-              positions={positions}
-            />
-          ) : (
-            <EmployeeProfileLink
-              href={`/${lng}/employees/${row.id}/profile`}
-              label={actionsLabel}
-            />
-          )
-        }
+        renderActions={renderActions}
       />
     </div>
   )

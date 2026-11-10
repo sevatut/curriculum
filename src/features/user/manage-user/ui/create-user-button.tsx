@@ -14,17 +14,19 @@ export function CreateUserButton({
 }: CreateUserButtonProps) {
   const { t } = useT('employees')
   const [open, setOpen] = useState(false)
+  const openModal = () => setOpen(true)
+  const closeModal = () => setOpen(false)
 
   return (
     <>
-      <CreateButton className={className} onClick={() => setOpen(true)}>
+      <CreateButton className={className} onClick={openModal}>
         {t('createUser.button')}
       </CreateButton>
       {open && (
         <CreateUserModal
           departments={departments}
           positions={positions}
-          onClose={() => setOpen(false)}
+          onClose={closeModal}
         />
       )}
     </>

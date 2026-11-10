@@ -16,7 +16,7 @@ export function UserFormFields({
   const { t } = useT('employees')
   const roleOptions = userRoles.map((role) => ({
     value: role,
-    label: t(`role.${role}`),
+    label: t(`role.${role.toLowerCase()}`),
   }))
 
   return (

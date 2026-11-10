@@ -13,8 +13,8 @@
     "delete": "Delete user"
   },
   "role": {
-    "Employee": "Employee",
-    "Admin": "Admin"
+    "employee": "Employee",
+    "admin": "Admin"
   },
   "userForm": {
     "email": "Email",

@@ -5,6 +5,7 @@ import { unstable_rethrow } from 'next/navigation'
 import { getClient } from '@/shared/api/apollo-client'
 import { isEmailTakenError } from '@/shared/api/graphql-errors'
 import type { AuthAttempt } from '@/features/auth/model/auth-attempt'
+import { authError, type AuthError } from '@/features/auth/model/auth-error'
 import type { Credentials } from '@/features/auth/model/credentials'
 import {
   serverErrorKey,
@@ -48,8 +49,8 @@ const SIGN_UP: TypedDocumentNode<Record<'signup', AuthResult>, AuthVariables> = 
   }
 `
 
-function backendMessage(error: unknown) {
-  if (!CombinedGraphQLErrors.is(error)) return 'generic'
+function backendMessage(error: unknown): AuthError {
+  if (!CombinedGraphQLErrors.is(error)) return authError.generic
 
   for (const item of error.errors) {
     const code = item.extensions?.code
@@ -61,7 +62,7 @@ function backendMessage(error: unknown) {
     }
   }
 
-  return isEmailTakenError(error) ? 'emailTaken' : 'generic'
+  return isEmailTakenError(error) ? authError.emailTaken : authError.generic
 }
 
 async function requestSession<Field extends AuthField>(
@@ -83,7 +84,7 @@ async function requestSession<Field extends AuthField>(
     const result = data?.[field]
 
     if (!result?.access_token || !result.user) {
-      return { error: 'generic' }
+      return { error: authError.generic }
     }
 
     return { session: toSession(result) }

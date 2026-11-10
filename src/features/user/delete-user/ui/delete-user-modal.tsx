@@ -5,8 +5,10 @@ import { useT } from 'next-i18next/client'
 import { useState, useTransition } from 'react'
 
 import { deleteUserAction } from '@/features/user/delete-user/api/delete-user-action'
-import { deleteUserErrorKey } from '@/features/user/delete-user/model/delete-user-error'
-import type { DeleteUserError } from '@/features/user/delete-user/model/types'
+import {
+  deleteUserErrorKey,
+  type DeleteUserError,
+} from '@/features/user/delete-user/model/delete-user-error'
 import type { DeleteUserModalProps } from '@/features/user/delete-user/ui/types'
 import { Modal } from '@/shared/ui/modal/modal'
 

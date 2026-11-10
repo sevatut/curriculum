@@ -6,7 +6,10 @@ import { canEditProfile, getActor, getUser, userDisplayName } from '@/entities/u
 import { syncSessionUserName } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
 import { parseFormData } from '@/shared/validation'
-import type { ProfileFormError } from '@/widgets/employee-profile/model/profile-error'
+import {
+  profileFormError,
+  type ProfileFormError,
+} from '@/widgets/employee-profile/model/profile-error'
 import {
   isProfileChanged,
   profileSchema,
@@ -26,15 +29,15 @@ export async function saveEmployeeProfile(
   formData: FormData,
 ): Promise<SaveEmployeeProfileState> {
   const actor = await getActor()
-  if (!canEditProfile(actor, userId)) return { error: 'forbidden' }
+  if (!canEditProfile(actor, userId)) return { error: profileFormError.forbidden }
 
   const parsed = parseFormData(profileSchema, formData)
-  if (!parsed.success) return { error: 'required' }
+  if (!parsed.success) return { error: profileFormError.required }
 
   const next = parsed.data
 
   const current = await getUser(userId)
-  if (!current) return { error: 'generic' }
+  if (!current) return { error: profileFormError.generic }
 
   const initial = profileValues(current)
   if (!isProfileChanged(next, initial)) return { savedAt: Date.now() }

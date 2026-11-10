@@ -1,5 +1,16 @@
-import type { UserFormError } from '@/features/user/manage-user/model/types'
 import { formErrorCode } from '@/shared/validation'
+
+export const userFormError = {
+  required: 'required',
+  invalidEmail: 'invalidEmail',
+  weakPassword: 'weakPassword',
+  emailTaken: 'emailTaken',
+  detailsNotSaved: 'detailsNotSaved',
+  forbidden: 'forbidden',
+  generic: 'generic',
+} as const
+
+export type UserFormError = (typeof userFormError)[keyof typeof userFormError]
 
 export const userFormErrorKey = {
   required: 'userForm.errorRequired',
@@ -14,5 +25,5 @@ export const userFormErrorKey = {
 export function userFormParseError(code: string): UserFormError {
   return code === formErrorCode.invalidEmail || code === formErrorCode.weakPassword
     ? code
-    : 'required'
+    : userFormError.required
 }

@@ -1,11 +1,4 @@
-export type UserFormError =
-  | 'required'
-  | 'invalidEmail'
-  | 'weakPassword'
-  | 'emailTaken'
-  | 'detailsNotSaved'
-  | 'forbidden'
-  | 'generic'
+import type { UserFormError } from '@/features/user/manage-user/model/user-form-error'
 
 export type UserFormState = {
   error?: UserFormError

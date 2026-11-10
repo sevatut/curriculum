@@ -3,15 +3,17 @@ import { unstable_rethrow } from 'next/navigation'
 import { getDepartments } from '@/entities/department'
 import { getPositions } from '@/entities/position'
 import { updateProfile, updateUser } from '@/entities/user'
+import {
+  profileFormError,
+  type ProfileFormError,
+} from '@/widgets/employee-profile/model/profile-error'
 import type { ProfileFormValues } from '@/widgets/employee-profile/model/profile-form-values'
-
-type ProfileSaveError = 'generic' | 'assignment'
 
 export async function applyProfileChanges(
   userId: string,
   next: ProfileFormValues,
   initial: ProfileFormValues,
-): Promise<{ fullName: string | null } | { error: ProfileSaveError }> {
+): Promise<{ fullName: string | null } | { error: ProfileFormError }> {
   const namesChanged =
     next.firstName !== initial.firstName || next.lastName !== initial.lastName
   const assignmentChanged =
@@ -33,7 +35,9 @@ export async function applyProfileChanges(
   } catch (error) {
     unstable_rethrow(error)
     const restored = await restoreProfileName(userId, initial, fullName !== null)
-    return { error: restored ? 'generic' : 'assignment' }
+    return {
+      error: restored ? profileFormError.generic : profileFormError.assignment,
+    }
   }
 
   return { fullName }

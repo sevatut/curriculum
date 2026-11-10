@@ -7,7 +7,10 @@ import { getActor, isAdmin } from '@/entities/user'
 import { saveUserDetails } from '@/features/user/manage-user/api/save-user-details'
 import type { UserFormState } from '@/features/user/manage-user/model/types'
 import { userDetailsSchema } from '@/features/user/manage-user/model/user-form'
-import { userFormParseError } from '@/features/user/manage-user/model/user-form-error'
+import {
+  userFormError,
+  userFormParseError,
+} from '@/features/user/manage-user/model/user-form-error'
 import { syncSessionUserName } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
 import { parseFormData } from '@/shared/validation'
@@ -18,7 +21,7 @@ export async function updateUserAction(
   _state: UserFormState,
   formData: FormData,
 ): Promise<UserFormState> {
-  if (!isAdmin(await getActor())) return { error: 'forbidden' }
+  if (!isAdmin(await getActor())) return { error: userFormError.forbidden }
 
   const parsed = parseFormData(userDetailsSchema, formData)
   if (!parsed.success) return { error: userFormParseError(parsed.formError) }
@@ -28,7 +31,7 @@ export async function updateUserAction(
     await syncSessionUserName(userId, fullName)
   } catch (error) {
     unstable_rethrow(error)
-    return { error: 'generic' }
+    return { error: userFormError.generic }
   }
 
   const locale = resolveLocale(lng)

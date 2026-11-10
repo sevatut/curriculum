@@ -22,8 +22,10 @@ export function EmployeeAdminMenu({
   positions,
 }: EmployeeAdminMenuProps) {
   const { t } = useT('employees')
-  const [dialog, setDialog] = useState<'update' | 'delete' | null>(null)
-  const closeDialog = () => setDialog(null)
+  const [dialog, setDialog] = useState<'update' | 'delete' | 'closed'>('closed')
+  const openUpdate = () => setDialog('update')
+  const openDelete = () => setDialog('delete')
+  const closeDialog = () => setDialog('closed')
 
   return (
     <>
@@ -32,13 +34,9 @@ export function EmployeeAdminMenu({
           <EllipsisVertical className="size-4" aria-hidden />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem onClick={() => setDialog('update')}>
-            {t('menu.update')}
-          </DropdownMenuItem>
+          <DropdownMenuItem onClick={openUpdate}>{t('menu.update')}</DropdownMenuItem>
           {deletable && (
-            <DropdownMenuItem onClick={() => setDialog('delete')}>
-              {t('menu.delete')}
-            </DropdownMenuItem>
+            <DropdownMenuItem onClick={openDelete}>{t('menu.delete')}</DropdownMenuItem>
           )}
         </DropdownMenuContent>
       </DropdownMenu>

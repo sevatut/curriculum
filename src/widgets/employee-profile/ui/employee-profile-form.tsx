@@ -60,11 +60,11 @@ export function EmployeeProfileForm({
         onSelectChange={onSelectChange}
       />
       <div className="flex w-full flex-col gap-2 md:col-start-2 md:mt-4">
-        {error ? (
+        {error && (
           <p role="alert" className="text-sm text-destructive">
             {error}
           </p>
-        ) : null}
+        )}
         <Button
           type="submit"
           disabled={!editable || pending || !dirty}

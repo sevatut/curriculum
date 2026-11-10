@@ -35,28 +35,28 @@ export function EmployeeAdminMenu({
           <DropdownMenuItem onClick={() => setDialog('update')}>
             {t('menu.update')}
           </DropdownMenuItem>
-          {deletable ? (
+          {deletable && (
             <DropdownMenuItem onClick={() => setDialog('delete')}>
               {t('menu.delete')}
             </DropdownMenuItem>
-          ) : null}
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
-      {dialog === 'update' ? (
+      {dialog === 'update' && (
         <UpdateUserModal
           user={row}
           departments={departments}
           positions={positions}
           onClose={closeDialog}
         />
-      ) : null}
-      {dialog === 'delete' ? (
+      )}
+      {dialog === 'delete' && (
         <DeleteUserModal
           userId={row.id}
           userName={row.displayName}
           onClose={closeDialog}
         />
-      ) : null}
+      )}
     </>
   )
 }

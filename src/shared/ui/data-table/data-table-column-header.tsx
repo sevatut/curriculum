@@ -29,7 +29,7 @@ export function DataTableColumnHeader<Row>({
           className="inline-flex cursor-pointer items-center gap-1 font-semibold"
         >
           {column.label}
-          {direction ? <SortIcon className="size-3.5" aria-hidden /> : null}
+          {direction && <SortIcon className="size-3.5" aria-hidden />}
         </button>
       ) : (
         column.label

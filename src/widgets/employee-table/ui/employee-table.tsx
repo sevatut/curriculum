@@ -37,13 +37,13 @@ export function EmployeeTable({
           onChange={(event) => setQuery(event.target.value)}
           aria-label={t('search')}
         />
-        {admin ? (
+        {admin && (
           <CreateUserButton
             className="mr-6"
             departments={departments}
             positions={positions}
           />
-        ) : null}
+        )}
       </div>
       <DataTable
         columns={getEmployeeTableColumns(lng, {

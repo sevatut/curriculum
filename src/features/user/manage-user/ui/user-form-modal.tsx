@@ -41,11 +41,11 @@ export function UserFormModal({
         className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-8"
       >
         {children}
-        {state.error ? (
+        {state.error && (
           <p role="alert" className="text-sm text-destructive md:col-span-2">
             {t(userFormErrorKey[state.error])}
           </p>
-        ) : null}
+        )}
       </form>
     </Modal>
   )

@@ -20,13 +20,13 @@ export function CreateUserButton({
       <CreateButton className={className} onClick={() => setOpen(true)}>
         {t('createUser.button')}
       </CreateButton>
-      {open ? (
+      {open && (
         <CreateUserModal
           departments={departments}
           positions={positions}
           onClose={() => setOpen(false)}
         />
-      ) : null}
+      )}
     </>
   )
 }

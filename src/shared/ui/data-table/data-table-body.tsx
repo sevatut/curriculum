@@ -45,9 +45,9 @@ export function DataTableBody<Row extends { id: string }>({
             {column.cell(row)}
           </td>
         ))}
-        {renderActions ? <td className={cellClassName}>{renderActions(row)}</td> : null}
+        {renderActions && <td className={cellClassName}>{renderActions(row)}</td>}
       </tr>
-      {renderDetails ? (
+      {renderDetails && (
         <tr>
           <td
             colSpan={columnCount}
@@ -56,7 +56,7 @@ export function DataTableBody<Row extends { id: string }>({
             {renderDetails(row)}
           </td>
         </tr>
-      ) : null}
+      )}
     </tbody>
   ))
 }

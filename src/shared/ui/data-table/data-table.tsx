@@ -40,11 +40,11 @@ export function DataTable<Row extends { id: string }>({
               onSort={handleSort}
             />
           ))}
-          {renderActions ? (
+          {renderActions && (
             <th scope="col" className="py-5">
               <span className="sr-only">{actionsLabel}</span>
             </th>
-          ) : null}
+          )}
         </tr>
       </thead>
       <DataTableBody

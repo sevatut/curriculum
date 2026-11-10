@@ -42,11 +42,11 @@ export function DeleteUserModal({ userId, userName, onClose }: DeleteUserModalPr
           interpolation: { escapeValue: false },
         })}
       </p>
-      {error ? (
+      {error && (
         <p role="alert" className="text-sm text-destructive">
           {t(deleteUserErrorKey[error])}
         </p>
-      ) : null}
+      )}
     </Modal>
   )
 }

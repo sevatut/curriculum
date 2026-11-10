@@ -1,19 +1,6 @@
-import { gql, type TypedDocumentNode } from '@apollo/client'
-
 import { getClient } from '@/shared/api/apollo-client'
-import type {
-  UpdateUserData,
-  UpdateUserInput,
-  UpdateUserVariables,
-} from '@/entities/user/api/types'
-
-const UPDATE_USER: TypedDocumentNode<UpdateUserData, UpdateUserVariables> = gql`
-  mutation UpdateUser($user: UpdateUserInput!) {
-    updateUser(user: $user) {
-      id
-    }
-  }
-`
+import { UPDATE_USER } from '@/entities/user/api/update-user-mutation'
+import type { UpdateUserInput } from '@/entities/user/api/types'
 
 export async function updateUser(input: UpdateUserInput) {
   const client = await getClient()

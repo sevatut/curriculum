@@ -1,19 +1,6 @@
-import { gql, type TypedDocumentNode } from '@apollo/client'
-
 import { getClient } from '@/shared/api/apollo-client'
-import type {
-  CreateUserData,
-  CreateUserInput,
-  CreateUserVariables,
-} from '@/entities/user/api/types'
-
-const CREATE_USER: TypedDocumentNode<CreateUserData, CreateUserVariables> = gql`
-  mutation CreateUser($user: CreateUserInput!) {
-    createUser(user: $user) {
-      id
-    }
-  }
-`
+import { CREATE_USER } from '@/entities/user/api/create-user-mutation'
+import type { CreateUserInput } from '@/entities/user/api/types'
 
 export async function createUser(input: CreateUserInput): Promise<string> {
   const client = await getClient()

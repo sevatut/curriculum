@@ -7,28 +7,24 @@ type UserCatalogRef = {
   name: string
 }
 
-export type User = {
-  id: string
-  email: string
-  role: UserRole
-  department: UserCatalogRef | null
-  position: UserCatalogRef | null
-  profile: {
-    first_name: string
-    last_name: string
-    avatar: string | null
-  } | null
+type UserProfile = {
+  first_name: string
+  last_name: string
+  avatar: string | null
 }
 
-export type UserDetails = {
+type UserBase = {
   id: string
   email: string
   department: UserCatalogRef | null
   position: UserCatalogRef | null
-  profile: {
-    first_name: string
-    last_name: string
-    full_name: string
-    avatar: string | null
-  } | null
+}
+
+export type User = UserBase & {
+  role: UserRole
+  profile: UserProfile | null
+}
+
+export type UserDetails = UserBase & {
+  profile: (UserProfile & { full_name: string }) | null
 }

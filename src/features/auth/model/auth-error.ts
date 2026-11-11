@@ -4,7 +4,6 @@ export const authError = {
   emailTaken: 'emailTaken',
   invalidEmail: 'invalidEmail',
   weakPassword: 'weakPassword',
-  userNotFound: 'userNotFound',
   invalidCredentials: 'invalidCredentials',
 } as const
 

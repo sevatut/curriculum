@@ -72,7 +72,6 @@ const localErrorKey = {
   emailTaken: 'error.emailTaken',
   invalidEmail: 'error.invalidEmail',
   weakPassword: 'error.weakPassword',
-  userNotFound: 'error.userNotFound',
   invalidCredentials: 'error.invalidCredentials',
 } as const satisfies Record<AuthError, `error.${string}`>
 

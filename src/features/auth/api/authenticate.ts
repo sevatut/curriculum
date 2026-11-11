@@ -1,17 +1,15 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
-import { CombinedGraphQLErrors } from '@apollo/client/errors'
 import { unstable_rethrow } from 'next/navigation'
 
 import { getClient } from '@/shared/api/apollo-client'
-import { isEmailTakenError } from '@/shared/api/graphql-errors'
+import {
+  isEmailTakenError,
+  isInvalidCredentialsError,
+} from '@/shared/api/graphql-errors'
 import type { AuthAttempt } from '@/features/auth/model/auth-attempt'
 import { authError, type AuthError } from '@/features/auth/model/auth-error'
 import type { Credentials } from '@/features/auth/model/credentials'
-import {
-  serverErrorKey,
-  toSession,
-  type AuthResult,
-} from '@/features/auth/api/auth-result'
+import { toSession, type AuthResult } from '@/features/auth/api/auth-result'
 
 type AuthVariables = {
   auth: {
@@ -50,19 +48,9 @@ const SIGN_UP: TypedDocumentNode<Record<'signup', AuthResult>, AuthVariables> = 
 `
 
 function backendMessage(error: unknown): AuthError {
-  if (!CombinedGraphQLErrors.is(error)) return authError.generic
-
-  for (const item of error.errors) {
-    const code = item.extensions?.code
-    if (typeof code === 'string' && code in serverErrorKey) {
-      return serverErrorKey[code as keyof typeof serverErrorKey]
-    }
-    if (item.message in serverErrorKey) {
-      return serverErrorKey[item.message as keyof typeof serverErrorKey]
-    }
-  }
-
-  return isEmailTakenError(error) ? authError.emailTaken : authError.generic
+  if (isEmailTakenError(error)) return authError.emailTaken
+  if (isInvalidCredentialsError(error)) return authError.invalidCredentials
+  return authError.generic
 }
 
 async function requestSession<Field extends AuthField>(

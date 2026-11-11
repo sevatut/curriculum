@@ -25,8 +25,6 @@ export type UpdateUserInput = {
   role?: UserRole
   departmentId: string
   positionId: string
-  departmentName: string
-  positionName: string
 }
 
 export type UpdateUserData = {
@@ -41,8 +39,6 @@ export type UpdateUserVariables = {
     role?: UserRole
     department_id: string | null
     position_id: string | null
-    department_name: string | null
-    position_name: string | null
   }
 }
 

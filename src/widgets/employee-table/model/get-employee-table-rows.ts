@@ -14,8 +14,8 @@ export async function getEmployeeTableRows(): Promise<readonly EmployeeTableRow[
     email: user.email,
     role: user.role,
     departmentId: user.department?.id ?? '',
-    department: departmentDisplayName(user.department_name ?? ''),
+    department: departmentDisplayName(user.department?.name ?? ''),
     positionId: user.position?.id ?? '',
-    position: user.position_name ?? '',
+    position: user.position?.name ?? '',
   }))
 }

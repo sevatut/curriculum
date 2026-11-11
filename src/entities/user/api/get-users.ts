@@ -13,13 +13,13 @@ const GET_USERS: TypedDocumentNode<GetUsersData, Record<string, never>> = gql`
       id
       email
       role
-      department_name
-      position_name
       department {
         id
+        name
       }
       position {
         id
+        name
       }
       profile {
         first_name

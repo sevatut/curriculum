@@ -12,8 +12,6 @@ export async function updateUser(input: UpdateUserInput) {
         role: input.role,
         department_id: input.departmentId || null,
         position_id: input.positionId || null,
-        department_name: input.departmentName || null,
-        position_name: input.positionName || null,
       },
     },
   })

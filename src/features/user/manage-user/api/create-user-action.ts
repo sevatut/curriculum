@@ -13,6 +13,7 @@ import {
 } from '@/features/user/manage-user/model/user-form-error'
 import { isEmailTakenError } from '@/shared/api/graphql-errors'
 import { resolveLocale } from '@/shared/i18n/settings'
+import { appRoutes } from '@/shared/routes'
 import { parseFormData } from '@/shared/validation'
 
 export async function createUserAction(
@@ -39,7 +40,7 @@ export async function createUserAction(
     }
   }
 
-  revalidatePath(`/${resolveLocale(lng)}/employees`, 'page')
+  revalidatePath(appRoutes.employees.list(resolveLocale(lng)), 'page')
 
   try {
     await saveUserDetails(userId, details)

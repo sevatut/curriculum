@@ -7,6 +7,7 @@ import { canDeleteUser, deleteUser, getActor } from '@/entities/user'
 import { deleteUserError } from '@/features/user/delete-user/model/delete-user-error'
 import type { DeleteUserResult } from '@/features/user/delete-user/model/types'
 import { resolveLocale } from '@/shared/i18n/settings'
+import { appRoutes } from '@/shared/routes'
 
 export async function deleteUserAction(
   lng: string,
@@ -22,6 +23,6 @@ export async function deleteUserAction(
     return { error: deleteUserError.generic }
   }
 
-  revalidatePath(`/${resolveLocale(lng)}/employees`, 'page')
+  revalidatePath(appRoutes.employees.list(resolveLocale(lng)), 'page')
   return {}
 }

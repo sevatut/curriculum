@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { canEditProfile, getActor, getUser, userDisplayName } from '@/entities/user'
 import { syncSessionUserName } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
+import { appRoutes } from '@/shared/routes'
 import { parseFormData } from '@/shared/validation'
 import {
   profileFormError,
@@ -53,6 +54,6 @@ export async function saveEmployeeProfile(
 
 function revalidateEmployee(lng: string, userId: string) {
   const locale = resolveLocale(lng)
-  revalidatePath(`/${locale}/employees`, 'page')
-  revalidatePath(`/${locale}/employees/${userId}`, 'layout')
+  revalidatePath(appRoutes.employees.list(locale), 'page')
+  revalidatePath(appRoutes.employees.item(locale, userId), 'layout')
 }

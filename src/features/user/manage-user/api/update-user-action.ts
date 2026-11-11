@@ -13,6 +13,7 @@ import {
 } from '@/features/user/manage-user/model/user-form-error'
 import { syncSessionUserName } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
+import { appRoutes } from '@/shared/routes'
 import { parseFormData } from '@/shared/validation'
 
 export async function updateUserAction(
@@ -35,7 +36,7 @@ export async function updateUserAction(
   }
 
   const locale = resolveLocale(lng)
-  revalidatePath(`/${locale}/employees`, 'page')
-  revalidatePath(`/${locale}/employees/${userId}`, 'layout')
+  revalidatePath(appRoutes.employees.list(locale), 'page')
+  revalidatePath(appRoutes.employees.item(locale, userId), 'layout')
   return {}
 }

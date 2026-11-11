@@ -1,13 +1,22 @@
+import { appRoutes } from '@/shared/routes'
 import { navIconShapes } from '@/widgets/app-sidebar/ui/nav-icon-shapes'
 import type { NavIconShape } from '@/widgets/app-sidebar/ui/types'
 
 export const navItems = [
-  { path: '/employees', labelKey: 'nav.employees', icon: navIconShapes.employees },
-  { path: '/skills', labelKey: 'nav.skills', icon: navIconShapes.skills },
-  { path: '/languages', labelKey: 'nav.languages', icon: navIconShapes.languages },
-  { path: '/cvs', labelKey: 'nav.cvs', icon: navIconShapes.cvs },
+  {
+    href: appRoutes.employees.list,
+    labelKey: 'nav.employees',
+    icon: navIconShapes.employees,
+  },
+  { href: appRoutes.skills.list, labelKey: 'nav.skills', icon: navIconShapes.skills },
+  {
+    href: appRoutes.languages.list,
+    labelKey: 'nav.languages',
+    icon: navIconShapes.languages,
+  },
+  { href: appRoutes.cvs.list, labelKey: 'nav.cvs', icon: navIconShapes.cvs },
 ] as const satisfies ReadonlyArray<{
-  path: string
+  href: (lng: string) => string
   labelKey: 'nav.employees' | 'nav.skills' | 'nav.languages' | 'nav.cvs'
   icon: NavIconShape
 }>

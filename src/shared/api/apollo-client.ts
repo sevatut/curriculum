@@ -11,8 +11,8 @@ import { headers } from 'next/headers'
 import { redirect, unstable_rethrow } from 'next/navigation'
 
 import { defaultLocale, resolveLocale } from '@/shared/i18n/settings'
-import { authLogoutPath } from '@/shared/api/session'
 import { readSession } from '@/shared/api/session-store'
+import { appRoutes } from '@/shared/routes'
 
 const unauthorizedMessage = 'Unauthorized'
 
@@ -75,7 +75,7 @@ async function redirectAfterUnauthorized(): Promise<never> {
     headerStore.get('x-i18next-current-language') ?? defaultLocale,
   )
 
-  redirect(authLogoutPath(lng))
+  redirect(appRoutes.auth.logout(lng))
 }
 
 async function runAuthorized<T>(

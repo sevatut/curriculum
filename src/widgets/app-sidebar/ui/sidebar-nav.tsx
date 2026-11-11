@@ -29,11 +29,11 @@ export function SidebarNav({ lng }: SidebarNavProps) {
     <SidebarGroup className="px-0">
       <SidebarMenu className="gap-3.5">
         {navItems.map((item) => {
-          const href = `/${lng}${item.path}`
+          const href = item.href(lng)
           const label = t(item.labelKey)
 
           return (
-            <SidebarMenuItem key={item.path}>
+            <SidebarMenuItem key={item.labelKey}>
               <SidebarMenuButton
                 isActive={isNavActive(pathname, href)}
                 tooltip={{ children: label, className: 'tracking-sidebar' }}

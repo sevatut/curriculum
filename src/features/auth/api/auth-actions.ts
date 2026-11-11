@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 
 import { writeSession } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
+import { appRoutes } from '@/shared/routes'
 import type { AuthActionState } from '@/features/auth/model/auth-action-state'
 import type { AuthAttempt } from '@/features/auth/model/auth-attempt'
 import {
@@ -30,7 +31,7 @@ async function runAuthAction(
   }
 
   await writeSession(result.session)
-  redirect(`/${resolveLocale(lng)}`)
+  redirect(appRoutes.home(resolveLocale(lng)))
 }
 
 export async function loginAction(

@@ -4,22 +4,15 @@ import { useT } from 'next-i18next/client'
 import { useActionState, useRef, useState, type SubmitEvent } from 'react'
 
 import { Button } from '@/shared/ui/button'
-import { SelectField } from '@/shared/ui/select-field/select-field'
-import { TextField } from '@/shared/ui/text-field/text-field'
 import { saveEmployeeProfile } from '@/widgets/employee-profile/api/save-employee-profile'
 import { errorKey } from '@/widgets/employee-profile/model/profile-error'
 import {
   isProfileChanged,
   readProfileForm,
+  type ProfileFormValues,
 } from '@/widgets/employee-profile/model/profile-form-values'
-import type {
-  CatalogOption,
-  EmployeeProfileFormProps,
-} from '@/widgets/employee-profile/ui/types'
-
-function catalogOptions(items: readonly CatalogOption[]) {
-  return items.map((item) => ({ value: item.id, label: item.name }))
-}
+import { ProfileFormFields } from '@/widgets/employee-profile/ui/profile-form-fields'
+import type { EmployeeProfileFormProps } from '@/widgets/employee-profile/ui/types'
 
 export function EmployeeProfileForm({
   lng,
@@ -36,13 +29,13 @@ export function EmployeeProfileForm({
   const formRef = useRef<HTMLFormElement>(null)
   const dirty = editedAt > (state.savedAt ?? 0)
 
-  function syncDirty(form: HTMLFormElement) {
-    const changed = isProfileChanged(readProfileForm(new FormData(form)), values)
-    setEditedAt(changed ? Date.now() : 0)
+  function syncDirty(form: HTMLFormElement, patch?: Partial<ProfileFormValues>) {
+    const current = { ...readProfileForm(new FormData(form)), ...patch }
+    setEditedAt(isProfileChanged(current, values) ? Date.now() : 0)
   }
 
-  function onSelectChange() {
-    if (formRef.current) syncDirty(formRef.current)
+  function onSelectChange(field: 'departmentId' | 'positionId', value: string) {
+    if (formRef.current) syncDirty(formRef.current, { [field]: value })
   }
 
   function onSubmit(event: SubmitEvent<HTMLFormElement>) {
@@ -59,48 +52,19 @@ export function EmployeeProfileForm({
       onInput={(event) => syncDirty(event.currentTarget)}
       onSubmit={onSubmit}
     >
-      <TextField
-        name="firstName"
-        label={t('profile.firstName')}
-        aria-label={t('profile.firstName')}
-        defaultValue={values.firstName}
-        autoComplete="given-name"
-        disabled={!editable}
-        className="max-w-none"
-      />
-      <TextField
-        name="lastName"
-        label={t('profile.lastName')}
-        aria-label={t('profile.lastName')}
-        defaultValue={values.lastName}
-        autoComplete="family-name"
-        disabled={!editable}
-        className="max-w-none"
-      />
-      <SelectField
-        name="departmentId"
-        label={t('profile.department')}
-        defaultValue={values.departmentId}
-        disabled={!editable}
-        options={catalogOptions(departments)}
-        onValueChange={onSelectChange}
-        className="max-w-none"
-      />
-      <SelectField
-        name="positionId"
-        label={t('profile.position')}
-        defaultValue={values.positionId}
-        disabled={!editable}
-        options={catalogOptions(positions)}
-        onValueChange={onSelectChange}
-        className="max-w-none"
+      <ProfileFormFields
+        values={values}
+        editable={editable}
+        departments={departments}
+        positions={positions}
+        onSelectChange={onSelectChange}
       />
       <div className="flex w-full flex-col gap-2 md:col-start-2 md:mt-4">
-        {error ? (
+        {error && (
           <p role="alert" className="text-sm text-destructive">
             {error}
           </p>
-        ) : null}
+        )}
         <Button
           type="submit"
           disabled={!editable || pending || !dirty}

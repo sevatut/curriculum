@@ -1,4 +1,11 @@
-export type ProfileFormError = 'required' | 'generic' | 'forbidden' | 'assignment'
+export const profileFormError = {
+  required: 'required',
+  generic: 'generic',
+  forbidden: 'forbidden',
+  assignment: 'assignment',
+} as const
+
+export type ProfileFormError = (typeof profileFormError)[keyof typeof profileFormError]
 
 export const errorKey = {
   required: 'profile.errorRequired',

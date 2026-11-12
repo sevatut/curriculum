@@ -3,11 +3,14 @@
 import { revalidatePath } from 'next/cache'
 
 import { canEditProfile, getActor, getUser, userDisplayName } from '@/entities/user'
-import { readSession, writeSession } from '@/shared/api/session-store'
-import type { Session } from '@/shared/api/session.types'
+import { syncSessionUserName } from '@/shared/api/session-store'
 import { resolveLocale } from '@/shared/i18n/settings'
+import { appRoutes } from '@/shared/routes'
 import { parseFormData } from '@/shared/validation'
-import type { ProfileFormError } from '@/widgets/employee-profile/model/profile-error'
+import {
+  profileFormError,
+  type ProfileFormError,
+} from '@/widgets/employee-profile/model/profile-error'
 import {
   isProfileChanged,
   profileSchema,
@@ -26,16 +29,16 @@ export async function saveEmployeeProfile(
   _state: SaveEmployeeProfileState,
   formData: FormData,
 ): Promise<SaveEmployeeProfileState> {
-  const [session, actor] = await Promise.all([readSession(), getActor()])
-  if (!canEditProfile(actor, userId)) return { error: 'forbidden' }
+  const actor = await getActor()
+  if (!canEditProfile(actor, userId)) return { error: profileFormError.forbidden }
 
   const parsed = parseFormData(profileSchema, formData)
-  if (!parsed.success) return { error: 'required' }
+  if (!parsed.success) return { error: profileFormError.required }
 
   const next = parsed.data
 
   const current = await getUser(userId)
-  if (!current) return { error: 'generic' }
+  if (!current) return { error: profileFormError.generic }
 
   const initial = profileValues(current)
   if (!isProfileChanged(next, initial)) return { savedAt: Date.now() }
@@ -43,25 +46,14 @@ export async function saveEmployeeProfile(
   const saved = await applyProfileChanges(userId, next, initial)
   if ('error' in saved) return saved
 
-  if (session?.user.id === userId) {
-    await syncSessionName(session, saved.fullName ?? userDisplayName(current))
-  }
+  await syncSessionUserName(userId, saved.fullName ?? userDisplayName(current))
 
   revalidateEmployee(lng, userId)
   return { savedAt: Date.now() }
 }
 
-async function syncSessionName(session: Session, fullName: string | null) {
-  if (!fullName || fullName === session.user.name) return
-
-  await writeSession({
-    ...session,
-    user: { ...session.user, name: fullName },
-  })
-}
-
 function revalidateEmployee(lng: string, userId: string) {
   const locale = resolveLocale(lng)
-  revalidatePath(`/${locale}/employees`, 'page')
-  revalidatePath(`/${locale}/employees/${userId}`, 'layout')
+  revalidatePath(appRoutes.employees.list(locale), 'page')
+  revalidatePath(appRoutes.employees.item(locale, userId), 'layout')
 }

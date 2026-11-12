@@ -7,6 +7,7 @@ import { useActionState, useState, type SubmitEvent } from 'react'
 import { PasswordInput } from '@/shared/ui/password-input/password-input'
 import { TextField } from '@/shared/ui/text-field/text-field'
 import { loginAction, signupAction } from '@/features/auth/api/auth-actions'
+import type { AuthError } from '@/features/auth/model/auth-error'
 import { parseCredentials } from '@/features/auth/model/credentials'
 import { AuthForm, authFieldClassName } from '@/features/auth/ui/auth-form'
 
@@ -71,9 +72,8 @@ const localErrorKey = {
   emailTaken: 'error.emailTaken',
   invalidEmail: 'error.invalidEmail',
   weakPassword: 'error.weakPassword',
-  userNotFound: 'error.userNotFound',
   invalidCredentials: 'error.invalidCredentials',
-} as const
+} as const satisfies Record<AuthError, `error.${string}`>
 
 function shownError(
   error: string | undefined,

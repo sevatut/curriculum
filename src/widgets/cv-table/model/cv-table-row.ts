@@ -4,4 +4,5 @@ export type CvTableRow = {
   education: string
   employee: string
   description: string
+  userId: string
 }

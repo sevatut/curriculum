@@ -15,6 +15,7 @@ const GET_CVS: TypedDocumentNode<GetCvsData, Record<string, never>> = gql`
       education
       description
       user {
+        id
         email
       }
     }

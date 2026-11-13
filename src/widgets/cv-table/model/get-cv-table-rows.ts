@@ -10,5 +10,6 @@ export async function getCvTableRows(): Promise<readonly CvTableRow[]> {
     education: cv.education ?? '',
     employee: cv.user.email,
     description: cv.description ?? '',
+    userId: cv.user.id,
   }))
 }

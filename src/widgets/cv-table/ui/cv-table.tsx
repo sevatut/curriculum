@@ -3,21 +3,23 @@
 import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
+import { canManageCv } from '@/entities/cv/model/access'
+import type { Actor } from '@/entities/user/model/access'
 import { DataTable } from '@/shared/ui/data-table'
 import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
-import { CvTableActions } from '@/widgets/cv-table/ui/cv-table-actions'
+import { CvRowMenu } from '@/widgets/cv-table/ui/cv-row-menu'
 import { getCvTableColumns } from '@/widgets/cv-table/ui/cv-table-columns'
 
 type CvTableProps = {
   rows: readonly CvTableRow[]
+  actor: Actor | null
   className?: string
 }
 
-export function CvTable({ rows, className }: CvTableProps) {
+export function CvTable({ rows, actor, className }: CvTableProps) {
   const { lng } = useParams<{ lng: string }>()
   const { i18n, t } = useT('cvs')
   const { t: tCommon } = useT('common')
-  const actionsLabel = t('actions')
 
   return (
     <DataTable
@@ -31,8 +33,10 @@ export function CvTable({ rows, className }: CvTableProps) {
       emptyLabel={t('empty')}
       locale={i18n.language}
       className={className}
-      actionsLabel={actionsLabel}
-      renderActions={() => <CvTableActions label={actionsLabel} />}
+      actionsLabel={t('actions')}
+      renderActions={(row) =>
+        canManageCv(actor, row.userId) ? <CvRowMenu row={row} /> : null
+      }
       renderDetails={(row) => row.description}
     />
   )

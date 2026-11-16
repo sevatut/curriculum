@@ -1,11 +1,32 @@
-import { getT } from 'next-i18next/server'
+import { notFound } from 'next/navigation'
 
-export default async function EmployeeSkillsPage() {
-  const { t } = await getT('employees')
+import { getProfileSkills, getSkillCategories, getSkills } from '@/entities/skill'
+import { canEditProfile, getActor } from '@/entities/user'
+import { EmployeeSkills } from '@/widgets/employee-skills'
+
+export default async function EmployeeSkillsPage({
+  params,
+}: {
+  params: Promise<{ lng: string; userId: string }>
+}) {
+  const { lng, userId } = await params
+  const [skills, categories, catalog, actor] = await Promise.all([
+    getProfileSkills(userId),
+    getSkillCategories(),
+    getSkills(),
+    getActor(),
+  ])
+
+  if (!skills) notFound()
 
   return (
-    <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('tabs.skills')}</h1>
-    </div>
+    <EmployeeSkills
+      lng={lng}
+      userId={userId}
+      skills={skills}
+      categories={categories}
+      catalog={catalog}
+      editable={canEditProfile(actor, userId)}
+    />
   )
 }

@@ -38,7 +38,7 @@ export function CvDetailsForm({ lng, cvId, editable, values }: CvDetailsFormProp
       className="mx-auto flex w-full max-w-(--cv-details-width) flex-col gap-6 px-6 py-12 md:px-0"
       onInput={(event) => syncDirty(event.currentTarget)}
     >
-      <CvFormFields values={values} disabled={!editable} descriptionMultiline />
+      <CvFormFields values={values} disabled={!editable} />
       {editable && (
         <div className="flex flex-col items-end gap-2">
           {state.error && (

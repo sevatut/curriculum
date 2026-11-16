@@ -10,14 +10,9 @@ const fieldClassName = 'max-w-none'
 type CvFormFieldsProps = {
   values?: CvDetailsValues
   disabled?: boolean
-  descriptionMultiline?: boolean
 }
 
-export function CvFormFields({
-  values,
-  disabled = false,
-  descriptionMultiline = false,
-}: CvFormFieldsProps) {
+export function CvFormFields({ values, disabled = false }: CvFormFieldsProps) {
   const { t } = useT('cvs')
 
   return (
@@ -45,8 +40,8 @@ export function CvFormFields({
         aria-label={t('cvForm.description')}
         defaultValue={values?.description}
         disabled={disabled}
-        multiline={descriptionMultiline}
-        rows={descriptionMultiline ? 5 : undefined}
+        multiline
+        rows={5}
         className={fieldClassName}
       />
     </>

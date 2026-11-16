@@ -1,11 +1,30 @@
-import { getT } from 'next-i18next/server'
+import { notFound } from 'next/navigation'
 
-export default async function CvDetailsPage() {
-  const { t } = await getT('cvs')
+import { canManageCv, getCv } from '@/entities/cv'
+import { getActor } from '@/entities/user'
+import { CvDetailsForm } from '@/features/cv/update-cv'
+
+export default async function CvDetailsPage({
+  params,
+}: {
+  params: Promise<{ lng: string; cvId: string }>
+}) {
+  const { lng, cvId } = await params
+  const [cv, actor] = await Promise.all([getCv(cvId), getActor()])
+
+  if (!cv) notFound()
 
   return (
-    <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('tabs.details')}</h1>
-    </div>
+    <CvDetailsForm
+      key={`${cv.name}\0${cv.education ?? ''}\0${cv.description ?? ''}`}
+      lng={lng}
+      cvId={cv.id}
+      editable={canManageCv(actor, cv.user.id)}
+      values={{
+        name: cv.name,
+        education: cv.education ?? '',
+        description: cv.description ?? '',
+      }}
+    />
   )
 }

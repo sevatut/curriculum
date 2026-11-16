@@ -29,6 +29,9 @@
     "title": "Create CV",
     "submit": "Create"
   },
+  "details": {
+    "update": "Update"
+  },
   "updateCv": {
     "title": "Update CV",
     "submit": "Save"

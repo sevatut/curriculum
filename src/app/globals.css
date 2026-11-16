@@ -98,6 +98,16 @@
   --button-width-form: 410px;
   --button-width-form-min: 260px;
   --button-width-form-max: 670px;
+  --cv-field-width: 670px;
+  --cv-field-width-wide: 852px;
+  --cv-details-width: clamp(
+    var(--cv-field-width),
+    calc(
+      var(--cv-field-width) + (100vw - 768px) *
+        (var(--cv-field-width-wide) - var(--cv-field-width)) / (1440px - 768px)
+    ),
+    var(--cv-field-width-wide)
+  );
   --button-radius: 40px;
   --button-leading: 24.5px;
   --button-disabled: #0000001f;

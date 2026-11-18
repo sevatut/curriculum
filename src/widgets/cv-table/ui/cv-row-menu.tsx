@@ -24,6 +24,9 @@ type CvRowMenuProps = {
 export function CvRowMenu({ row }: CvRowMenuProps) {
   const { t } = useT('cvs')
   const [dialog, setDialog] = useState<'update' | 'delete' | 'closed'>('closed')
+  const openUpdate = () => setDialog('update')
+  const openDelete = () => setDialog('delete')
+  const closeDialog = () => setDialog('closed')
 
   return (
     <>
@@ -32,23 +35,13 @@ export function CvRowMenu({ row }: CvRowMenuProps) {
           <EllipsisVertical className="size-4" aria-hidden />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem onClick={() => setDialog('update')}>
-            {t('menu.update')}
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setDialog('delete')}>
-            {t('menu.delete')}
-          </DropdownMenuItem>
+          <DropdownMenuItem onClick={openUpdate}>{t('menu.update')}</DropdownMenuItem>
+          <DropdownMenuItem onClick={openDelete}>{t('menu.delete')}</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      {dialog === 'update' && (
-        <UpdateCvModal cv={row} onClose={() => setDialog('closed')} />
-      )}
+      {dialog === 'update' && <UpdateCvModal cv={row} onClose={closeDialog} />}
       {dialog === 'delete' && (
-        <DeleteCvModal
-          cvId={row.id}
-          cvName={row.name}
-          onClose={() => setDialog('closed')}
-        />
+        <DeleteCvModal cvId={row.id} cvName={row.name} onClose={closeDialog} />
       )}
     </>
   )

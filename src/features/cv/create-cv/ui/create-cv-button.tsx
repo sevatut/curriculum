@@ -13,13 +13,15 @@ type CreateCvButtonProps = {
 export function CreateCvButton({ className }: CreateCvButtonProps) {
   const { t } = useT('cvs')
   const [open, setOpen] = useState(false)
+  const openModal = () => setOpen(true)
+  const closeModal = () => setOpen(false)
 
   return (
     <>
-      <CreateButton className={className} onClick={() => setOpen(true)}>
+      <CreateButton className={className} onClick={openModal}>
         {t('create')}
       </CreateButton>
-      {open && <CreateCvModal onClose={() => setOpen(false)} />}
+      {open && <CreateCvModal onClose={closeModal} />}
     </>
   )
 }

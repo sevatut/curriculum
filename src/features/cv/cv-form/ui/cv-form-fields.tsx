@@ -2,15 +2,10 @@
 
 import { useT } from 'next-i18next/client'
 
-import type { CvDetailsValues } from '@/features/cv/cv-form/model/cv-form'
+import type { CvFormFieldsProps } from '@/features/cv/cv-form/ui/types'
 import { TextField } from '@/shared/ui/text-field/text-field'
 
 const fieldClassName = 'max-w-none'
-
-type CvFormFieldsProps = {
-  values?: CvDetailsValues
-  disabled?: boolean
-}
 
 export function CvFormFields({ values, disabled = false }: CvFormFieldsProps) {
   const { t } = useT('cvs')

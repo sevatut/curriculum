@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type ChangeEvent } from 'react'
 import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
@@ -28,6 +28,10 @@ export function EmployeeTable({
   const actionsLabel = t('actions')
   const admin = isAdmin(actor)
 
+  function onQueryChange(event: ChangeEvent<HTMLInputElement>) {
+    setQuery(event.target.value)
+  }
+
   function renderActions(row: EmployeeTableRow) {
     return (
       <EmployeeRowActions
@@ -45,7 +49,7 @@ export function EmployeeTable({
         <SearchInput
           className="ml-5 max-w-[320px]"
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={onQueryChange}
           aria-label={t('search')}
         />
         {admin && (

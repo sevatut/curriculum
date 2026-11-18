@@ -26,13 +26,17 @@ export function UserFormModal({
     {},
   )
 
+  function submitForm() {
+    formRef.current?.requestSubmit()
+  }
+
   return (
     <Modal
       title={title}
       confirmText={confirmText}
       confirmDisabled={pending}
       onCancel={onClose}
-      onConfirm={() => formRef.current?.requestSubmit()}
+      onConfirm={submitForm}
       className="w-full max-w-2xl"
     >
       <form

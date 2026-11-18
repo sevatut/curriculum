@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useState, type FormEvent } from 'react'
+import { useActionState, useState, type InputEvent } from 'react'
 
 import {
   isCvDetailsChanged,
@@ -24,7 +24,7 @@ export function CvDetailsForm({ lng, cvId, editable, values }: CvDetailsFormProp
   const [editedAt, setEditedAt] = useState(0)
   const dirty = editedAt > (state.savedAt ?? 0)
 
-  function syncDirty(event: FormEvent<HTMLFormElement>) {
+  function syncDirty(event: InputEvent<HTMLFormElement>) {
     const current = readCvDetailsForm(new FormData(event.currentTarget))
     setEditedAt(isCvDetailsChanged(current, values) ? Date.now() : 0)
   }

@@ -24,6 +24,7 @@ export function CvFormModal({
 }: CvFormModalProps) {
   const { t } = useT('cvs')
   const formRef = useRef<HTMLFormElement>(null)
+  const submitForm = () => formRef.current?.requestSubmit()
   const [state, action, pending] = useActionState(
     async (previous: CvFormState, formData: FormData) => {
       const next = await save(previous, formData)
@@ -39,7 +40,7 @@ export function CvFormModal({
       confirmText={confirmText}
       confirmDisabled={pending}
       onCancel={onClose}
-      onConfirm={() => formRef.current?.requestSubmit()}
+      onConfirm={submitForm}
       className="w-full max-w-2xl"
     >
       <form ref={formRef} action={action} className="flex flex-col gap-6">

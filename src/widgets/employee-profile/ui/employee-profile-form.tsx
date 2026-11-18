@@ -1,7 +1,13 @@
 'use client'
 
 import { useT } from 'next-i18next/client'
-import { useActionState, useRef, useState, type SubmitEvent } from 'react'
+import {
+  useActionState,
+  useRef,
+  useState,
+  type InputEvent,
+  type SubmitEvent,
+} from 'react'
 
 import { Button } from '@/shared/ui/button'
 import { saveEmployeeProfile } from '@/widgets/employee-profile/api/save-employee-profile'
@@ -38,6 +44,10 @@ export function EmployeeProfileForm({
     if (formRef.current) syncDirty(formRef.current, { [field]: value })
   }
 
+  function onInput(event: InputEvent<HTMLFormElement>) {
+    syncDirty(event.currentTarget)
+  }
+
   function onSubmit(event: SubmitEvent<HTMLFormElement>) {
     if (!editable || !dirty) event.preventDefault()
   }
@@ -49,7 +59,7 @@ export function EmployeeProfileForm({
       ref={formRef}
       action={editable ? action : undefined}
       className="mt-10 grid w-full max-w-(--button-width-form-max) grid-cols-1 gap-9 md:max-w-2xl md:grid-cols-2 md:gap-x-8 md:gap-y-6"
-      onInput={(event) => syncDirty(event.currentTarget)}
+      onInput={onInput}
       onSubmit={onSubmit}
     >
       <ProfileFormFields

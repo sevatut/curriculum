@@ -16,6 +16,10 @@ export function UserAvatar({
   const [failed, setFailed] = useState(false)
   const className = cn('shrink-0 rounded-full', sizeClassName[size])
 
+  function markFailed() {
+    setFailed(true)
+  }
+
   if (!src || failed) {
     return (
       <span
@@ -39,7 +43,7 @@ export function UserAvatar({
         fill
         unoptimized
         className="object-cover"
-        onError={() => setFailed(true)}
+        onError={markFailed}
       />
     </span>
   )

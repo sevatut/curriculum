@@ -16,6 +16,10 @@ export function DataTableColumnHeader<Row>({
 }: DataTableColumnHeaderProps<Row>) {
   const SortIcon = direction === 'desc' ? ArrowDown : ArrowUp
 
+  function sortColumn() {
+    onSort(column.id)
+  }
+
   return (
     <th
       scope="col"
@@ -25,7 +29,7 @@ export function DataTableColumnHeader<Row>({
       {column.sortValue ? (
         <button
           type="button"
-          onClick={() => onSort(column.id)}
+          onClick={sortColumn}
           className="inline-flex cursor-pointer items-center gap-1 font-semibold"
         >
           {column.label}

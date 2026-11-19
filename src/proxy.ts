@@ -1,9 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server'
 import { createProxy } from 'next-i18next/proxy'
 
-import { authLogoutPath, parseSession, sessionCookieName } from '@/shared/api/session'
+import { parseSession, sessionCookieName } from '@/shared/api/session'
 import { i18nConfig } from '@/shared/i18n/config'
 import { isLocale, type Locale } from '@/shared/i18n/settings'
+import { appRoutes, isAuthPath } from '@/shared/routes'
 
 const i18nProxy = createProxy(i18nConfig)
 
@@ -12,13 +13,9 @@ function localeFromPathname(pathname: string): Locale | null {
   return isLocale(segment) ? segment : null
 }
 
-function isAuthPath(pathname: string, lng: Locale) {
-  return pathname === `/${lng}/auth` || pathname.startsWith(`/${lng}/auth/`)
-}
-
 function redirectToLogin(request: NextRequest, lng: Locale) {
   const url = request.nextUrl.clone()
-  url.pathname = `/${lng}/auth/login`
+  url.pathname = appRoutes.auth.login(lng)
   const response = NextResponse.redirect(url)
 
   if (request.cookies.has(sessionCookieName)) {
@@ -33,7 +30,7 @@ export function proxy(request: NextRequest) {
   const lng = localeFromPathname(pathname)
 
   if (lng) {
-    if (pathname === authLogoutPath(lng)) {
+    if (pathname === appRoutes.auth.logout(lng)) {
       return redirectToLogin(request, lng)
     }
 
@@ -46,7 +43,7 @@ export function proxy(request: NextRequest) {
 
     if (session && authPath) {
       const url = request.nextUrl.clone()
-      url.pathname = `/${lng}`
+      url.pathname = appRoutes.home(lng)
       return NextResponse.redirect(url)
     }
   }

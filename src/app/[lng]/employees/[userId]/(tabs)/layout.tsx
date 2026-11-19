@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getT } from 'next-i18next/server'
 
 import { getUser, userDisplayName } from '@/entities/user'
+import { appRoutes } from '@/shared/routes'
 import { PageTabs } from '@/shared/ui/page-tabs'
 import { TabbedSetBreadcrumbs } from '@/widgets/app-header'
 
@@ -21,20 +22,21 @@ export default async function EmployeeTabsLayout({
 
   if (!user) notFound()
 
-  const base = `/${lng}/employees/${userId}`
-
   const employeeTabs = employeeTabSegments.map((segment) => ({
     segment,
     label: t(`tabs.${segment}`),
-    href: `${base}/${segment}`,
+    href: appRoutes.employees[segment](lng, userId),
   }))
 
   return (
     <>
       <TabbedSetBreadcrumbs
         items={[
-          { label: tCommon('nav.employees'), href: `/${lng}/employees` },
-          { label: userDisplayName(user), href: `${base}/profile` },
+          { label: tCommon('nav.employees'), href: appRoutes.employees.list(lng) },
+          {
+            label: userDisplayName(user),
+            href: appRoutes.employees.profile(lng, userId),
+          },
         ]}
         tabs={employeeTabs}
       />

@@ -28,7 +28,7 @@ export async function EmployeeProfile({
           size="lg"
           tone="muted"
         />
-        {editable ? (
+        {editable && (
           <button
             type="button"
             className="flex max-w-40 flex-col items-center gap-1 text-center text-sm text-foreground"
@@ -39,7 +39,7 @@ export async function EmployeeProfile({
               {t('profile.uploadHint')}
             </span>
           </button>
-        ) : null}
+        )}
       </div>
 
       <h1 className="mt-6 text-center text-xl font-medium text-foreground">{name}</h1>

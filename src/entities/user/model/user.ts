@@ -1,31 +1,30 @@
-export type UserRole = 'Admin' | 'Employee' | 'Manager'
+export const userRoles = ['Employee', 'Admin'] as const
 
-export type User = {
-  id: string
-  email: string
-  department_name: string | null
-  position_name: string | null
-  profile: {
-    first_name: string
-    last_name: string
-    avatar: string | null
-  } | null
-}
+export type UserRole = (typeof userRoles)[number]
 
 type UserCatalogRef = {
   id: string
   name: string
 }
 
-export type UserDetails = {
+type UserProfile = {
+  first_name: string
+  last_name: string
+  avatar: string | null
+}
+
+type UserBase = {
   id: string
   email: string
   department: UserCatalogRef | null
   position: UserCatalogRef | null
-  profile: {
-    first_name: string
-    last_name: string
-    full_name: string
-    avatar: string | null
-  } | null
+}
+
+export type User = UserBase & {
+  role: UserRole
+  profile: UserProfile | null
+}
+
+export type UserDetails = UserBase & {
+  profile: (UserProfile & { full_name: string }) | null
 }

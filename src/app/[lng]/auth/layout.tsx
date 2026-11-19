@@ -1,5 +1,6 @@
 import { getT } from 'next-i18next/server'
 
+import { appRoutes } from '@/shared/routes'
 import { PageTabs } from '@/shared/ui/page-tabs'
 
 export default async function AuthLayout({
@@ -11,11 +12,9 @@ export default async function AuthLayout({
 }>) {
   const { lng } = await params
   const { t } = await getT('auth')
-  const base = `/${lng}/auth`
-
   const authTabs = [
-    { segment: 'login', label: t('login'), href: `${base}/login` },
-    { segment: 'signup', label: t('action'), href: `${base}/signup` },
+    { segment: 'login', label: t('login'), href: appRoutes.auth.login(lng) },
+    { segment: 'signup', label: t('action'), href: appRoutes.auth.signup(lng) },
   ]
 
   return (

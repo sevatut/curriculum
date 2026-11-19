@@ -1,22 +1,23 @@
+import { appRoutes } from '@/shared/routes'
 import type { Crumb } from '@/widgets/app-header/model/crumb'
 
-const sectionLabelKeys = {
-  employees: 'nav.employees',
-  skills: 'nav.skills',
-  languages: 'nav.languages',
-  cvs: 'nav.cvs',
+const sections = {
+  employees: { labelKey: 'nav.employees', href: appRoutes.employees.list },
+  skills: { labelKey: 'nav.skills', href: appRoutes.skills.list },
+  languages: { labelKey: 'nav.languages', href: appRoutes.languages.list },
+  cvs: { labelKey: 'nav.cvs', href: appRoutes.cvs.list },
 } as const
 
-type SectionKey = keyof typeof sectionLabelKeys
+type SectionKey = keyof typeof sections
 
 function isSectionKey(value: string | undefined): value is SectionKey {
-  return value !== undefined && value in sectionLabelKeys
+  return value !== undefined && value in sections
 }
 
 export function staticBreadcrumbsFromPath(
   pathname: string,
   lng: string,
-  translate: (key: (typeof sectionLabelKeys)[SectionKey]) => string,
+  translate: (key: (typeof sections)[SectionKey]['labelKey']) => string,
   homeLabel: string,
 ): readonly Crumb[] {
   const segments = pathname.split('/').filter(Boolean)
@@ -29,8 +30,8 @@ export function staticBreadcrumbsFromPath(
 
   return [
     {
-      label: translate(sectionLabelKeys[section]),
-      href: segments.length > 1 ? `/${lng}/${section}` : undefined,
+      label: translate(sections[section].labelKey),
+      href: segments.length > 1 ? sections[section].href(lng) : undefined,
     },
   ]
 }

@@ -3,12 +3,9 @@
 import { usePathname } from 'next/navigation'
 import type { ReactNode } from 'react'
 
+import { isAuthPath } from '@/shared/routes'
 import { AppHeader, BreadcrumbProvider } from '@/widgets/app-header'
 import { AppSidebarLayout } from '@/widgets/app-sidebar'
-
-function isAuthPath(pathname: string) {
-  return pathname.split('/').includes('auth')
-}
 
 export function AppFrame({
   lng,
@@ -21,7 +18,7 @@ export function AppFrame({
 }) {
   const pathname = usePathname()
 
-  if (isAuthPath(pathname)) {
+  if (isAuthPath(pathname, lng)) {
     return children
   }
 

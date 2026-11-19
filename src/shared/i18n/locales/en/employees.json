@@ -7,6 +7,43 @@
   "empty": "No employees found",
   "actions": "Open profile",
   "search": "Search by full name",
+  "menu": {
+    "label": "User actions",
+    "update": "Update user",
+    "delete": "Delete user"
+  },
+  "role": {
+    "employee": "Employee",
+    "admin": "Admin"
+  },
+  "userForm": {
+    "email": "Email",
+    "password": "Password",
+    "role": "Role",
+    "errorRequired": "Fill in all required fields",
+    "errorInvalidEmail": "Enter a valid email",
+    "errorWeakPassword": "Password must be at least 8 characters",
+    "errorEmailTaken": "A user with this email already exists",
+    "errorDetailsNotSaved": "The user was created, but the name, department, position and role were not saved",
+    "errorForbidden": "Only an admin can manage users",
+    "errorGeneric": "Could not save the user"
+  },
+  "createUser": {
+    "button": "Create user",
+    "title": "Create user",
+    "submit": "Create"
+  },
+  "updateUser": {
+    "title": "Update user",
+    "submit": "Update"
+  },
+  "deleteUser": {
+    "title": "Delete user",
+    "submit": "Confirm",
+    "message": "Are you sure you want to delete user {{name}}?",
+    "errorForbidden": "Only an admin can delete other users",
+    "errorGeneric": "Could not delete the user"
+  },
   "column": {
     "firstName": "First name",
     "lastName": "Last name",

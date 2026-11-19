@@ -4,6 +4,7 @@ export type Cv = {
   education: string | null
   description: string | null
   user: {
+    id: string
     email: string
   }
 }

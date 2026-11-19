@@ -24,3 +24,11 @@ export type EmployeeProfileFormProps = {
   departments: readonly CatalogOption[]
   positions: readonly CatalogOption[]
 }
+
+export type ProfileFormFieldsProps = {
+  values: ProfileFormValues
+  editable: boolean
+  departments: readonly CatalogOption[]
+  positions: readonly CatalogOption[]
+  onSelectChange: (field: 'departmentId' | 'positionId', value: string) => void
+}

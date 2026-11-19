@@ -12,3 +12,7 @@ export function isAdmin(actor: Actor | null) {
 export function canEditProfile(actor: Actor | null, targetUserId: string) {
   return isAdmin(actor) || actor?.id === targetUserId
 }
+
+export function canDeleteUser(actor: Actor | null, targetUserId: string) {
+  return isAdmin(actor) && actor?.id !== targetUserId
+}

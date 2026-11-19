@@ -13,5 +13,34 @@
     "education": "Education",
     "employee": "Employee"
   },
-  "actions": "Row actions"
+  "actions": "Row actions",
+  "menu": {
+    "label": "CV actions",
+    "update": "Update CV",
+    "delete": "Delete CV"
+  },
+  "cvForm": {
+    "description": "Description",
+    "errorRequired": "Fill in the CV name",
+    "errorForbidden": "You do not have permission for this action",
+    "errorGeneric": "Could not save the CV"
+  },
+  "createCv": {
+    "title": "Create CV",
+    "submit": "Create"
+  },
+  "details": {
+    "update": "Update"
+  },
+  "updateCv": {
+    "title": "Update CV",
+    "submit": "Save"
+  },
+  "deleteCv": {
+    "title": "Delete CV",
+    "submit": "Confirm",
+    "message": "Are you sure you want to delete CV {{name}}?",
+    "errorForbidden": "You can delete only your own CV",
+    "errorGeneric": "Could not delete the CV"
+  }
 }

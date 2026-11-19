@@ -2,10 +2,6 @@ import type { Session } from '@/shared/api/session.types'
 
 export const sessionCookieName = 'session'
 
-export function authLogoutPath(lng: string) {
-  return `/${lng}/auth/logout`
-}
-
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7
 
 export function sessionCookieOptions() {

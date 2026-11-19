@@ -20,14 +20,14 @@ export function AuthForm({
     >
       <div className="flex w-full flex-col gap-5">{children}</div>
       <div className="mt-15 flex flex-col items-center gap-2">
-        {error ? (
+        {error && (
           <p
             role="alert"
             className="mb-2 max-w-155 text-center text-sm text-destructive"
           >
             {error}
           </p>
-        ) : null}
+        )}
         <Button type="submit" disabled={pending}>
           {submitLabel}
         </Button>

@@ -21,13 +21,3 @@ export function toSession(result: AuthResult): Session {
     },
   }
 }
-
-export const serverErrorKey = {
-  EMAIL_TAKEN: 'emailTaken',
-  INVALID_EMAIL: 'invalidEmail',
-  WEAK_PASSWORD: 'weakPassword',
-  USER_NOT_FOUND: 'userNotFound',
-  INVALID_CREDENTIALS: 'invalidCredentials',
-  'Пользователь с таким email не найден': 'userNotFound',
-  'Неверный пароль': 'invalidCredentials',
-} as const

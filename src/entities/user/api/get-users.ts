@@ -12,8 +12,15 @@ const GET_USERS: TypedDocumentNode<GetUsersData, Record<string, never>> = gql`
     users {
       id
       email
-      department_name
-      position_name
+      role
+      department {
+        id
+        name
+      }
+      position {
+        id
+        name
+      }
       profile {
         first_name
         last_name

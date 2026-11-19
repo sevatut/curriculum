@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { userInitial } from '@/entities/user/model/user-name'
 import { UserAvatar } from '@/entities/user/ui/user-avatar'
+import { appRoutes } from '@/shared/routes'
 import type { DataTableColumn } from '@/shared/ui/data-table'
 import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 import type { EmployeeTableColumnLabels } from '@/widgets/employee-table/ui/types'
@@ -28,7 +29,7 @@ export function getEmployeeTableColumns(
       className: 'w-[16%] max-[1100px]:w-[34%]',
       cell: (row) => (
         <Link
-          href={`/${lng}/employees/${row.id}/profile`}
+          href={appRoutes.employees.profile(lng, row.id)}
           className="hover:text-primary"
         >
           {row.firstName}

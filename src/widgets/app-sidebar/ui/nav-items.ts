@@ -1,19 +1,22 @@
-import type { ComponentType, SVGProps } from 'react'
-
-import {
-  CvsIcon,
-  EmployeesIcon,
-  LanguagesIcon,
-  SkillsIcon,
-} from '@/widgets/app-sidebar/ui/nav-icons'
+import { appRoutes } from '@/shared/routes'
+import { navIconShapes } from '@/widgets/app-sidebar/ui/nav-icon-shapes'
+import type { NavIconShape } from '@/widgets/app-sidebar/ui/types'
 
 export const navItems = [
-  { path: '/employees', labelKey: 'nav.employees', icon: EmployeesIcon },
-  { path: '/skills', labelKey: 'nav.skills', icon: SkillsIcon },
-  { path: '/languages', labelKey: 'nav.languages', icon: LanguagesIcon },
-  { path: '/cvs', labelKey: 'nav.cvs', icon: CvsIcon },
+  {
+    href: appRoutes.employees.list,
+    labelKey: 'nav.employees',
+    icon: navIconShapes.employees,
+  },
+  { href: appRoutes.skills.list, labelKey: 'nav.skills', icon: navIconShapes.skills },
+  {
+    href: appRoutes.languages.list,
+    labelKey: 'nav.languages',
+    icon: navIconShapes.languages,
+  },
+  { href: appRoutes.cvs.list, labelKey: 'nav.cvs', icon: navIconShapes.cvs },
 ] as const satisfies ReadonlyArray<{
-  path: string
+  href: (lng: string) => string
   labelKey: 'nav.employees' | 'nav.skills' | 'nav.languages' | 'nav.cvs'
-  icon: ComponentType<SVGProps<SVGSVGElement>>
+  icon: NavIconShape
 }>

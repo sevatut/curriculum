@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { appRoutes } from '@/shared/routes'
 import type { DataTableColumn } from '@/shared/ui/data-table'
 import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
 
@@ -19,7 +20,7 @@ export function getCvTableColumns(
       label: labels.name,
       className: 'w-[35%] max-[1100px]:w-[50%]',
       cell: (row) => (
-        <Link href={`/${lng}/cvs/${row.id}/details`} className="hover:text-primary">
+        <Link href={appRoutes.cvs.details(lng, row.id)} className="hover:text-primary">
           {row.name}
         </Link>
       ),

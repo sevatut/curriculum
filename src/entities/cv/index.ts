@@ -1,3 +1,7 @@
+export { createCv } from '@/entities/cv/api/create-cv'
+export { deleteCv } from '@/entities/cv/api/delete-cv'
 export { getCv } from '@/entities/cv/api/get-cv'
 export { getCvs } from '@/entities/cv/api/get-cvs'
+export { updateCv } from '@/entities/cv/api/update-cv'
+export { canManageCv } from '@/entities/cv/model/access'
 export type { Cv } from '@/entities/cv/model/cv'

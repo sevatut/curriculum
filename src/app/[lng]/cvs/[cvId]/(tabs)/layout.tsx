@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getT } from 'next-i18next/server'
 
 import { getCv } from '@/entities/cv'
+import { appRoutes } from '@/shared/routes'
 import { PageTabs } from '@/shared/ui/page-tabs'
 import { TabbedSetBreadcrumbs } from '@/widgets/app-header'
 
@@ -20,20 +21,18 @@ export default async function CvTabsLayout({
 
   const { t } = await getT('cvs')
   const { t: tCommon } = await getT('common')
-  const base = `/${lng}/cvs/${cvId}`
-
   const cvTabs = cvTabSegments.map((segment) => ({
     segment,
     label: t(`tabs.${segment}`),
-    href: `${base}/${segment}`,
+    href: appRoutes.cvs[segment](lng, cvId),
   }))
 
   return (
     <>
       <TabbedSetBreadcrumbs
         items={[
-          { label: tCommon('nav.cvs'), href: `/${lng}/cvs` },
-          { label: cv.name, href: `${base}/details` },
+          { label: tCommon('nav.cvs'), href: appRoutes.cvs.list(lng) },
+          { label: cv.name, href: appRoutes.cvs.details(lng, cvId) },
         ]}
         tabs={cvTabs}
       />

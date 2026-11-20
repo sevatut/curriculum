@@ -13,14 +13,22 @@ import { SidebarCollapseButton } from '@/widgets/app-sidebar/ui/sidebar-collapse
 import { SidebarNav } from '@/widgets/app-sidebar/ui/sidebar-nav'
 import { SidebarUser } from '@/widgets/app-sidebar/ui/sidebar-user'
 
-function AppSidebar({ lng, userName }: { lng: string; userName: string }) {
+function AppSidebar({
+  lng,
+  userName,
+  userAvatar,
+}: {
+  lng: string
+  userName: string
+  userAvatar: string
+}) {
   return (
     <Sidebar className="border-r-0 tracking-sidebar">
       <SidebarContent className="pt-11 tracking-sidebar">
         <SidebarNav lng={lng} />
       </SidebarContent>
       <SidebarFooter className="tracking-sidebar">
-        <SidebarUser name={userName} lng={lng} />
+        <SidebarUser name={userName} avatar={userAvatar} lng={lng} />
         <SidebarCollapseButton />
       </SidebarFooter>
     </Sidebar>
@@ -31,15 +39,17 @@ export function AppSidebarLayout({
   children,
   lng,
   userName,
+  userAvatar,
 }: {
   children: React.ReactNode
   lng: string
   userName: string
+  userAvatar: string
 }) {
   return (
     <TooltipProvider>
       <SidebarProvider>
-        <AppSidebar lng={lng} userName={userName} />
+        <AppSidebar lng={lng} userName={userName} userAvatar={userAvatar} />
         <SidebarInset>
           <div className="flex items-center px-4 py-3 md:hidden">
             <SidebarTrigger />

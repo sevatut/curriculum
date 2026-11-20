@@ -53,3 +53,26 @@ export type DeleteUserVariables = {
     userId: string
   }
 }
+
+export type UploadAvatarData = {
+  uploadAvatar: string
+}
+
+export type UploadAvatarVariables = {
+  avatar: {
+    userId: string
+    base64: string
+  }
+}
+
+export type DeleteAvatarData = {
+  deleteAvatar: {
+    avatar: string | null
+  }
+}
+
+export type DeleteAvatarVariables = {
+  avatar: {
+    userId: string
+  }
+}

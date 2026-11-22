@@ -1,4 +1,5 @@
 import type { ProfileSkill, Skill, SkillCategory } from '@/entities/skill/model/skill'
+import type { SkillActionError } from '@/widgets/employee-skills/model/skill-form'
 
 export type EmployeeSkillsProps = {
   lng: string
@@ -21,4 +22,17 @@ export type UpdateSkillModalProps = {
   userId: string
   skill: ProfileSkill
   onClose: () => void
+}
+
+export type SkillActionsProps = {
+  removing: boolean
+  pending: boolean
+  error?: SkillActionError
+  selectedCount: number
+  canAdd: boolean
+  canRemove: boolean
+  onAdd: () => void
+  onStartRemoving: () => void
+  onCancelRemoving: () => void
+  onDelete: () => void
 }

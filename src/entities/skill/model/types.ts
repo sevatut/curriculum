@@ -1,4 +1,4 @@
-export type Mastery = 'Novice' | 'Advanced' | 'Competent' | 'Expert' | 'Master'
+import type { Mastery } from '@/entities/skill/model/mastery'
 
 export type SkillItemProps = {
   name: string

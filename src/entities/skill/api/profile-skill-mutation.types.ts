@@ -1,4 +1,4 @@
-import type { Mastery } from '@/entities/skill/model/types'
+import type { Mastery } from '@/entities/skill/model/mastery'
 import type { ProfileSkill } from '@/entities/skill/model/skill'
 
 export type ProfileSkillInput = {

@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { masteryLevels } from '@/entities/skill/model/skill'
+import { masteryLevels } from '@/entities/skill/model/mastery'
 import { formErrorCode } from '@/shared/validation'
 
 export const addSkillSchema = z.object({

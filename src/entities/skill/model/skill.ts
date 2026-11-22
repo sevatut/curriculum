@@ -1,12 +1,4 @@
-import type { Mastery } from '@/entities/skill/model/types'
-
-export const masteryLevels = [
-  'Novice',
-  'Advanced',
-  'Competent',
-  'Expert',
-  'Master',
-] as const satisfies readonly Mastery[]
+import type { Mastery } from '@/entities/skill/model/mastery'
 
 export type ProfileSkill = {
   id: string

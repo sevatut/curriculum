@@ -3,7 +3,7 @@
 import { useT } from 'next-i18next/client'
 import { useState, useTransition } from 'react'
 
-import { masteryLevels } from '@/entities/skill/model/skill'
+import { masteryLevels } from '@/entities/skill/model/mastery'
 import { Modal } from '@/shared/ui/modal/modal'
 import { SelectField } from '@/shared/ui/select-field/select-field'
 import { addEmployeeSkill } from '@/widgets/employee-skills/api/add-employee-skill'
@@ -48,10 +48,10 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
   return (
     <Modal
       title={t('skills.modal.title')}
+      confirmText={t('modal.confirm')}
       confirmDisabled={pending || !skillId}
       onCancel={onClose}
       onConfirm={onConfirm}
-      confirmText={t('modal.confirm')}
     >
       <div className="flex flex-col gap-6 pt-2">
         <SelectField

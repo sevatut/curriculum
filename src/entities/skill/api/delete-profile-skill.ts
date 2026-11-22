@@ -1,18 +1,12 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
+import type {
+  DeleteProfileSkillData,
+  DeleteProfileSkillInput,
+  DeleteProfileSkillVariables,
+} from '@/entities/skill/api/delete-profile-skill.types'
 import { getClient } from '@/shared/api/apollo-client'
 import type { ProfileSkill } from '@/entities/skill/model/skill'
-
-type DeleteProfileSkillData = {
-  deleteProfileSkill: { skills: ProfileSkill[] } | null
-}
-
-type DeleteProfileSkillVariables = {
-  skill: {
-    userId: string
-    name: string
-  }
-}
 
 const DELETE_PROFILE_SKILL: TypedDocumentNode<
   DeleteProfileSkillData,
@@ -30,10 +24,9 @@ const DELETE_PROFILE_SKILL: TypedDocumentNode<
   }
 `
 
-export async function deleteProfileSkill(input: {
-  userId: string
-  name: string
-}): Promise<ProfileSkill[]> {
+export async function deleteProfileSkill(
+  input: DeleteProfileSkillInput,
+): Promise<ProfileSkill[]> {
   const client = await getClient()
   const { data } = await client.mutate({
     mutation: DELETE_PROFILE_SKILL,

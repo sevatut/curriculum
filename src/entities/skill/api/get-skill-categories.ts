@@ -1,12 +1,9 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
+import type { GetSkillCategoriesData } from '@/entities/skill/api/get-skill-categories.types'
 import { query } from '@/shared/api/apollo-client'
 import { formatCategoryName } from '@/entities/skill/model/category-name'
 import type { SkillCategory } from '@/entities/skill/model/skill'
-
-type GetSkillCategoriesData = {
-  skillCategories: SkillCategory[]
-}
 
 const GET_SKILL_CATEGORIES: TypedDocumentNode<
   GetSkillCategoriesData,

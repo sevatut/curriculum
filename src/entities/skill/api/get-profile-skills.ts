@@ -1,15 +1,11 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
+import type {
+  GetProfileSkillsData,
+  GetProfileSkillsVariables,
+} from '@/entities/skill/api/get-profile-skills.types'
 import { query } from '@/shared/api/apollo-client'
 import type { ProfileSkill } from '@/entities/skill/model/skill'
-
-type GetProfileSkillsData = {
-  profile: { skills: ProfileSkill[] } | null
-}
-
-type GetProfileSkillsVariables = {
-  userId: string
-}
 
 const GET_PROFILE_SKILLS: TypedDocumentNode<
   GetProfileSkillsData,

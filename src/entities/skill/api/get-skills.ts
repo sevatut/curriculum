@@ -1,12 +1,9 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
+import type { GetSkillsData } from '@/entities/skill/api/get-skills.types'
 import { query } from '@/shared/api/apollo-client'
 import { formatCategoryName } from '@/entities/skill/model/category-name'
 import type { Skill } from '@/entities/skill/model/skill'
-
-type GetSkillsData = {
-  skills: Skill[]
-}
 
 const GET_SKILLS: TypedDocumentNode<GetSkillsData, Record<string, never>> = gql`
   query GetSkills {

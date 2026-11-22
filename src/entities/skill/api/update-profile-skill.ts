@@ -1,25 +1,16 @@
 import { gql, type TypedDocumentNode } from '@apollo/client'
 
+import type {
+  ProfileSkillInput,
+  ProfileSkillMutationData,
+  ProfileSkillMutationVariables,
+} from '@/entities/skill/api/profile-skill-mutation.types'
 import { getClient } from '@/shared/api/apollo-client'
 import type { ProfileSkill } from '@/entities/skill/model/skill'
-import type { Mastery } from '@/entities/skill/model/types'
-
-type UpdateProfileSkillData = {
-  updateProfileSkill: { skills: ProfileSkill[] } | null
-}
-
-type UpdateProfileSkillVariables = {
-  skill: {
-    userId: string
-    name: string
-    categoryId: string
-    mastery: Mastery
-  }
-}
 
 const UPDATE_PROFILE_SKILL: TypedDocumentNode<
-  UpdateProfileSkillData,
-  UpdateProfileSkillVariables
+  ProfileSkillMutationData<'updateProfileSkill'>,
+  ProfileSkillMutationVariables
 > = gql`
   mutation UpdateProfileSkill($skill: AddProfileSkillInput!) {
     updateProfileSkill(skill: $skill) {
@@ -33,12 +24,9 @@ const UPDATE_PROFILE_SKILL: TypedDocumentNode<
   }
 `
 
-export async function updateProfileSkill(input: {
-  userId: string
-  name: string
-  categoryId: string
-  mastery: Mastery
-}): Promise<ProfileSkill[]> {
+export async function updateProfileSkill(
+  input: ProfileSkillInput,
+): Promise<ProfileSkill[]> {
   const client = await getClient()
   const { data } = await client.mutate({
     mutation: UPDATE_PROFILE_SKILL,

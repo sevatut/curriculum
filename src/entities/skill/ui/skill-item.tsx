@@ -24,7 +24,7 @@ export function SkillItem({ name, mastery, selected = false }: SkillItemProps) {
           />
         )}
       </div>
-      <h2 className={selected ? 'text-foreground' : 'text-skill-text'}>{name}</h2>
+      <span className={selected ? 'text-foreground' : 'text-skill-text'}>{name}</span>
     </div>
   )
 }

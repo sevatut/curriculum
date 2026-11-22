@@ -5,7 +5,7 @@ import { formErrorCode } from '@/shared/validation'
 
 export const addSkillSchema = z.object({
   name: z.string().trim().min(1, { error: formErrorCode.required }),
-  categoryId: z.string().min(1, { error: formErrorCode.required }),
+  categoryId: z.string().trim().min(1, { error: formErrorCode.required }),
   mastery: z.enum(masteryLevels, { error: formErrorCode.required }),
 })
 

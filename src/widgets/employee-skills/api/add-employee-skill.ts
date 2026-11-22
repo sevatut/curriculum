@@ -6,6 +6,7 @@ import { addProfileSkill, getProfileSkills } from '@/entities/skill'
 import { canEditProfile, getActor } from '@/entities/user'
 import { parseFormData } from '@/shared/validation'
 import { revalidateEmployee } from '@/widgets/employee-skills/api/revalidate-employee'
+import { normalizeSkillName } from '@/widgets/employee-skills/model/skill-name'
 import {
   addSkillSchema,
   type AddSkillState,
@@ -27,10 +28,8 @@ export async function addEmployeeSkill(
     const current = await getProfileSkills(userId)
     if (!current) return { error: 'generic' }
 
-    const name = parsed.data.name
-    const exists = current.some(
-      (skill) => skill.name.toLowerCase() === name.toLowerCase(),
-    )
+    const name = normalizeSkillName(parsed.data.name)
+    const exists = current.some((skill) => normalizeSkillName(skill.name) === name)
     if (exists) return { error: 'duplicate' }
 
     await addProfileSkill({ userId, ...parsed.data })

@@ -76,7 +76,8 @@
       "title": "Add skill",
       "skill": "Skill",
       "level": "Level",
-      "updateTitle": "Update skill"
+      "updateTitle": "Update skill",
+      "confirm": "Confirm"
     },
     "levels": {
       "Novice": "Novice",

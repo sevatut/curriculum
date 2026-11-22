@@ -43,6 +43,7 @@ export function UpdateSkillModal({
   return (
     <Modal
       title={t('skills.modal.updateTitle')}
+      confirmText={t('skills.modal.confirm')}
       confirmDisabled={pending || mastery === skill.mastery}
       onCancel={onClose}
       onConfirm={onConfirm}

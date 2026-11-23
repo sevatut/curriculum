@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 
 import { getProfileSkills, getSkillCategories, getSkills } from '@/entities/skill'
 import { getActor } from '@/entities/user'
-import { authLogoutPath } from '@/shared/api/session'
+import { appRoutes } from '@/shared/routes/routes'
 import { EmployeeSkills } from '@/widgets/employee-skills'
 
 export default async function SkillsPage({
@@ -13,7 +13,7 @@ export default async function SkillsPage({
   const { lng } = await params
   const actor = await getActor()
 
-  if (!actor) redirect(authLogoutPath(lng))
+  if (!actor) redirect(appRoutes.auth.logout(lng))
 
   const [skills, categories, catalog] = await Promise.all([
     getProfileSkills(actor.id),

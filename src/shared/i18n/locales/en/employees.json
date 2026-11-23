@@ -54,6 +54,10 @@
   "profile": {
     "upload": "Upload avatar image",
     "uploadHint": "png, jpg or gif no more than 0.5MB",
+    "remove": "Remove avatar",
+    "errorAvatarInvalid": "Choose a png, jpg or gif no larger than 0.5MB",
+    "errorAvatarForbidden": "You can only change your own avatar",
+    "errorAvatarGeneric": "Could not change the avatar",
     "firstName": "First Name",
     "lastName": "Last Name",
     "department": "Department",

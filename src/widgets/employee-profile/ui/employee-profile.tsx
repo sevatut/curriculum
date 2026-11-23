@@ -1,9 +1,6 @@
-import { Upload } from 'lucide-react'
-import { getT } from 'next-i18next/server'
-
 import { departmentDisplayName } from '@/entities/department'
-import { userDisplayName, userInitial } from '@/entities/user'
-import { UserAvatar } from '@/entities/user/ui/user-avatar'
+import { userDisplayName } from '@/entities/user'
+import { ProfileAvatar } from '@/features/user/change-avatar'
 import { profileValues } from '@/widgets/employee-profile/model/profile-form-values'
 import { EmployeeProfileForm } from '@/widgets/employee-profile/ui/employee-profile-form'
 import type { EmployeeProfileProps } from '@/widgets/employee-profile/ui/types'
@@ -15,32 +12,18 @@ export async function EmployeeProfile({
   departments,
   positions,
 }: EmployeeProfileProps) {
-  const { t } = await getT('employees')
   const name = userDisplayName(user)
   const values = profileValues(user)
 
   return (
     <div className="flex flex-1 flex-col items-center px-6 pt-12 pb-16">
-      <div className="flex items-center gap-8">
-        <UserAvatar
-          src={user.profile?.avatar ?? ''}
-          initial={userInitial(name)}
-          size="lg"
-          tone="muted"
-        />
-        {editable && (
-          <button
-            type="button"
-            className="flex max-w-40 flex-col items-center gap-1 text-center text-sm text-foreground"
-          >
-            <Upload aria-hidden className="size-6" />
-            <span>{t('profile.upload')}</span>
-            <span className="text-xs text-muted-foreground">
-              {t('profile.uploadHint')}
-            </span>
-          </button>
-        )}
-      </div>
+      <ProfileAvatar
+        lng={lng}
+        userId={user.id}
+        name={name}
+        src={user.profile?.avatar ?? ''}
+        editable={editable}
+      />
 
       <h1 className="mt-6 text-center text-xl font-medium text-foreground">{name}</h1>
       <p className="text-center text-sm text-muted-foreground">{user.email}</p>

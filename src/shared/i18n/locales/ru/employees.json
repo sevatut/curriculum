@@ -54,6 +54,10 @@
   "profile": {
     "upload": "Загрузить изображение",
     "uploadHint": "png, jpg или gif не более 0.5 МБ",
+    "remove": "Удалить изображение",
+    "errorAvatarInvalid": "Выберите png, jpg или gif не больше 0.5 МБ",
+    "errorAvatarForbidden": "Можно менять только свой аватар",
+    "errorAvatarGeneric": "Не удалось изменить аватар",
     "firstName": "Имя",
     "lastName": "Фамилия",
     "department": "Отдел",

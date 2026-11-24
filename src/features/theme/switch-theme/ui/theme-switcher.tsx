@@ -9,6 +9,7 @@ import {
   themeMode,
   type ThemeMode,
 } from '@/features/theme/switch-theme/model/theme'
+import { Button } from '@/shared/ui/button'
 
 const themeCookieMaxAge = 60 * 60 * 24 * 365
 
@@ -29,12 +30,8 @@ export function ThemeSwitcher({ theme }: ThemeSwitcherProps) {
   }
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className="inline-flex h-14 w-44 cursor-pointer items-center justify-center rounded-[40px] border border-border px-2.5 text-sm hover:bg-accent"
-    >
+    <Button type="button" variant="base" onClick={toggleTheme}>
       {label}
-    </button>
+    </Button>
   )
 }

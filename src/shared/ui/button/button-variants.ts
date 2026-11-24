@@ -12,6 +12,7 @@ export const buttonVariants = cva(
         transparent: 'bg-transparent text-muted-foreground hover:bg-primary/10',
         outlined:
           'border border-primary/50 bg-transparent text-primary hover:border-primary hover:bg-primary/7 disabled:border-[var(--button-disabled)] disabled:bg-transparent',
+        base: 'border border-border bg-transparent text-foreground hover:border-primary hover:bg-primary/7 hover:text-primary disabled:border-[var(--button-disabled)] disabled:bg-transparent',
         link: 'bg-transparent text-primary hover:text-primary/80 hover:bg-primary/10',
       },
       size: {

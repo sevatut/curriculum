@@ -48,7 +48,7 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
   return (
     <Modal
       title={t('skills.modal.title')}
-      confirmText={t('modal.confirm')}
+      confirmText={t('skills.modal.confirm')}
       confirmDisabled={pending || !skillId}
       onCancel={onClose}
       onConfirm={onConfirm}

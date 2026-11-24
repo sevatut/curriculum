@@ -28,7 +28,7 @@ export function LocaleSwitcher() {
   return (
     <Link
       href={hrefForLocale(pathname, nextLng)}
-      className="inline-flex h-7 items-center rounded-[40px] border border-border px-2.5 text-sm"
+      className="inline-flex h-14 w-44 cursor-pointer items-center justify-center rounded-[40px] border border-border px-2.5 text-sm hover:bg-accent"
     >
       {t('switchLocale')}
     </Link>

@@ -32,6 +32,7 @@ export const appRoutes = {
   languages: {
     list: (lng: string) => `/${lng}/languages`,
   },
+  settings: (lng: string) => `/${lng}/settings`,
 } as const
 
 export function isAuthPath(pathname: string, lng: string) {

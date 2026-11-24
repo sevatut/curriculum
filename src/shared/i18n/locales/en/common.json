@@ -17,7 +17,12 @@
     "skills": "Skills",
     "languages": "Languages",
     "cvs": "CVs",
+    "settings": "Settings",
     "collapse": "Collapse sidebar"
+  },
+  "theme": {
+    "toDark": "Dark",
+    "toLight": "Light"
   },
   "notFound": {
     "title": "Page not found",

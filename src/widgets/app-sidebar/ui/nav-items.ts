@@ -15,8 +15,14 @@ export const navItems = [
     icon: navIconShapes.languages,
   },
   { href: appRoutes.cvs.list, labelKey: 'nav.cvs', icon: navIconShapes.cvs },
+  {
+    href: appRoutes.settings,
+    labelKey: 'nav.settings',
+    icon: navIconShapes.settings,
+  },
 ] as const satisfies ReadonlyArray<{
   href: (lng: string) => string
-  labelKey: 'nav.employees' | 'nav.skills' | 'nav.languages' | 'nav.cvs'
+  labelKey:
+    'nav.employees' | 'nav.skills' | 'nav.languages' | 'nav.cvs' | 'nav.settings'
   icon: NavIconShape
 }>

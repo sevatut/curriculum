@@ -15,10 +15,12 @@ import { SidebarUser } from '@/widgets/app-sidebar/ui/sidebar-user'
 
 function AppSidebar({
   lng,
+  userId,
   userName,
   userAvatar,
 }: {
   lng: string
+  userId: string
   userName: string
   userAvatar: string
 }) {
@@ -28,7 +30,7 @@ function AppSidebar({
         <SidebarNav lng={lng} />
       </SidebarContent>
       <SidebarFooter className="tracking-sidebar">
-        <SidebarUser name={userName} avatar={userAvatar} lng={lng} />
+        <SidebarUser name={userName} avatar={userAvatar} lng={lng} userId={userId} />
         <SidebarCollapseButton />
       </SidebarFooter>
     </Sidebar>
@@ -38,18 +40,25 @@ function AppSidebar({
 export function AppSidebarLayout({
   children,
   lng,
+  userId,
   userName,
   userAvatar,
 }: {
   children: React.ReactNode
   lng: string
+  userId: string
   userName: string
   userAvatar: string
 }) {
   return (
     <TooltipProvider>
       <SidebarProvider>
-        <AppSidebar lng={lng} userName={userName} userAvatar={userAvatar} />
+        <AppSidebar
+          lng={lng}
+          userId={userId}
+          userName={userName}
+          userAvatar={userAvatar}
+        />
         <SidebarInset>
           <div className="flex items-center px-4 py-3 md:hidden">
             <SidebarTrigger />

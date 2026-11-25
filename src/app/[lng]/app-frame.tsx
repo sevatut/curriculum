@@ -9,11 +9,13 @@ import { AppSidebarLayout } from '@/widgets/app-sidebar'
 
 export function AppFrame({
   lng,
+  userId,
   userName,
   userAvatar,
   children,
 }: {
   lng: string
+  userId: string
   userName: string
   userAvatar: string
   children: ReactNode
@@ -26,7 +28,12 @@ export function AppFrame({
 
   return (
     <BreadcrumbProvider>
-      <AppSidebarLayout lng={lng} userName={userName} userAvatar={userAvatar}>
+      <AppSidebarLayout
+        lng={lng}
+        userId={userId}
+        userName={userName}
+        userAvatar={userAvatar}
+      >
         <AppHeader lng={lng} />
         {children}
       </AppSidebarLayout>

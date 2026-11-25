@@ -6,6 +6,7 @@ const sections = {
   skills: { labelKey: 'nav.skills', href: appRoutes.skills.list },
   languages: { labelKey: 'nav.languages', href: appRoutes.languages.list },
   cvs: { labelKey: 'nav.cvs', href: appRoutes.cvs.list },
+  settings: { labelKey: 'nav.settings', href: appRoutes.settings },
 } as const
 
 type SectionKey = keyof typeof sections

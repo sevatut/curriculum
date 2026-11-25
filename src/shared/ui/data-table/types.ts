@@ -23,4 +23,6 @@ export type DataTableProps<Row extends { id: string }> = {
   actionsLabel?: string
   renderActions?: (row: Row) => ReactNode
   renderDetails?: (row: Row) => ReactNode
+  rowHref?: (row: Row) => string
+  rowLabel?: (row: Row) => string
 }

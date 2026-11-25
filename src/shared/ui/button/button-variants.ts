@@ -4,14 +4,15 @@ const buttonText =
   'font-sans text-sm font-medium uppercase leading-[var(--button-leading)] tracking-button'
 
 export const buttonVariants = cva(
-  `inline-flex shrink-0 cursor-pointer items-center justify-center border-0 whitespace-nowrap rounded-[var(--button-radius)] transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:bg-[var(--button-disabled)] disabled:text-[var(--button-disabled-foreground)] ${buttonText}`,
+  `inline-flex shrink-0 cursor-pointer items-center justify-center border-0 whitespace-nowrap rounded-[var(--button-radius)] transition-[color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,scale] outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[var(--scale-active)] disabled:pointer-events-none disabled:bg-[var(--button-disabled)] disabled:text-[var(--button-disabled-foreground)] ${buttonText}`,
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground',
+        primary: 'bg-primary text-primary-foreground hover:scale-[var(--scale-hover)]',
         transparent: 'bg-transparent text-muted-foreground hover:bg-primary/10',
         outlined:
-          'border border-primary/50 bg-transparent text-primary hover:border-primary hover:bg-primary/7 disabled:border-[var(--button-disabled)] disabled:bg-transparent',
+          'border border-primary/50 bg-transparent text-primary hover:border-primary hover:bg-primary/7 disabled:border-[var(--button-disabled)] disabled:bg-transparent hover:scale-[var(--scale-hover)]',
+        base: 'border border-border bg-transparent text-foreground hover:border-primary hover:bg-primary/7 hover:text-primary disabled:border-[var(--button-disabled)] disabled:bg-transparent',
         link: 'bg-transparent text-primary hover:text-primary/80 hover:bg-primary/10',
       },
       size: {

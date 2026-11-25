@@ -1,14 +1,10 @@
-import Link from 'next/link'
-
 import { userInitial } from '@/entities/user/model/user-name'
 import { UserAvatar } from '@/entities/user/ui/user-avatar'
-import { appRoutes } from '@/shared/routes'
 import type { DataTableColumn } from '@/shared/ui/data-table'
 import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
 import type { EmployeeTableColumnLabels } from '@/widgets/employee-table/ui/types'
 
 export function getEmployeeTableColumns(
-  lng: string,
   labels: EmployeeTableColumnLabels,
 ): DataTableColumn<EmployeeTableRow>[] {
   return [
@@ -27,14 +23,7 @@ export function getEmployeeTableColumns(
       id: 'firstName',
       label: labels.firstName,
       className: 'w-[16%] max-[1100px]:w-[34%]',
-      cell: (row) => (
-        <Link
-          href={appRoutes.employees.profile(lng, row.id)}
-          className="hover:text-primary"
-        >
-          {row.firstName}
-        </Link>
-      ),
+      cell: (row) => row.firstName,
       sortValue: (row) => row.firstName,
     },
     {

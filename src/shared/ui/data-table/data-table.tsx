@@ -18,6 +18,8 @@ export function DataTable<Row extends { id: string }>({
   actionsLabel,
   renderActions,
   renderDetails,
+  rowHref,
+  rowLabel,
 }: DataTableProps<Row>) {
   const [sort, setSort] = useState<DataTableSort | null>(null)
   const sortedRows = sortRows(rows, columns, sort, locale)
@@ -54,6 +56,8 @@ export function DataTable<Row extends { id: string }>({
         emptyLabel={emptyLabel}
         renderActions={renderActions}
         renderDetails={renderDetails}
+        rowHref={rowHref}
+        rowLabel={rowLabel}
       />
     </table>
   )

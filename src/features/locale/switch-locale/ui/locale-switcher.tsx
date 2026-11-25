@@ -1,10 +1,10 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
 import { supportedLngs } from '@/shared/i18n'
+import { Button } from '@/shared/ui/button'
 
 function hrefForLocale(pathname: string, lng: string) {
   const segments = pathname.split('/').filter(Boolean)
@@ -21,16 +21,18 @@ function hrefForLocale(pathname: string, lng: string) {
 
 export function LocaleSwitcher() {
   const pathname = usePathname()
+  const router = useRouter()
   const { i18n, t } = useT('common')
   const current = i18n.language
   const nextLng = supportedLngs.find((lng) => lng !== current) ?? 'en'
 
+  function switchLocale() {
+    router.push(hrefForLocale(pathname, nextLng))
+  }
+
   return (
-    <Link
-      href={hrefForLocale(pathname, nextLng)}
-      className="inline-flex h-7 items-center rounded-[40px] border border-border px-2.5 text-sm"
-    >
+    <Button type="button" variant="base" onClick={switchLocale}>
       {t('switchLocale')}
-    </Link>
+    </Button>
   )
 }

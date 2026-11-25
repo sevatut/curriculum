@@ -21,7 +21,6 @@ export const SearchInput = forwardRef<
         px-4
         focus-within:border-focus
         transition-colors
-        duration-300
         ${className}
       `}
     >

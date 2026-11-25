@@ -41,7 +41,12 @@ export default async function LocaleLayout({
   const userAvatar = session ? await readSidebarAvatar(session.user.id) : ''
   return (
     <I18nProvider language={lng} resources={resources}>
-      <AppFrame lng={lng} userName={session?.user.name ?? ''} userAvatar={userAvatar}>
+      <AppFrame
+        lng={lng}
+        userId={session?.user.id ?? ''}
+        userName={session?.user.name ?? ''}
+        userAvatar={userAvatar}
+      >
         {children}
       </AppFrame>
     </I18nProvider>

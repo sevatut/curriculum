@@ -30,7 +30,7 @@ export function DataTableColumnHeader<Row>({
         <button
           type="button"
           onClick={sortColumn}
-          className="inline-flex cursor-pointer items-center gap-1 font-semibold"
+          className="inline-flex cursor-pointer items-center gap-1 rounded-sm font-semibold text-foreground outline-none hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.95]"
         >
           {column.label}
           {direction && <SortIcon className="size-3.5" aria-hidden />}

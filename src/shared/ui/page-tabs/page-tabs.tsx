@@ -35,7 +35,9 @@ export function PageTabs({
                   aria-current={active ? 'page' : undefined}
                   className={cn(
                     tabClassName,
-                    active ? 'border-primary text-primary' : 'hover:text-primary/80',
+                    active
+                      ? 'border-primary text-primary hover:text-primary-hover active:text-primary-hover'
+                      : 'hover:text-primary active:text-primary-hover',
                   )}
                 >
                   <span className="min-w-0 truncate">{tab.label}</span>

@@ -19,7 +19,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           outline-none
 
           transition-all
-          duration-200
 
           placeholder:text-placeholder
           ${className}

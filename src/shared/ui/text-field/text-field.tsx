@@ -11,14 +11,14 @@ interface TextFieldProps extends React.ComponentProps<typeof Input> {
 }
 
 const labelClassName =
-  'pointer-events-none absolute top-0 left-3 -translate-y-1/2 bg-background px-1 text-sm text-placeholder transition-all duration-200 peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-sm peer-focus:text-focus'
+  'pointer-events-none absolute top-0 left-3 -translate-y-1/2 bg-background px-1 text-sm text-placeholder transition-all peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-sm peer-focus:text-focus'
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ className = '', rightElement, label, multiline = false, rows, ...props }, ref) => {
     return (
       <div
         className={cn(
-          'relative flex w-full max-w-140 border border-input-border transition-colors duration-300 focus-within:border-focus',
+          'relative flex w-full max-w-140 border border-input-border transition-colors focus-within:border-focus',
           multiline
             ? 'px-3 pt-3 pb-2'
             : 'h-12 items-center justify-between gap-4 pr-4 pl-3',

@@ -19,7 +19,7 @@ export function LogoutButton({ lng }: { lng: string }) {
         variant="transparent"
         size="compact"
         aria-label={t('logout')}
-        className="text-sidebar-foreground/70 group-data-[collapsible=icon]:size-10 group-data-[collapsible=icon]:px-0"
+        className="text-sidebar-foreground/70 hover:bg-sidebar-accent-hover group-data-[collapsible=icon]:size-10 group-data-[collapsible=icon]:px-0"
       >
         <LogOut size={18} />
         <span className="group-data-[collapsible=icon]:hidden">{t('logout')}</span>

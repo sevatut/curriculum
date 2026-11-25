@@ -14,6 +14,7 @@
   --color-border: var(--border);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
 
   /* Сайдбар */
   --color-sidebar: var(--sidebar);
@@ -75,6 +76,9 @@
   --tracking-sidebar: var(--tracking-basic);
   --tracking-button: var(--tracking-large);
   --tracking-page-tabs: var(--tracking-large);
+
+  --default-transition-duration: var(--transition-duration);
+  --default-transition-timing-function: var(--transition-timing-function);
 }
 
 :root {
@@ -82,6 +86,7 @@
   --background: #f5f5f7;
   --foreground: #2e2e2e;
   --primary: #c63031;
+  --primary-hover: color-mix(in srgb, var(--primary) 85%, black);
   --primary-foreground: #ffffff;
   --border: #e5e5e5;
   --ring: #a1a1a1;
@@ -126,8 +131,8 @@
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: #0000000a;
-  --sidebar-accent-hover: #00000005;
+  --sidebar-accent: #00000014;
+  --sidebar-accent-hover: #0000000a;
   --sidebar-width: 12.5rem;
   --sidebar-width-mobile: 18rem;
   --sidebar-width-icon: 3rem;
@@ -168,6 +173,10 @@
 
   /* Радиус */
   --radius: 0.625rem;
+
+  /* Переходы */
+  --transition-duration: 500ms;
+  --transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .dark {
@@ -224,6 +233,35 @@
   }
   html {
     @apply font-sans;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(
+      a,
+      button,
+      summary,
+      [role='button'],
+      [role='tab'],
+      [role='menuitem'],
+      [role='option']
+    ) {
+      transition-property:
+        color, background-color, border-color, outline-color, text-decoration-color,
+        fill, stroke, opacity, transform, scale, letter-spacing;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: var(--transition-timing-function);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

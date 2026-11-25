@@ -177,6 +177,10 @@
   /* Переходы */
   --transition-duration: 500ms;
   --transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Масштаб */
+  --scale-active: 0.95;
+  --scale-hover: 1.05;
 }
 
 .dark {

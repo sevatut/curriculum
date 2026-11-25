@@ -7,7 +7,10 @@ import { cn } from 'cn'
 import type { PageTabsProps } from '@/shared/ui/page-tabs/types'
 
 const tabClassName =
-  'flex h-full w-full min-w-0 items-center justify-center border-b-2 border-transparent px-2 text-sm font-semibold uppercase leading-(--page-tab-leading) tracking-page-tabs text-foreground outline-none transition-colors focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:ring-inset'
+  'group flex h-full w-full min-w-0 items-center justify-center border-b-2 border-transparent px-2 text-sm font-semibold uppercase leading-(--page-tab-leading) tracking-page-tabs text-foreground outline-none transition-colors focus-visible:ring-1 focus-visible:ring-ring/50 focus-visible:ring-inset'
+
+const tabLabelClassName =
+  'min-w-0 truncate transition-[scale] group-hover:scale-[var(--scale-hover)] group-active:scale-[var(--scale-active)]'
 
 export function PageTabs({
   tabs,
@@ -40,7 +43,7 @@ export function PageTabs({
                       : 'hover:text-primary active:text-primary-hover',
                   )}
                 >
-                  <span className="min-w-0 truncate">{tab.label}</span>
+                  <span className={tabLabelClassName}>{tab.label}</span>
                 </Link>
               </li>
             )

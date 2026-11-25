@@ -75,7 +75,7 @@ export function Modal({
           <button
             aria-label={t('modal.close')}
             type="button"
-            className="cursor-pointer text-foreground transition-transform hover:scale-140 active:scale-95"
+            className="cursor-pointer text-foreground transition-transform hover:scale-140 active:scale-[var(--scale-active)]"
             onClick={onCancel}
           >
             <X size={24} />
@@ -97,7 +97,7 @@ export function Modal({
           <Button
             onClick={onConfirm}
             disabled={confirmDisabled}
-            className="cursor-pointer uppercase transition-all hover:scale-[1.05]"
+            className="cursor-pointer uppercase transition-all hover:scale-[var(--scale-hover)]"
             type="button"
           >
             {confirmText}

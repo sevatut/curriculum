@@ -28,7 +28,7 @@ export const PasswordInput = forwardRef<
           type="button"
           onClick={toggleVisibility}
           aria-label={isVisible ? t('password.hide') : t('password.show')}
-          className="shrink-0 cursor-pointer rounded-full text-eye outline-none hover:scale-[1.1] hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.90]"
+          className="shrink-0 cursor-pointer rounded-full text-eye outline-none hover:scale-(--scale-hover) hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-(--scale-active)"
         >
           {isVisible ? <EyeOff size={24} /> : <Eye size={24} />}
         </button>

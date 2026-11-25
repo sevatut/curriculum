@@ -1,4 +1,4 @@
-import type { ProfileSkill, Skill, SkillCategory } from '@/entities/skill/model/skill'
+import type { ProfileSkill, Skill, SkillCategory } from '@/entities/skill/'
 import type { SkillActionError } from '@/widgets/employee-skills/model/skill-form'
 
 export type EmployeeSkillsProps = {

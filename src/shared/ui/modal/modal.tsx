@@ -3,7 +3,8 @@
 import { useT } from 'next-i18next/client'
 import { Button } from '@/shared/ui/button'
 import { X } from 'lucide-react'
-import { useEffect } from 'react'
+import { useEffect, type MouseEvent } from 'react'
+import { createPortal } from 'react-dom'
 
 interface ModalProps {
   title: string
@@ -40,7 +41,15 @@ export function Modal({
     }
   }, [onCancel])
 
-  return (
+  function keepDialogOpen(event: MouseEvent<HTMLDivElement>) {
+    event.stopPropagation()
+  }
+
+  if (typeof document === 'undefined') {
+    return null
+  }
+
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
       onClick={onCancel}
@@ -58,7 +67,7 @@ export function Modal({
         `}
         role="dialog"
         aria-modal="true"
-        onClick={(event) => event.stopPropagation()}
+        onClick={keepDialogOpen}
       >
         <div className="mt-2 flex justify-between">
           <h3 className="text-lg text-foreground">{title}</h3>
@@ -66,20 +75,20 @@ export function Modal({
           <button
             aria-label={t('modal.close')}
             type="button"
-            className="cursor-pointer"
+            className="cursor-pointer text-foreground transition-transform hover:scale-140 active:scale-95"
             onClick={onCancel}
           >
-            <X size={24} className="stroke-foreground" />
+            <X size={24} />
           </button>
         </div>
 
         {children}
 
-        <div className="-mx-3 flex justify-end gap-2">
+        <div className="mb-1.25 flex justify-end gap-2">
           <Button
             onClick={onCancel}
             variant="outlined"
-            className="cursor-pointer border-foreground text-foreground opacity-30 uppercase"
+            className="cursor-pointer border-foreground text-foreground uppercase opacity-90 hover:text-primary"
             type="button"
           >
             {t('modal.cancel')}
@@ -88,13 +97,14 @@ export function Modal({
           <Button
             onClick={onConfirm}
             disabled={confirmDisabled}
-            className="cursor-pointer uppercase"
+            className="cursor-pointer uppercase transition-all hover:scale-[1.05]"
             type="button"
           >
             {confirmText}
           </Button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

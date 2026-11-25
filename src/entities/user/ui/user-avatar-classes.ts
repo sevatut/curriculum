@@ -6,5 +6,5 @@ export const sizeClassName = {
 
 export const toneClassName = {
   primary: 'bg-primary text-primary-foreground',
-  muted: 'bg-[#c6c6c6] text-[#3a3a3a]',
+  muted: 'bg-avatar-muted text-avatar-muted-foreground',
 } as const

@@ -61,6 +61,10 @@
   --color-master: var(--master);
   --color-skill-text: var(--skill-text);
 
+  /* Аватар */
+  --color-avatar-muted: var(--avatar-muted);
+  --color-avatar-muted-foreground: var(--avatar-muted-foreground);
+
   /* Радиус */
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -113,6 +117,7 @@
     ),
     var(--cv-field-width-wide)
   );
+  --search-max-width: 320px;
   --button-radius: 40px;
   --button-leading: 24.5px;
   --button-disabled: #0000001f;
@@ -171,6 +176,10 @@
   --master: #c63031;
   --skill-text: #767676;
 
+  /* Аватар */
+  --avatar-muted: #c6c6c6;
+  --avatar-muted-foreground: #3a3a3a;
+
   /* Радиус */
   --radius: 0.625rem;
 
@@ -226,6 +235,10 @@
   --competent: #335d35;
   --competent-bar: #66bb6a;
   --expert: #7f5c00;
+
+  /* Аватар */
+  --avatar-muted: #6e6e6e;
+  --avatar-muted-foreground: #ffffff;
 }
 
 @layer base {

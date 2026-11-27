@@ -1,17 +1,17 @@
-export type SelectOption = {
-  value: string
+export type SelectOption<T extends string = string> = {
+  value: T
   label: string
 }
 
-export type SelectFieldProps = {
+export type SelectFieldProps<T extends string = string> = {
   label: string
   name: string
-  options: readonly SelectOption[]
-  defaultValue?: string
+  options: readonly SelectOption<T>[]
+  defaultValue?: NoInfer<T>
   disabled?: boolean
   allowEmpty?: boolean
   className?: string
-  onValueChange?: (value: string) => void
+  onValueChange?: (value: T) => void
 }
 
 export type SelectFieldListProps = {

@@ -2,7 +2,7 @@ import { LanguageItem } from '@/widgets/employee-languages/ui/language-item'
 import type { LanguageEntryProps } from '@/widgets/employee-languages/ui/types'
 
 const buttonClassName =
-  '-m-2 cursor-pointer rounded-sm p-2 text-left outline-none focus-visible:ring-2 focus-visible:ring-ring/50'
+  '-m-2 cursor-pointer rounded-(--button-radius) p-2 text-left outline-none hover:bg-foreground/12 focus-visible:ring-2 focus-visible:ring-ring/50'
 
 export function LanguageEntry({
   language,

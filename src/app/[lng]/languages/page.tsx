@@ -1,11 +1,34 @@
-import { getT } from 'next-i18next/server'
+import { notFound, redirect } from 'next/navigation'
 
-export default async function LanguagesPage() {
-  const { t } = await getT('common')
+import { getLanguages, getProfileLanguages } from '@/entities/language'
+import { getActor } from '@/entities/user'
+import { appRoutes } from '@/shared/routes/routes'
+import { EmployeeLanguages } from '@/widgets/employee-languages'
+
+export default async function LanguagesPage({
+  params,
+}: {
+  params: Promise<{ lng: string }>
+}) {
+  const { lng } = await params
+  const actor = await getActor()
+
+  if (!actor) redirect(appRoutes.auth.logout(lng))
+
+  const [languages, catalog] = await Promise.all([
+    getProfileLanguages(actor.id),
+    getLanguages(),
+  ])
+
+  if (!languages) notFound()
 
   return (
-    <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('nav.languages')}</h1>
-    </div>
+    <EmployeeLanguages
+      lng={lng}
+      userId={actor.id}
+      languages={languages}
+      catalog={catalog}
+      editable
+    />
   )
 }

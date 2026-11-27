@@ -33,7 +33,7 @@ export function SelectField<T extends string = string>({
   return (
     <div
       ref={rootRef}
-      className={cn(classes.field, open && 'z-30', className)}
+      className={cn(classes.field(disabled), open && 'z-30', className)}
       onKeyDown={(event) => {
         if (!open || event.key !== 'Escape') return
         event.stopPropagation()
@@ -53,7 +53,7 @@ export function SelectField<T extends string = string>({
       >
         <span className="truncate">{selectedLabel}</span>
       </button>
-      <ChevronDown aria-hidden className={classes.chevron} />
+      <ChevronDown aria-hidden className={classes.chevron(disabled)} />
       <label className={classes.label(Boolean(value))}>{label}</label>
       {open && (
         <SelectFieldList

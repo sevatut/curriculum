@@ -1,13 +1,19 @@
 import { cn } from 'cn'
 
-export const field =
-  'group/field relative h-12 w-full max-w-140 border border-input-border transition-colors focus-within:border-focus'
+export const field = (disabled: boolean) =>
+  cn(
+    'group/field relative h-12 w-full max-w-140 border border-input-border transition-colors',
+    disabled ? 'bg-[var(--button-disabled)]' : 'focus-within:border-focus',
+  )
 
 export const trigger =
-  'absolute inset-0 z-10 flex w-full cursor-pointer items-center bg-transparent pr-9 pl-3 text-left text-lg text-input-text outline-none disabled:cursor-not-allowed'
+  'absolute inset-0 z-10 flex w-full cursor-pointer items-center bg-transparent pr-9 pl-3 text-left text-lg text-input-text outline-none disabled:cursor-not-allowed disabled:text-[var(--button-disabled-foreground)]'
 
-export const chevron =
-  'pointer-events-none absolute top-1/2 right-3 z-20 size-4 -translate-y-1/2 text-muted-foreground'
+export const chevron = (disabled: boolean) =>
+  cn(
+    'pointer-events-none absolute top-1/2 right-3 z-20 size-4 -translate-y-1/2',
+    disabled ? 'text-[var(--button-disabled-foreground)]' : 'text-muted-foreground',
+  )
 
 export const label = (floated: boolean) =>
   cn(

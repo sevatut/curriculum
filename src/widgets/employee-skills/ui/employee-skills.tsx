@@ -39,6 +39,14 @@ export function EmployeeSkills({
     )
   }
 
+  function startAdding() {
+    setAdding(true)
+  }
+
+  function startRemoving() {
+    setRemoving(true)
+  }
+
   function stopRemoving() {
     setRemoving(false)
     setSelected([])
@@ -74,8 +82,8 @@ export function EmployeeSkills({
           selectedCount={selected.length}
           canAdd={available.length > 0}
           canRemove={skills.length > 0}
-          onAdd={() => setAdding(true)}
-          onStartRemoving={() => setRemoving(true)}
+          onAdd={startAdding}
+          onStartRemoving={startRemoving}
           onCancelRemoving={stopRemoving}
           onDelete={removeSelected}
         />

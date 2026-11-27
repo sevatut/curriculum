@@ -27,6 +27,11 @@ export function UpdateSkillModal({
     label: t(`skills.levels.${level}`),
   }))
 
+  function onMasteryChange(value: Mastery) {
+    setMastery(value)
+    setError(undefined)
+  }
+
   function onConfirm() {
     startTransition(async () => {
       const result = await updateEmployeeSkill(lng, userId, {
@@ -65,10 +70,7 @@ export function UpdateSkillModal({
           defaultValue={skill.mastery}
           allowEmpty={false}
           className="max-w-none"
-          onValueChange={(value) => {
-            setMastery(value)
-            setError(undefined)
-          }}
+          onValueChange={onMasteryChange}
         />
         {error && (
           <p role="alert" className="text-sm text-destructive">

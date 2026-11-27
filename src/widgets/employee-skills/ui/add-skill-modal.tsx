@@ -30,6 +30,11 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
     label: t(`skills.levels.${level}`),
   }))
 
+  function onSkillChange(value: string) {
+    setSkillId(value)
+    setError(undefined)
+  }
+
   function onConfirm() {
     const selectedSkill = available.find((item) => item.id === skillId)
     if (!selectedSkill) return
@@ -62,10 +67,7 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
           options={skillOptions}
           allowEmpty={false}
           className="max-w-none"
-          onValueChange={(value) => {
-            setSkillId(value)
-            setError(undefined)
-          }}
+          onValueChange={onSkillChange}
         />
         <SelectField
           name="mastery"

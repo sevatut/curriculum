@@ -6,6 +6,7 @@ import { useT } from 'next-i18next/client'
 
 import { isAdmin } from '@/entities/user/model/access'
 import { CreateUserButton } from '@/features/user/manage-user'
+import { appRoutes } from '@/shared/routes'
 import { DataTable } from '@/shared/ui/data-table'
 import { SearchInput } from '@/shared/ui/search-input/search-input'
 import type { EmployeeTableRow } from '@/widgets/employee-table/model/employee-table-row'
@@ -32,6 +33,14 @@ export function EmployeeTable({
     setQuery(event.target.value)
   }
 
+  function rowHref(row: EmployeeTableRow) {
+    return appRoutes.employees.profile(lng, row.id)
+  }
+
+  function rowLabel(row: EmployeeTableRow) {
+    return row.displayName
+  }
+
   function renderActions(row: EmployeeTableRow) {
     return (
       <EmployeeRowActions
@@ -47,7 +56,7 @@ export function EmployeeTable({
     <div className="flex flex-1 flex-col tracking-basic">
       <div className="my-2 flex items-center justify-between gap-6">
         <SearchInput
-          className="ml-5 max-w-[320px]"
+          className="ml-5 max-w-(--search-max-width)"
           value={query}
           onChange={onQueryChange}
           aria-label={t('search')}
@@ -61,7 +70,7 @@ export function EmployeeTable({
         )}
       </div>
       <DataTable
-        columns={getEmployeeTableColumns(lng, {
+        columns={getEmployeeTableColumns({
           firstName: t('column.firstName'),
           lastName: t('column.lastName'),
           email: t('column.email'),
@@ -74,6 +83,8 @@ export function EmployeeTable({
         locale={i18n.language}
         actionsLabel={actionsLabel}
         renderActions={renderActions}
+        rowHref={rowHref}
+        rowLabel={rowLabel}
       />
     </div>
   )

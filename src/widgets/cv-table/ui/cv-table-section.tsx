@@ -28,7 +28,7 @@ export function CvTableSection({ rows, actor }: CvTableSectionProps) {
     <div className="flex flex-1 flex-col tracking-basic">
       <div className="my-2 flex items-center justify-between gap-6">
         <SearchInput
-          className="ml-5 max-w-[320px]"
+          className="ml-5 max-w-(--search-max-width)"
           value={query}
           onChange={onQueryChange}
           aria-label={t('search')}

@@ -15,7 +15,7 @@ import {
 import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
 
 const actionClassName =
-  'mr-6 inline-flex size-8 cursor-pointer items-center justify-center rounded-full text-muted-foreground'
+  'mr-6 inline-flex size-8 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent'
 
 type CvRowMenuProps = {
   row: CvTableRow

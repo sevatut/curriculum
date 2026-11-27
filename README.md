@@ -1,6 +1,6 @@
 # my-app
 
-Стартовый каркас под продуктовую разработку: оболочка с боковым меню и заготовками разделов.
+Фронт приложения: вход, сотрудники и резюме. Каталоги навыков и языков и часть вкладок карточек пока заглушки.
 
 ## Стек
 
@@ -9,6 +9,7 @@
 | Язык       | **TypeScript**                                    |
 | UI-рантайм | **React 19**                                      |
 | Фреймворк  | **Next.js 16** (App Router)                       |
+| Данные     | **Apollo Client**, GraphQL                        |
 | Стили      | **Tailwind CSS v4**                               |
 | UI         | **shadcn/ui** (стиль `base-nova`, Base UI)        |
 | Иконки     | **lucide-react**                                  |
@@ -36,17 +37,23 @@ pnpm dev
 
 ## Маршруты
 
-Все страницы живут под префиксом локали (`/en`, `/ru`). Оболочка с сайдбаром общая: `AppSidebarLayout` в `src/app/[lng]/layout.tsx`.
+Все страницы живут под префиксом локали (`/en`, `/ru`). Список путей - `src/shared/routes/routes.ts`. Оболочка с сайдбаром и крошками - `AppFrame` в `src/app/[lng]/app-frame.tsx`. На `/auth/*` сайдбара нет.
 
-| Путь         | Раздел     |
-| ------------ | ---------- |
-| `/`          | Главная    |
-| `/employees` | Сотрудники |
-| `/skills`    | Навыки     |
-| `/languages` | Языки      |
-| `/cvs`       | Резюме     |
+| Путь                                            | Раздел             |
+| ----------------------------------------------- | ------------------ |
+| `/`                                             | Главная            |
+| `/auth/login`, `/auth/signup`                   | Вход и регистрация |
+| `/employees`                                    | Сотрудники         |
+| `/employees/[userId]/profile`                   | Профиль            |
+| `/employees/[userId]/skills`, `…/languages`     | Заглушки вкладок   |
+| `/skills`                                       | Навыки             |
+| `/languages`                                    | Языки              |
+| `/cvs`                                          | Резюме             |
+| `/cvs/[cvId]/details`                           | Детали резюме      |
+| `/cvs/[cvId]/skills`, `…/projects`, `…/preview` | Заглушки вкладок   |
+| `/settings`                                     | Настройки          |
 
-На узком экране сайдбар открывается как sheet, на широком - сворачивается в иконки.
+Неизвестный адрес внутри локали отдаёт локализованную 404 (`src/app/[lng]/[...rest]/page.tsx`). На узком экране сайдбар открывается как sheet, на широком сворачивается в иконки. Свой аватар виден в сайдбаре.
 
 ## Структура
 
@@ -55,36 +62,65 @@ pnpm dev
 ```
 src/
   app/
-    layout.tsx              # html/body, lang из proxy, шрифт Roboto
+    layout.tsx                 # html/body, lang из proxy, шрифт Roboto
     globals.css
     [lng]/
-      layout.tsx            # I18nProvider + AppSidebarLayout
-      page.tsx              # главная
-      employees/page.tsx
-      skills/page.tsx
-      languages/page.tsx
-      cvs/page.tsx
+      layout.tsx               # I18nProvider + AppFrame
+      app-frame.tsx            # сайдбар, шапка, крошки; auth без оболочки
+      page.tsx
+      auth/login, auth/signup
+      employees/
+        [userId]/(tabs)/profile
+        [userId]/(tabs)/skills, languages   # заглушки
+      cvs/
+        [cvId]/(tabs)/details
+        [cvId]/(tabs)/skills, projects, preview   # заглушки
+      skills/page.tsx          # заглушка
+      languages/page.tsx       # заглушка
+      settings/page.tsx
+      [...rest]/page.tsx       # 404
+  proxy.ts                     # next-i18next createProxy (Next.js 16)
   widgets/
-    app-sidebar/            # навигация и оболочка страниц
+    app-sidebar/               # навигация и пользователь в футере
+    app-header/                # крошки
+    employee-table/
+    employee-profile/
+    cv-table/
   features/
-    locale/switch-locale/   # LocaleSwitcher
+    auth/                      # вход и регистрация
+      logout/                  # кнопка выхода, отдельной страницы нет
+    locale/switch-locale/
+    theme/switch-theme/
+    user/
+      manage-user/
+      delete-user/
+      change-avatar/
+    cv/
+      create-cv/
+      update-cv/
+      delete-cv/
+  entities/
+    user, cv, department, position, skill
   shared/
-    ui/                     # shadcn: button, sidebar, sheet, tooltip
-    lib/                    # cn, useIsMobile
+    api/                       # Apollo, сессия
+    routes/
+    validation/
+    ui/                        # shadcn и поля форм
+    lib/                       # cn, useIsMobile
     i18n/
-      locales/{en,ru}/      # JSON namespaces
-      settings.ts           # supportedLngs (безопасно для client)
-  proxy.ts                  # next-i18next createProxy (Next.js 16)
-i18n.config.ts              # конфиг i18n + resourceLoader
+      config.ts                # ns + resourceLoader
+      settings.ts              # supportedLngs
+      locales/{en,ru}/
 ```
 
 ## i18n
 
 - Локали: `en` (по умолчанию), `ru`. Список - `src/shared/i18n/settings.ts`.
-- Добавьте namespace в `i18n.config.ts` (`ns`) и файлы в `src/shared/i18n/locales/<lng>/<ns>.json`.
+- Namespace: `common`, `home`, `auth`, `cvs`, `employees`. Новый namespace добавляется в `src/shared/i18n/config.ts` (`ns`) и в `src/shared/i18n/locales/<lng>/<ns>.json`.
 - **Server Components:** `const { t } = await getT('home')`.
 - **Client Components:** `'use client'` + `useT('common')`.
-- Переключатель языка: `LocaleSwitcher` (префикс `/en`, `/ru`).
+- Переключатель языка: `LocaleSwitcher` в настройках (префикс `/en`, `/ru`).
+- Переключатель темы: `ThemeSwitcher` в настройках (`light` / `dark`, cookie `theme`).
 
 ## shadcn/ui
 

@@ -18,7 +18,12 @@
     "skills": "Навыки",
     "languages": "Языки",
     "cvs": "Резюме",
+    "settings": "Настройки",
     "collapse": "Свернуть меню"
+  },
+  "theme": {
+    "toDark": "Тёмная",
+    "toLight": "Светлая"
   },
   "notFound": {
     "title": "Страница не найдена",

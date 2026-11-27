@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import { useT } from 'next-i18next/client'
 
 import type { Actor } from '@/entities/user/model/access'
+import { appRoutes } from '@/shared/routes'
 import { DataTable } from '@/shared/ui/data-table'
 import type { CvTableRow } from '@/widgets/cv-table/model/cv-table-row'
 import { CvRowActions } from '@/widgets/cv-table/ui/cv-row-actions'
@@ -20,6 +21,14 @@ export function CvTable({ rows, actor, className }: CvTableProps) {
   const { i18n, t } = useT('cvs')
   const { t: tCommon } = useT('common')
 
+  function rowHref(row: CvTableRow) {
+    return appRoutes.cvs.details(lng, row.id)
+  }
+
+  function rowLabel(row: CvTableRow) {
+    return row.name
+  }
+
   function renderActions(row: CvTableRow) {
     return <CvRowActions row={row} actor={actor} />
   }
@@ -30,7 +39,7 @@ export function CvTable({ rows, actor, className }: CvTableProps) {
 
   return (
     <DataTable
-      columns={getCvTableColumns(lng, {
+      columns={getCvTableColumns({
         name: t('column.name'),
         education: t('column.education'),
         employee: t('column.employee'),
@@ -43,6 +52,8 @@ export function CvTable({ rows, actor, className }: CvTableProps) {
       actionsLabel={t('actions')}
       renderActions={renderActions}
       renderDetails={renderDetails}
+      rowHref={rowHref}
+      rowLabel={rowLabel}
     />
   )
 }

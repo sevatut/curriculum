@@ -102,7 +102,7 @@ async function runAuthorized<T>(
 }
 
 function getGraphqlUrl() {
-  return process.env.GRAPHQL_URL ?? ''
+  return process.env.NEXT_PUBLIC_GRAPHQL_URL ?? process.env.GRAPHQL_URL ?? ''
 }
 
 export const { getClient, query } = registerApolloClient(async () => {

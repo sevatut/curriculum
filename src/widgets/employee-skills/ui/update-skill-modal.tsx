@@ -3,7 +3,7 @@
 import { useT } from 'next-i18next/client'
 import { useState, useTransition } from 'react'
 
-import { masteryLevels } from '@/entities/skill/model/mastery'
+import { masteryLevels, type Mastery } from '@/entities/skill/model/mastery'
 import { Modal } from '@/shared/ui/modal/modal'
 import { SelectField } from '@/shared/ui/select-field/select-field'
 import { updateEmployeeSkill } from '@/widgets/employee-skills/api/update-employee-skill'
@@ -18,7 +18,7 @@ export function UpdateSkillModal({
   onClose,
 }: UpdateSkillModalProps) {
   const { t } = useT('employees')
-  const [mastery, setMastery] = useState<string>(skill.mastery)
+  const [mastery, setMastery] = useState<Mastery>(skill.mastery)
   const [error, setError] = useState<SkillActionError>()
   const [pending, startTransition] = useTransition()
 

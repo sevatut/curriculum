@@ -3,7 +3,8 @@
 import { useT } from 'next-i18next/client'
 import { useState, useTransition } from 'react'
 
-import { Mastery, masteryLevels } from '@/entities/skill/model/mastery'
+import { masteryLevels, type Mastery } from '@/entities/skill/model/mastery'
+import type { ProfileSkill } from '@/entities/skill/model/skill'
 import { Modal } from '@/shared/ui/modal/modal'
 import { SelectField } from '@/shared/ui/select-field/select-field'
 import { addEmployeeSkill } from '@/widgets/employee-skills/api/add-employee-skill'
@@ -13,14 +14,15 @@ import type { AddSkillModalProps } from '@/widgets/employee-skills/ui/types'
 
 export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModalProps) {
   const { t } = useT('employees')
+  const skill: Pick<ProfileSkill, 'mastery'> = { mastery: 'Novice' }
   const [skillId, setSkillId] = useState('')
-  const [mastery, setMastery] = useState<Mastery>('Novice')
+  const [mastery, setMastery] = useState<Mastery>(skill.mastery)
   const [error, setError] = useState<SkillActionError>()
   const [pending, startTransition] = useTransition()
 
-  const skillOptions = available.map((skill) => ({
-    value: skill.id,
-    label: skill.name,
+  const skillOptions = available.map((item) => ({
+    value: item.id,
+    label: item.name,
   }))
 
   const levelOptions = masteryLevels.map((level) => ({
@@ -29,12 +31,12 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
   }))
 
   function onConfirm() {
-    const skill = available.find((item) => item.id === skillId)
-    if (!skill) return
+    const selectedSkill = available.find((item) => item.id === skillId)
+    if (!selectedSkill) return
 
     const formData = new FormData()
-    formData.set('name', skill.name)
-    formData.set('categoryId', skill.category.id)
+    formData.set('name', selectedSkill.name)
+    formData.set('categoryId', selectedSkill.category.id)
     formData.set('mastery', mastery)
 
     startTransition(async () => {
@@ -48,7 +50,7 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
   return (
     <Modal
       title={t('skills.modal.title')}
-      confirmText={t('modal.confirm')}
+      confirmText={t('skills.modal.confirm')}
       confirmDisabled={pending || !skillId}
       onCancel={onClose}
       onConfirm={onConfirm}
@@ -69,7 +71,7 @@ export function AddSkillModal({ lng, userId, available, onClose }: AddSkillModal
           name="mastery"
           label={t('skills.modal.level')}
           options={levelOptions}
-          defaultValue="Novice"
+          defaultValue={skill.mastery}
           allowEmpty={false}
           className="max-w-none"
           onValueChange={setMastery}

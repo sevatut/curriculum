@@ -1,11 +1,30 @@
-import { getT } from 'next-i18next/server'
+import { notFound } from 'next/navigation'
 
-export default async function EmployeeLanguagesPage() {
-  const { t } = await getT('employees')
+import { getLanguages, getProfileLanguages } from '@/entities/language'
+import { canEditProfile, getActor } from '@/entities/user'
+import { EmployeeLanguages } from '@/widgets/employee-languages'
+
+export default async function EmployeeLanguagesPage({
+  params,
+}: {
+  params: Promise<{ lng: string; userId: string }>
+}) {
+  const { lng, userId } = await params
+  const [languages, catalog, actor] = await Promise.all([
+    getProfileLanguages(userId),
+    getLanguages(),
+    getActor(),
+  ])
+
+  if (!languages) notFound()
 
   return (
-    <div className="flex flex-1 flex-col px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">{t('tabs.languages')}</h1>
-    </div>
+    <EmployeeLanguages
+      lng={lng}
+      userId={userId}
+      languages={languages}
+      catalog={catalog}
+      editable={canEditProfile(actor, userId)}
+    />
   )
 }

@@ -61,6 +61,13 @@
   --color-master: var(--master);
   --color-skill-text: var(--skill-text);
 
+  /* Языки */
+  --color-lang-a2: var(--lang-a2);
+  --color-lang-b1: var(--lang-b1);
+  --color-lang-b2: var(--lang-b2);
+  --color-lang-c1: var(--lang-c1);
+  --color-lang-c2: var(--lang-c2);
+
   /* Аватар */
   --color-avatar-muted: var(--avatar-muted);
   --color-avatar-muted-foreground: var(--avatar-muted-foreground);
@@ -175,6 +182,13 @@
   --expert-bar: #ffb800;
   --master: #c63031;
   --skill-text: #767676;
+
+  /* Языки */
+  --lang-a2: #ff812b;
+  --lang-b1: #d1a847;
+  --lang-b2: #feef58;
+  --lang-c1: #70b13c;
+  --lang-c2: #266b09;
 
   /* Аватар */
   --avatar-muted: #c6c6c6;

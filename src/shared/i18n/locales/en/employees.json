@@ -94,5 +94,33 @@
     "errorDuplicate": "This skill is already added",
     "errorForbidden": "You can only edit your own skills",
     "errorGeneric": "Something went wrong. Please try again"
+  },
+  "languages": {
+    "empty": "No languages yet",
+    "add": "Add language",
+    "remove": "Remove languages",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "noAvailable": "All available languages are already added",
+    "modal": {
+      "title": "Add language",
+      "language": "Language",
+      "level": "Proficiency",
+      "updateTitle": "Update language",
+      "confirm": "Confirm"
+    },
+    "levels": {
+      "A1": "A1",
+      "A2": "A2",
+      "B1": "B1",
+      "B2": "B2",
+      "C1": "C1",
+      "C2": "C2",
+      "Native": "Native"
+    },
+    "errorRequired": "Choose a language and a proficiency",
+    "errorDuplicate": "This language is already added",
+    "errorForbidden": "You can only edit your own languages",
+    "errorGeneric": "Something went wrong. Please try again"
   }
 }

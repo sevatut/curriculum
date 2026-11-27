@@ -6,24 +6,26 @@ import { useId, useRef, useState } from 'react'
 
 import * as classes from '@/shared/ui/select-field/select-field-classes'
 import { SelectFieldList } from '@/shared/ui/select-field/select-field-list'
-import type { SelectFieldProps } from '@/shared/ui/select-field/types'
+import type { SelectFieldProps, SelectOption } from '@/shared/ui/select-field/types'
 import { useOutsidePointerDown } from '@/shared/ui/select-field/use-outside-pointer-down'
 
-export function SelectField({
+export function SelectField<T extends string = string>({
   label,
   name,
   options,
-  defaultValue = '',
+  defaultValue,
   disabled = false,
   allowEmpty = true,
   className,
   onValueChange,
-}: SelectFieldProps) {
-  const [value, setValue] = useState(defaultValue)
+}: SelectFieldProps<T>) {
+  const [value, setValue] = useState<string>(defaultValue ?? '')
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
   const listId = useId()
-  const choices = allowEmpty ? [{ value: '', label: '' }, ...options] : options
+  const choices: readonly SelectOption[] = allowEmpty
+    ? [{ value: '', label: '' }, ...options]
+    : options
   const selectedLabel = options.find((option) => option.value === value)?.label
 
   useOutsidePointerDown(rootRef, open, () => setOpen(false))
@@ -62,7 +64,7 @@ export function SelectField({
           onSelect={(nextValue) => {
             setValue(nextValue)
             setOpen(false)
-            onValueChange?.(nextValue)
+            onValueChange?.(nextValue as T)
           }}
         />
       )}

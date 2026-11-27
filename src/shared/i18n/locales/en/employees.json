@@ -67,5 +67,32 @@
     "errorGeneric": "Could not update the profile",
     "errorAssignment": "The name was saved, but the department and position were not",
     "errorForbidden": "You can only edit your own profile"
+  },
+  "skills": {
+    "empty": "No skills yet",
+    "otherCategory": "Other",
+    "add": "Add skill",
+    "remove": "Remove skills",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "noAvailable": "All available skills are already added",
+    "modal": {
+      "title": "Add skill",
+      "skill": "Skill",
+      "level": "Level",
+      "updateTitle": "Update skill",
+      "confirm": "Confirm"
+    },
+    "levels": {
+      "Novice": "Novice",
+      "Advanced": "Advanced",
+      "Competent": "Competent",
+      "Expert": "Expert",
+      "Master": "Master"
+    },
+    "errorRequired": "Choose a category, a skill and a level",
+    "errorDuplicate": "This skill is already added",
+    "errorForbidden": "You can only edit your own skills",
+    "errorGeneric": "Something went wrong. Please try again"
   }
 }
